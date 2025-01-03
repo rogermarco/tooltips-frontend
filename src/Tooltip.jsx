@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from "react";
 import {
   useFloating,
@@ -11,7 +12,8 @@ import {
   useRole,
   useInteractions,
   useMergeRefs,
-  FloatingPortal
+  FloatingPortal,
+  safePolygon
 } from "@floating-ui/react";
 
 export function useTooltip({
@@ -45,7 +47,10 @@ export function useTooltip({
 
   const hover = useHover(context, {
     move: false,
-    enabled: controlledOpen == null
+    enabled: controlledOpen == null,
+    handleClose: safePolygon({
+      requireIntent: false,
+    })
   });
   const focus = useFocus(context, {
     enabled: controlledOpen == null
