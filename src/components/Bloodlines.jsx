@@ -1,6 +1,5 @@
 import food from '/food.png';
 import gold from '/gold.png';
-import './styles.css';
 
 export default function Bloodlines() {
   return (

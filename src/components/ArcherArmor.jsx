@@ -3,7 +3,6 @@ import gold from '/gold.png';
 import leftArrow from '/button_left_normal.png';
 import rightArrow from '/button_right_normal.png';
 import { useState } from 'react';
-import './styles.css';
 
 export default function ArcherArmor() {
   const [visibleTech, setVisibleTech] = useState(1);

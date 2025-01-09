@@ -1,6 +1,5 @@
 import wood from '/wood.png';
 import gold from '/gold.png';
-import './styles.css';
 
 export default function Ballistics() {
   return (
