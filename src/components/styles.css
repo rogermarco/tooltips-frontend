@@ -58,3 +58,33 @@
   padding-left: 17px;
   padding-right: 17px;
 }
+
+.tooltip-box {
+  position: absolute;
+  /* border: 1px solid red; */
+}
+
+.civ-tooltip {
+  background-image: url('/bg_paper.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 375px;
+  height: 425px;
+}
+
+.civ-tooltip-text {
+  color: black;
+  padding-top: 22px;
+  margin: 0px 35px;
+  font-size: 13px;
+  letter-spacing: 0.025em;
+  line-height: 1.3em;
+}
+
+.civ-tooltip-text ul {
+  list-style-type: disc;
+  margin: 0;
+  padding: 0;
+  padding-left: 12px;
+}

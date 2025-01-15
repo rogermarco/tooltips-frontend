@@ -23,9 +23,3 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-.tooltip-box {
-  position: absolute;
-  border: 1px solid red;
-}
-/* background-image: url('../public/live.jpeg'); */
