@@ -91,7 +91,24 @@
 
 .error-box {
   color: white;
-  font-size: 20px;
-  background-color: black;
-  padding: 10px;
+  font-size: 18px;
+  background-color: palevioletred;
+  padding: 2px 25px;
+  max-width: fit-content;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  border: 2px solid purple;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
+  position: absolute;
+  top: 150px;
+  left: 855px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
 }

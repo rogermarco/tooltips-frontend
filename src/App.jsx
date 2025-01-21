@@ -34,7 +34,7 @@ function App() {
                       <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
                       <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
 
-  const { data: civs, isLoading, error } = useQuery({
+  const { data: civs, isLoading } = useQuery({
     queryKey: ['civs', streamUrl],
     queryFn: () => fetchCivs(streamUrl),
     staleTime: Infinity,
@@ -100,12 +100,9 @@ function App() {
     return <div className='error-box'>Waiting for civ data</div>;
   }
 
-  if (error) {
-    console.log(error);
-    return <div className='error-box'>Error: {error.message}</div>;
-  }
-
   return (
+    <>
+    {/* <div className='error-box'>Waiting for civ data</div> */}
     <div>
       {profile?.coordinatesLeft && Object.keys(profile.coordinatesLeft).length > 0 &&
         Object.entries(profile.coordinatesLeft).map(([, value], i) => {
@@ -176,6 +173,7 @@ function App() {
         </div>
       }
     </div>
+    </>
   )
 }
 
