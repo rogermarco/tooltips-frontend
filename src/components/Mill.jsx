@@ -1,8 +1,5 @@
-import food from '/food.png';
-import wood from '/wood.png';
-import leftArrow from '/button_left_normal.png';
-import rightArrow from '/button_right_normal.png';
 import { useState } from 'react';
+import images from '../lib/imagestrings.json';
 
 export default function Mill() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -26,33 +23,33 @@ export default function Mill() {
       {visibleTech === 1 &&
       <div className='horsecollar-container'>
         <div className='tooltip-container'>
-          <img src={leftArrow} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>Horse Collar</p>
-          <img src={rightArrow} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 75 <img src={food} style={{verticalAlign: '-17%'}} /> 75 <img src={wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 75 <img src={images.food} style={{verticalAlign: '-17%'}} /> 75 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
         <p className='tooltip-text'>Farms produce +75 food so they last longer before you must rebuild them.</p>
       </div>
       }
       {visibleTech === 2 &&
       <div className='heavyplow-container'>
         <div className='tooltip-container'>
-          <img src={leftArrow} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>Heavy Plow</p>
-          <img src={rightArrow} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 125 <img src={food} style={{verticalAlign: '-17%'}} /> 125 <img src={wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 125 <img src={images.food} style={{verticalAlign: '-17%'}} /> 125 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
         <p className='tooltip-text'>Farms produce +125 food so they last longer before you must rebuild them. Farmers carry +1 food each trip.</p>
       </div>
       }
       {visibleTech === 3 &&
       <div className='croprotation-container'>
         <div className='tooltip-container'>
-          <img src={leftArrow} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>Crop Rotation</p>
-          <img src={rightArrow} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 250 <img src={food} style={{verticalAlign: '-17%'}} /> 250 <img src={wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 250 <img src={images.food} style={{verticalAlign: '-17%'}} /> 250 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
         <p className='tooltip-text'>Farms produce +175 food so they last longer before you must rebuild them.</p>
       </div>
       }

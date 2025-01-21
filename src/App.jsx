@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react'
-import { Tooltip, TooltipTrigger, TooltipContent } from './components/Tooltip'
+import { Tooltip, TooltipTrigger, TooltipContent } from './components/Tooltip.jsx'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, Lumbercamp, Mill, Ballistics, Bloodlines, VillUpgrades } from './components';
-import CivTooltip from './components/CivTooltip';
+import CivTooltip from './components/CivTooltip.jsx';
 
 const fetchCivs = async (streamUrl) => {
   const response = await axios.get(`https://tooltips-backend.fly.dev/twitch/${streamUrl}`);
-  
   return response.data;
 };
 
@@ -28,14 +27,14 @@ function App() {
   const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use
   // console.log('DISPLAYRESOLUTION => ', displayResolution, 'WIDTHRATIO => ', ratio);
 
-  const twitch = window.Twitch.ext;
+  const twitch = window.Twitch.ext;  
 
   const components = [<Ballistics key='ballistics'/>, <Bloodlines key='bloodlines'/>, <ArcherAttack key='archer-attack'/>, 
                       <InfCavAttack key='inf-cav-attack'/>, <Lumbercamp key='lumbercamp'/>, <Mill key='mill'/>, 
                       <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
                       <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
 
-  const { data: civs, isLoading } = useQuery({
+  const { data: civs, isLoading, error } = useQuery({
     queryKey: ['civs', streamUrl],
     queryFn: () => fetchCivs(streamUrl),
     staleTime: Infinity,
@@ -47,12 +46,29 @@ function App() {
   });
   // DEBUG
   // const civs = ["ethiopians", "sicilians"]
-
+  
   useEffect(() => {
-    twitch.onContext((context) => {
-      setStreamUrl(context.playerChannel);
-    });
-  }, [twitch]);
+    console.log("Running Timeout");
+  
+    const timeoutId = setTimeout(() => {
+      console.log("Running delayed logic...");
+  
+      let isContextSet = false; // flag to track if context is already set
+  
+      twitch.onContext((context) => {
+        if (!isContextSet && context && context.playerChannel) {
+          console.log("Got context");
+          setStreamUrl(context.playerChannel);
+          isContextSet = true; // mark context as processed
+        } else if (!isContextSet) {
+          console.log("Context not ready after delay");
+        }
+      });
+    }, 5000); // Delay by 5 seconds
+  
+    // Cleanup function to clear timeout if the component unmounts
+    return () => clearTimeout(timeoutId);
+  }, []);
   
   useEffect(() => {
     twitch.onContext((context) => {
@@ -61,7 +77,7 @@ function App() {
       }
     });
   }, [twitch, displayResolution]);
-
+  
   useEffect(() => {
     if (displayResolution) {
       const width = displayResolution.split('x').shift(Number);
@@ -73,14 +89,20 @@ function App() {
         if (ratio >= 1.409) {
           setRatio(1.409);
         } 
-        } else {
-          setRatio(1920 / width);
+      } else {
+        setRatio(1920 / width);
       }
     }
   }, [displayResolution]);
-
+  
   if (isLoading) {
-    return <div style={{color: 'white', fontSize: '20px', backgroundColor: 'black', padding: '10px'}}>Waiting for civ data</div>;
+    console.log('Waiting for civ data');
+    return <div className='error-box'>Waiting for civ data</div>;
+  }
+
+  if (error) {
+    console.log(error);
+    return <div className='error-box'>Error: {error.message}</div>;
   }
 
   return (
