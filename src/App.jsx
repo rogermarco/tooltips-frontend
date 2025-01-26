@@ -25,7 +25,6 @@ function App() {
   const [streamUrl, setStreamUrl] = useState(null); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
   const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use
-  // console.log('DISPLAYRESOLUTION => ', displayResolution, 'WIDTHRATIO => ', ratio);
 
   const twitch = window.Twitch.ext;  
 
@@ -48,35 +47,15 @@ function App() {
   // const civs = ["ethiopians", "sicilians"]
   
   useEffect(() => {
-    console.log("Running Timeout");
-  
-    const timeoutId = setTimeout(() => {
-      console.log("Running delayed logic...");
-  
-      let isContextSet = false; // flag to track if context is already set
-  
-      twitch.onContext((context) => {
-        if (!isContextSet && context && context.playerChannel) {
-          console.log("Got context");
-          setStreamUrl(context.playerChannel);
-          isContextSet = true; // mark context as processed
-        } else if (!isContextSet) {
-          console.log("Context not ready after delay");
-        }
-      });
-    }, 5000); // Delay by 5 seconds
-  
-    // Cleanup function to clear timeout if the component unmounts
-    return () => clearTimeout(timeoutId);
-  }, []);
-  
-  useEffect(() => {
     twitch.onContext((context) => {
       if (context.displayResolution !== displayResolution) {
         setDisplayResolution(context.displayResolution);
       }
+      if (context.playerChannel !== streamUrl) {
+        setStreamUrl(context.playerChannel);
+      }
     });
-  }, [twitch, displayResolution]);
+  }, [twitch, displayResolution, streamUrl]);
   
   useEffect(() => {
     if (displayResolution) {
@@ -93,16 +72,16 @@ function App() {
         setRatio(1920 / width);
       }
     }
-  }, [displayResolution]);
+  }, [displayResolution, ratio]);
   
   if (isLoading) {
     console.log('Waiting for civ data');
-    return <div className='error-box'>Waiting for civ data</div>;
+    return <div className='error-box'>Age Tooltips: Waiting for civ data</div>;
   }
 
   return (
     <>
-    {/* <div className='error-box'>Waiting for civ data</div> */}
+    {/* <div className='error-box'>Age Tooltips: Waiting for civ data</div> */}
     <div>
       {profile?.coordinatesLeft && Object.keys(profile.coordinatesLeft).length > 0 &&
         Object.entries(profile.coordinatesLeft).map(([, value], i) => {

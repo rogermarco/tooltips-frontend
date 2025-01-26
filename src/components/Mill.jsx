@@ -27,7 +27,7 @@ export default function Mill() {
           <p className='tooltip-tech-name'>Horse Collar</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 75 <img src={images.food} style={{verticalAlign: '-17%'}} /> 75 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 75 <img src={images.food}/> 75 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Farms produce +75 food so they last longer before you must rebuild them.</p>
       </div>
       }
@@ -38,7 +38,7 @@ export default function Mill() {
           <p className='tooltip-tech-name'>Heavy Plow</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 125 <img src={images.food} style={{verticalAlign: '-17%'}} /> 125 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 125 <img src={images.food}/> 125 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Farms produce +125 food so they last longer before you must rebuild them. Farmers carry +1 food each trip.</p>
       </div>
       }
@@ -49,7 +49,7 @@ export default function Mill() {
           <p className='tooltip-tech-name'>Crop Rotation</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 250 <img src={images.food} style={{verticalAlign: '-17%'}} /> 250 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 250 <img src={images.food}/> 250 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Farms produce +175 food so they last longer before you must rebuild them.</p>
       </div>
       }

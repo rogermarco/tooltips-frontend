@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+span.tooltip-cost > img {
+  vertical-align: -17%;
+}
+
 .tooltip-container {
   display: flex;
   flex-direction: row;
@@ -61,7 +65,7 @@
 
 .tooltip-box {
   position: absolute;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .civ-tooltip {
@@ -91,17 +95,18 @@
 
 .error-box {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   background-color: palevioletred;
-  padding: 2px 25px;
+  padding: 2px 20px;
   max-width: fit-content;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   border: 2px solid purple;
   border-radius: 10px;
   box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
   position: absolute;
-  top: 150px;
-  left: 855px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @keyframes pulse {

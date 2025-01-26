@@ -27,7 +27,7 @@ export default function ArcherAttack() {
           <p className='tooltip-tech-name'>Fletching</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 100 <img src={images.food} style={{verticalAlign: '-17%'}} /> 50 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 100 <img src={images.food}/> 50 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Archers, galleys, Castles, and towers have +1 attack and +1 range. Town Centers have +1 attack.</p>
       </div>
       }
@@ -38,7 +38,7 @@ export default function ArcherAttack() {
           <p className='tooltip-tech-name'>Bodkin Arrow</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 200 <img src={images.food} style={{verticalAlign: '-17%'}} /> 100 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 200 <img src={images.food}/> 100 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Archers, galleys, Castles, and towers have +1 attack and +1 range. Town Centers have +1 attack.</p>
       </div>
       }
@@ -49,7 +49,7 @@ export default function ArcherAttack() {
           <p className='tooltip-tech-name'>Bracer</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 300 <img src={images.food} style={{verticalAlign: '-17%'}} /> 200 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 300 <img src={images.food}/> 200 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Archers, galleys, Castles, and towers have +1 attack and +1 range. Town Centers have +1 attack.</p>
       </div>
       }

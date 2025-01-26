@@ -27,7 +27,7 @@ export default function InfCavAttack() {
           <p className='tooltip-tech-name'>Forging</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 150 <img src={images.food} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 150 <img src={images.food}/>)</span>
         <p className='tooltip-text'>Infantry and cavalry have +1 attack.</p>
       </div>
       }
@@ -38,7 +38,7 @@ export default function InfCavAttack() {
           <p className='tooltip-tech-name'>Iron Casting</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 220 <img src={images.food} style={{verticalAlign: '-17%'}} /> 120 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 220 <img src={images.food}/> 120 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Infantry and cavalry have +1 attack.</p>
       </div>
       }
@@ -49,7 +49,7 @@ export default function InfCavAttack() {
           <p className='tooltip-tech-name'>Blast Furnace</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 275 <img src={images.food} style={{verticalAlign: '-17%'}} /> 225 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 275 <img src={images.food}/> 225 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Infantry and cavalry have +2 attack.</p>
       </div>
       }

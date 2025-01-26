@@ -27,7 +27,7 @@ export default function Lumbercamp() {
           <p className='tooltip-tech-name'>Double-Bit Axe</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 100 <img src={images.food} style={{verticalAlign: '-17%'}} /> 50 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 100 <img src={images.food}/> 50 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Villagers chop wood 20% faster.</p>
       </div>
       }
@@ -38,7 +38,7 @@ export default function Lumbercamp() {
           <p className='tooltip-tech-name'>Bow Saw</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 150 <img src={images.food} style={{verticalAlign: '-17%'}} /> 100 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 150 <img src={images.food}/> 100 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Villagers chop wood 20% faster.</p>
       </div>
       }
@@ -49,7 +49,7 @@ export default function Lumbercamp() {
           <p className='tooltip-tech-name'>Two-Man Saw</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 300 <img src={images.food} style={{verticalAlign: '-17%'}} /> 200 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 300 <img src={images.food}/> 200 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Villagers chop wood 10% faster.</p>
       </div>
       }

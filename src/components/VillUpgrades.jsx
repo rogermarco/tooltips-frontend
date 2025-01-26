@@ -27,7 +27,7 @@ export default function VillUpgrades() {
           <p className='tooltip-tech-name'>Wheelbarrow</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 175 <img src={images.food} style={{verticalAlign: '-17%'}} /> 50 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 175 <img src={images.food}/> 50 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Villagers work more efficiently by moving 10% faster and carrying 25% more resources.</p>
       </div>
       :
@@ -37,7 +37,7 @@ export default function VillUpgrades() {
           <p className='tooltip-tech-name'>Hand Cart</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 300 <img src={images.food} style={{verticalAlign: '-17%'}} /> 200 <img src={images.wood} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 300 <img src={images.food}/> 200 <img src={images.wood}/>)</span>
         <p className='tooltip-text'>Villagers work more efficiently by moving 10% faster and carrying 50% more resources.</p>
       </div>
       }

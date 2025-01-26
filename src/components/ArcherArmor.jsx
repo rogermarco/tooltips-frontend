@@ -27,7 +27,7 @@ export default function ArcherArmor() {
           <p className='tooltip-tech-name'>Padded Archer Armor</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 100 <img src={images.food} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 100 <img src={images.food}/>)</span>
         <p className='tooltip-text'>Archers and cavalry archers have +1 normal/+1 pierce armor.</p>
       </div>
       }
@@ -38,7 +38,7 @@ export default function ArcherArmor() {
           <p className='tooltip-tech-name'>Leather Archer Armor</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 150 <img src={images.food} style={{verticalAlign: '-17%'}} /> 150 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 150 <img src={images.food}/> 150 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Archers and cavalry archers have +1 normal/+1 pierce armor.</p>
       </div>
       }
@@ -49,7 +49,7 @@ export default function ArcherArmor() {
           <p className='tooltip-tech-name'>Ring Archer Armor</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 250 <img src={images.food} style={{verticalAlign: '-17%'}} /> 250 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 250 <img src={images.food}/> 250 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Archers and cavalry archers have +1 normal/+2 pierce armor.</p>
       </div>
       }

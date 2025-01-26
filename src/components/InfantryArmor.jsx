@@ -27,7 +27,7 @@ export default function InfantryArmor() {
           <p className='tooltip-tech-name'>Scale Mail Armor</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 100 <img src={images.food} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 100 <img src={images.food}/>)</span>
         <p className='tooltip-text'>Infantry have +1 normal/+1 pierce armor.</p>
       </div>
       }
@@ -38,7 +38,7 @@ export default function InfantryArmor() {
           <p className='tooltip-tech-name'>Chain Mail Armor</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 200 <img src={images.food} style={{verticalAlign: '-17%'}} /> 100 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 200 <img src={images.food}/> 100 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Infantry have +1 normal/+1 pierce armor.</p>
       </div>
       }
@@ -49,7 +49,7 @@ export default function InfantryArmor() {
           <p className='tooltip-tech-name'>Plate Mail Armor</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 300 <img src={images.food} style={{verticalAlign: '-17%'}} /> 150 <img src={images.gold} style={{verticalAlign: '-17%'}} />)</span>
+        <span className='tooltip-cost'>(Cost: 300 <img src={images.food}/> 150 <img src={images.gold}/>)</span>
         <p className='tooltip-text'>Infantry have +1 normal/+2 pierce armor.</p>
       </div>
       }
