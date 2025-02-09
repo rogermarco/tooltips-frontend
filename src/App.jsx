@@ -7,10 +7,12 @@ import { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, L
 import CivTooltip from './components/CivTooltip.jsx';
 
 const fetchCivs = async (streamUrl) => {
-  const response = await axios.get(`https://tooltips-backend.fly.dev/twitch/${streamUrl}`);
-  return response.data;
+  const response = await axios.get(`http://127.0.0.1:5000/twitch/${streamUrl}`);
+  const convertedArray = JSON.parse(response.data);
+  return convertedArray;
 };
 
+// Default CaptureAge layout
 const defaultProfile = {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
   "forging.png":[1755,48,16],"bit_axe.png":[1755,5,11],"horsecollar.png":[1787,5,12],"pad_arch_arm.png":[1886,48,20],
   "scale_bard_arm.png":[1787,48,17],"scale_mail_arm.png":[1819,48,18],"wheelbarrow.png":[1819,5,13]},
@@ -22,9 +24,9 @@ const defaultProfile = {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodl
 function App() {
   const [displayResolution, setDisplayResolution] = useState(null); // Viewers stream window resolution
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
-  const [streamUrl, setStreamUrl] = useState(null); // What stream is being viewed
+  const [streamUrl, setStreamUrl] = useState("test"); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
-  const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use
+  const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
 
   const twitch = window.Twitch.ext;  
 
@@ -43,9 +45,10 @@ function App() {
     cacheTime: 300000,
     enabled: !!streamUrl,
   });
-  // DEBUG
+  // DEBUG TESTING
   // const civs = ["ethiopians", "sicilians"]
   
+  // Fetch viewer information from Twitch context
   useEffect(() => {
     twitch.onContext((context) => {
       if (context.displayResolution !== displayResolution) {
@@ -57,6 +60,7 @@ function App() {
     });
   }, [twitch, displayResolution, streamUrl]);
   
+  // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
   useEffect(() => {
     if (displayResolution) {
       const width = displayResolution.split('x').shift(Number);
@@ -80,8 +84,6 @@ function App() {
   }
 
   return (
-    <>
-    {/* <div className='error-box'>Age Tooltips: Waiting for civ data</div> */}
     <div>
       {profile?.coordinatesLeft && Object.keys(profile.coordinatesLeft).length > 0 &&
         Object.entries(profile.coordinatesLeft).map(([, value], i) => {
@@ -152,7 +154,6 @@ function App() {
         </div>
       }
     </div>
-    </>
   )
 }
 
