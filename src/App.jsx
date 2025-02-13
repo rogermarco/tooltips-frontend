@@ -1,15 +1,29 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react'
 import { Tooltip, TooltipTrigger, TooltipContent } from './components/Tooltip.jsx'
-import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, Lumbercamp, Mill, Ballistics, Bloodlines, VillUpgrades } from './components';
 import CivTooltip from './components/CivTooltip.jsx';
+import NoticeBox from './components/NoticeBox.jsx';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'https://gdnizyznpnafddhacchf.supabase.co'
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 const fetchCivs = async (streamUrl) => {
-  const response = await axios.get(`http://127.0.0.1:5000/twitch/${streamUrl}`);
-  const convertedArray = JSON.parse(response.data);
-  return convertedArray;
+  try {
+    const { data: response } = await supabase
+      .from('streamdata')
+      .select('civ_data')
+      .eq('broadcaster_name', streamUrl)
+      .single();
+    const convertedArray = JSON.parse(response.civ_data);
+    return convertedArray;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
 
 // Default CaptureAge layout
@@ -24,9 +38,10 @@ const defaultProfile = {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodl
 function App() {
   const [displayResolution, setDisplayResolution] = useState(null); // Viewers stream window resolution
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
-  const [streamUrl, setStreamUrl] = useState("test"); // What stream is being viewed
+  const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
   const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
+  const [showNotice, ] = useState(false);
 
   const twitch = window.Twitch.ext;  
 
@@ -35,7 +50,7 @@ function App() {
                       <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
                       <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
 
-  const { data: civs, isLoading } = useQuery({
+  const { data: civs } = useQuery({
     queryKey: ['civs', streamUrl],
     queryFn: () => fetchCivs(streamUrl),
     staleTime: Infinity,
@@ -77,11 +92,6 @@ function App() {
       }
     }
   }, [displayResolution, ratio]);
-  
-  if (isLoading) {
-    console.log('Waiting for civ data');
-    return <div className='error-box'>Age Tooltips: Waiting for civ data</div>;
-  }
 
   return (
     <div>
@@ -125,6 +135,7 @@ function App() {
       }
       {civs?.length > 0 &&
         <div>
+          <NoticeBox show={showNotice} />
           <Tooltip>
             <TooltipTrigger asChild={true}>
               <div className='tooltip-box' style={{
