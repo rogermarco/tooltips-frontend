@@ -1,22 +1,34 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function NoticeBox(show) {
   const [isVisible, setIsVisible] = useState(false);
+  const prevShowRef = useRef(false);
+  // const mountedRef = useRef(false);
 
   useEffect(() => {
-    if (show) {
-      setIsVisible(true);
+    // Skips first mount in Strict Mode
+    // if (!mountedRef.current) {
+    //   mountedRef.current = true;
+    //   return;
+    // }
+    let timer;
 
-      const timer = setTimeout(() => {
+    if (show && !prevShowRef.current) {
+      setIsVisible(true);
+      timer = setTimeout(() => {
         setIsVisible(false);
       }, 10000); // 10 seconds
-      return () => clearTimeout(timer);
     }
+
+    prevShowRef.current = show;
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
   }, [show]);
 
-  if (!isVisible) {
-    return null;
-  }
+  if (!isVisible) return null;
 
   return (
     <div className='notice-box'>You can mouseover the player name boxes to see civ tooltips!</div>

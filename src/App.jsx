@@ -11,21 +11,6 @@ const supabaseUrl = 'https://gdnizyznpnafddhacchf.supabase.co'
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-const fetchCivs = async (streamUrl) => {
-  try {
-    const { data: response } = await supabase
-      .from('streamdata')
-      .select('civ_data')
-      .eq('broadcaster_name', streamUrl)
-      .single();
-    const convertedArray = JSON.parse(response.civ_data);
-    return convertedArray;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-};
-
 // Default CaptureAge layout
 const defaultProfile = {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
   "forging.png":[1755,48,16],"bit_axe.png":[1755,5,11],"horsecollar.png":[1787,5,12],"pad_arch_arm.png":[1886,48,20],
@@ -41,7 +26,7 @@ function App() {
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
   const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, ] = useState(false);
+  const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;  
 
@@ -49,6 +34,26 @@ function App() {
                       <InfCavAttack key='inf-cav-attack'/>, <Lumbercamp key='lumbercamp'/>, <Mill key='mill'/>, 
                       <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
                       <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
+
+  const fetchCivs = async (streamUrl) => {
+    try {
+      const { data: response } = await supabase
+        .from('streamdata')
+        .select('civ_data')
+        .eq('broadcaster_name', streamUrl)
+        .single();
+      const convertedArray = JSON.parse(response.civ_data);
+      
+      if (!showNotice) {
+        setShowNotice(true);
+      }
+
+      return convertedArray;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
 
   const { data: civs } = useQuery({
     queryKey: ['civs', streamUrl],
