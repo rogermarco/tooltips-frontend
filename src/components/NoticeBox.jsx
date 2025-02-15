@@ -31,6 +31,6 @@ export default function NoticeBox(show) {
   if (!isVisible) return null;
 
   return (
-    <div className='notice-box'>You can mouseover the player name boxes to see civ tooltips!</div>
+    <div className='notice-box'>You can mouseover tech icons and player name boxes to see more info!</div>
   )
 }

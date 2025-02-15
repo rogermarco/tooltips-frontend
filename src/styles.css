@@ -98,8 +98,8 @@ span.tooltip-cost > img {
   font-size: 13px;
   letter-spacing: 0.025em;
   background-color: palevioletred;
-  padding: 2px 4px;
-  max-width: 190px;
+  padding: 2px 3px;
+  max-width: 230px;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   border: 2px solid purple;
   border-radius: 10px;
@@ -108,6 +108,7 @@ span.tooltip-cost > img {
   top: 14%;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
 }
 
 @keyframes pulse {
@@ -115,6 +116,6 @@ span.tooltip-cost > img {
     opacity: .9;
   }
   50% {
-    opacity: .8;
+    opacity: .6;
   }
 }
