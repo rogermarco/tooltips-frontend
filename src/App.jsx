@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Tooltip, TooltipTrigger, TooltipContent } from './components/Tooltip.jsx'
 import { useQuery } from '@tanstack/react-query'
 import { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, Lumbercamp, Mill, Ballistics, Bloodlines, VillUpgrades } from './components';
@@ -12,16 +12,22 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Default CaptureAge layout
-const defaultProfile = {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
+const defaultProfile = 
+  // Left side
+{"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
   "forging.png":[1755,48,16],"bit_axe.png":[1755,5,11],"horsecollar.png":[1787,5,12],"pad_arch_arm.png":[1886,48,20],
   "scale_bard_arm.png":[1787,48,17],"scale_mail_arm.png":[1819,48,18],"wheelbarrow.png":[1819,5,13]},
+  // Right side
   "coordinatesLeft":{"ballistics.png":[104,5,4],"bloodlines.png":[136,5,5],"fletching.png":[104,48,9],
   "forging.png":[5,48,6],"bit_axe.png":[5,5,1],"horsecollar.png":[37,5,2],"pad_arch_arm.png":[136,48,10],
   "scale_bard_arm.png":[37,48,7],"scale_mail_arm.png":[69,48,8],"wheelbarrow.png":[69,5,3]}, 
   shiftNumX: 0, shiftNumY: 0, leftCivBox: [650,0], rightCivBox: [1050,0]}
 
-function App() {
-  const [displayResolution, setDisplayResolution] = useState(null); // Viewers stream window resolution
+  function App() {
+  const [displayResolution, setDisplayResolution] = useState({
+    width: 0,
+    height: 0,
+  }); // Viewers stream window resolution
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
@@ -67,39 +73,50 @@ function App() {
   });
   // DEBUG TESTING
   // const civs = ["ethiopians", "sicilians"]
+
+  // Resize observer to track window size
+  const resizeObserver = useMemo(() => new ResizeObserver(entries => {
+    const { width, height } = entries[0].contentRect;
+    setDisplayResolution({
+      width,
+      height,
+    });    
+  }), []);
   
-  // Fetch viewer information from Twitch context
+  useEffect(() => {
+    resizeObserver.observe(document.body);
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [resizeObserver]);
+
+  // Fetch streamer from Twitch context
   useEffect(() => {
     twitch.onContext((context) => {
-      if (context.displayResolution !== displayResolution) {
-        setDisplayResolution(context.displayResolution);
-      }
       if (context.playerChannel !== streamUrl) {
         setStreamUrl(context.playerChannel);
       }
     });
-  }, [twitch, displayResolution, streamUrl]);
+  }, [twitch, streamUrl]);
+
   
   // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
   useEffect(() => {
-    if (displayResolution) {
-      const width = displayResolution.split('x').shift(Number);
+    if (displayResolution.height !== 0) {
       // CHECK PLAYER WINDOW ASPECT RATIO
-      const height = displayResolution.split('x').pop(Number);
-      const ratioSetter = width / height;
-
+      const ratioSetter = displayResolution.width / displayResolution.height;
       if (ratioSetter > 1.78) {
         if (ratio >= 1.409) {
           setRatio(1.409);
         } 
       } else {
-        setRatio(1920 / width);
+        setRatio(1920 / displayResolution.width);
       }
     }
   }, [displayResolution, ratio]);
 
   return (
-    <div>
+    <div>  
       {profile?.coordinatesLeft && Object.keys(profile.coordinatesLeft).length > 0 &&
         Object.entries(profile.coordinatesLeft).map(([, value], i) => {
           return (
