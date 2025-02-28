@@ -13,7 +13,7 @@ import {
   useInteractions,
   useMergeRefs,
   FloatingPortal,
-  safePolygon
+  safePolygon,
 } from "@floating-ui/react";
 
 export function useTooltip({
@@ -28,7 +28,6 @@ export function useTooltip({
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const data = useFloating({
-    placement,
     open,
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
@@ -39,8 +38,10 @@ export function useTooltip({
         fallbackAxisSideDirection: "start",
         padding: 5
       }),
-      shift({ padding: 5 })
-    ]
+      shift({ 
+        padding: 19,
+      }),
+    ],
   });
 
   const context = data.context;
