@@ -65,7 +65,8 @@ span.tooltip-cost > img {
 
 .tooltip-box {
   position: absolute;
-  /* border: 1px solid red;  */ /* DEBUG */
+  /* DEBUG */
+  border: 1px solid red; 
 }
 
 .civ-tooltip {

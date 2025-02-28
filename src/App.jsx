@@ -13,11 +13,11 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Default CaptureAge layout
 const defaultProfile = 
-  // Left side
+  // Right side
 {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
   "forging.png":[1755,48,16],"bit_axe.png":[1755,5,11],"horsecollar.png":[1787,5,12],"pad_arch_arm.png":[1886,48,20],
   "scale_bard_arm.png":[1787,48,17],"scale_mail_arm.png":[1819,48,18],"wheelbarrow.png":[1819,5,13]},
-  // Right side
+  // Left side
   "coordinatesLeft":{"ballistics.png":[104,5,4],"bloodlines.png":[136,5,5],"fletching.png":[104,48,9],
   "forging.png":[5,48,6],"bit_axe.png":[5,5,1],"horsecollar.png":[37,5,2],"pad_arch_arm.png":[136,48,10],
   "scale_bard_arm.png":[37,48,7],"scale_mail_arm.png":[69,48,8],"wheelbarrow.png":[69,5,3]}, 
@@ -36,7 +36,7 @@ const defaultProfile =
 
   const twitch = window.Twitch.ext;  
 
-  const components = [<Ballistics key='ballistics'/>, <Bloodlines key='bloodlines'/>, <ArcherAttack key='archer-attack'/>, 
+  const components = [<Ballistics key='ballistics'/>, <Bloodlines key='bloodlines'/>, <ArcherAttack key='archer-attack' style={{scale: 0.9}}/>, 
                       <InfCavAttack key='inf-cav-attack'/>, <Lumbercamp key='lumbercamp'/>, <Mill key='mill'/>, 
                       <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
                       <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
@@ -99,13 +99,12 @@ const defaultProfile =
     });
   }, [twitch, streamUrl]);
 
-  
   // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
   useEffect(() => {
     if (displayResolution.height !== 0) {
       // CHECK PLAYER WINDOW ASPECT RATIO
-      const ratioSetter = displayResolution.width / displayResolution.height;
-      if (ratioSetter > 1.78) {
+      const aspectRatio = displayResolution.width / displayResolution.height;
+      if (aspectRatio > 1.78) {
         if (ratio >= 1.409) {
           setRatio(1.409);
         } 
