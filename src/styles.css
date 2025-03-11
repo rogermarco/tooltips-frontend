@@ -66,7 +66,7 @@ span.tooltip-cost > img {
 .tooltip-box {
   position: absolute;
   /* DEBUG */
-  border: 1px solid red; 
+  /* border: 1px solid red; */
 }
 
 .civ-tooltip {
@@ -118,5 +118,34 @@ span.tooltip-cost > img {
   }
   50% {
     opacity: .6;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .tooltip-bg {
+    scale: 0.95;
+  }
+  .civ-tooltip {
+    scale: 0.90;
+    transform: translateY(-8%);
+  }
+  .notice-box {
+    scale: 0.95;
+    transform: translateX(-53%)
+  }
+}
+
+@media screen and (max-width: 1000px) {
+ .tooltip-bg {
+    scale: 0.90;
+    transform: translateY(-10px);
+  }
+ .civ-tooltip {
+    scale: 0.85;
+    transform: translateY(-12%);
+  }
+ .notice-box {
+    scale: 0.85;
+    transform: translateX(-60%)
   }
 }

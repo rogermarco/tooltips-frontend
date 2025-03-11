@@ -1,0 +1,31 @@
+{
+  "defaultProfile":
+    {"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
+    "forging.png":[1755,48,16],"bit_axe.png":[1755,5,11],"horsecollar.png":[1787,5,12],"pad_arch_arm.png":[1886,48,20],
+    "scale_bard_arm.png":[1787,48,17],"scale_mail_arm.png":[1819,48,18],"wheelbarrow.png":[1819,5,13]},
+
+    "coordinatesLeft":{"ballistics.png":[104,5,4],"bloodlines.png":[136,5,5],"fletching.png":[104,48,9],
+    "forging.png":[5,48,6],"bit_axe.png":[5,5,1],"horsecollar.png":[37,5,2],"pad_arch_arm.png":[136,48,10],
+    "scale_bard_arm.png":[37,48,7],"scale_mail_arm.png":[69,48,8],"wheelbarrow.png":[69,5,3]}, 
+    "leftCivBox": [650,0], "rightCivBox": [1050,0]},
+
+  "t90Official":
+    {"coordinatesRight":{"ballistics.png":[1820,58,14],"bloodlines.png":[1852,58,15],"fletching.png":[1820,101,19],
+    "forging.png":[1722,101,16],"bit_axe.png":[1722,58,11],"horsecollar.png":[1755,58,12],"pad_arch_arm.png":[1852,101,20],
+    "scale_bard_arm.png":[1755,101,17],"scale_mail_arm.png":[1787,101,18],"wheelbarrow.png":[1787,58,13]},
+
+    "coordinatesLeft":{"ballistics.png":[104,58,4],"bloodlines.png":[136,58,5],"fletching.png":[104,101,9],
+    "forging.png":[5,101,6],"bit_axe.png":[5,58,1],"horsecollar.png":[37,58,2],"pad_arch_arm.png":[136,101,10],
+    "scale_bard_arm.png":[37,101,7],"scale_mail_arm.png":[69,101,8],"wheelbarrow.png":[69,58,3]}, 
+    "leftCivBox": [570,13], "rightCivBox": [1130,13]},
+
+  "membTV":
+    {"coordinatesRight":{"ballistics.png":[1854,34,14],"bloodlines.png":[1886,34,15],"fletching.png":[1854,78,19],
+    "forging.png":[1755,78,16],"bit_axe.png":[1755,34,11],"horsecollar.png":[1787,34,12],"pad_arch_arm.png":[1886,78,20],
+    "scale_bard_arm.png":[1787,78,17],"scale_mail_arm.png":[1819,78,18],"wheelbarrow.png":[1819,34,13]},
+
+    "coordinatesLeft":{"ballistics.png":[104,34,4],"bloodlines.png":[136,34,5],"fletching.png":[104,78,9],
+    "forging.png":[5,78,6],"bit_axe.png":[5,34,1],"horsecollar.png":[37,34,2],"pad_arch_arm.png":[136,78,10],
+    "scale_bard_arm.png":[37,78,7],"scale_mail_arm.png":[69,78,8],"wheelbarrow.png":[69,34,3]}, 
+    "leftCivBox": [650,30], "rightCivBox": [1050,30]}
+}

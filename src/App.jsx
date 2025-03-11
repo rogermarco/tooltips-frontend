@@ -6,24 +6,13 @@ import { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, L
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { createClient } from '@supabase/supabase-js';
+import profiles from './lib/profiles.json';
 
 const supabaseUrl = 'https://gdnizyznpnafddhacchf.supabase.co'
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-// Default CaptureAge layout
-const defaultProfile = 
-  // Right side
-{"coordinatesRight":{"ballistics.png":[1854,5,14],"bloodlines.png":[1886,5,15],"fletching.png":[1854,48,19],
-  "forging.png":[1755,48,16],"bit_axe.png":[1755,5,11],"horsecollar.png":[1787,5,12],"pad_arch_arm.png":[1886,48,20],
-  "scale_bard_arm.png":[1787,48,17],"scale_mail_arm.png":[1819,48,18],"wheelbarrow.png":[1819,5,13]},
-  // Left side
-  "coordinatesLeft":{"ballistics.png":[104,5,4],"bloodlines.png":[136,5,5],"fletching.png":[104,48,9],
-  "forging.png":[5,48,6],"bit_axe.png":[5,5,1],"horsecollar.png":[37,5,2],"pad_arch_arm.png":[136,48,10],
-  "scale_bard_arm.png":[37,48,7],"scale_mail_arm.png":[69,48,8],"wheelbarrow.png":[69,5,3]}, 
-  shiftNumX: 0, shiftNumY: 0, leftCivBox: [650,0], rightCivBox: [1050,0]}
-
-  function App() {
+function App() {
   const [displayResolution, setDisplayResolution] = useState({
     width: 0,
     height: 0,
@@ -31,12 +20,12 @@ const defaultProfile =
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
-  const [profile, setProfile] = useState(defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
+  const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;  
 
-  const components = [<Ballistics key='ballistics'/>, <Bloodlines key='bloodlines'/>, <ArcherAttack key='archer-attack' style={{scale: 0.9}}/>, 
+  const components = [<Ballistics key='ballistics'/>, <Bloodlines key='bloodlines'/>, <ArcherAttack key='archer-attack'/>, 
                       <InfCavAttack key='inf-cav-attack'/>, <Lumbercamp key='lumbercamp'/>, <Mill key='mill'/>, 
                       <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
                       <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
@@ -67,8 +56,8 @@ const defaultProfile =
     staleTime: Infinity,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
-    refetchInterval: 300000, // 5 minutes
-    cacheTime: 300000,
+    refetchInterval: 180000, // 3 minutes
+    cacheTime: 180000,
     enabled: !!streamUrl,
   });
   // DEBUG TESTING
@@ -77,6 +66,8 @@ const defaultProfile =
   // Resize observer to track window size
   const resizeObserver = useMemo(() => new ResizeObserver(entries => {
     const { width, height } = entries[0].contentRect;
+    console.log('width: ', width);
+    
     setDisplayResolution({
       width,
       height,
@@ -94,7 +85,13 @@ const defaultProfile =
   useEffect(() => {
     twitch.onContext((context) => {
       if (context.playerChannel !== streamUrl) {
-        setStreamUrl(context.playerChannel);
+        const stream = context.playerChannel;
+        setStreamUrl(stream);
+        
+        // If current streamer has a separate profile, use that profile
+        if (profiles[stream]) {
+          setProfile(profiles[stream]);
+        } else setProfile(profiles.defaultProfile);
       }
     });
   }, [twitch, streamUrl]);
@@ -162,8 +159,8 @@ const defaultProfile =
               <div className='tooltip-box' style={{
               width: 220 / ratio, 
               height: 50 / ratio, 
-              left: (defaultProfile.leftCivBox[0] / ratio),
-              top: (defaultProfile.leftCivBox[1] / ratio),
+              left: (profile.leftCivBox[0] / ratio),
+              top: (profile.leftCivBox[1] / ratio),
               }}></div>
             </TooltipTrigger>
             <TooltipContent>
@@ -175,8 +172,8 @@ const defaultProfile =
               <div className='tooltip-box' style={{
                 width: 220 / ratio, 
                 height: 50 / ratio, 
-                left: (defaultProfile.rightCivBox[0] / ratio),
-                top: (defaultProfile.rightCivBox[1] / ratio),
+                left: (profile.rightCivBox[0] / ratio),
+                top: (profile.rightCivBox[1] / ratio),
               }}></div>
             </TooltipTrigger>
             <TooltipContent>
