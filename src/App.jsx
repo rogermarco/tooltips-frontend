@@ -66,7 +66,6 @@ function App() {
   // Resize observer to track window size
   const resizeObserver = useMemo(() => new ResizeObserver(entries => {
     const { width, height } = entries[0].contentRect;
-    console.log('width: ', width);
     
     setDisplayResolution({
       width,
