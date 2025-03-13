@@ -1,16 +1,31 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect, useMemo } from 'react'
-import { Tooltip, TooltipTrigger, TooltipContent } from './components/Tooltip.jsx'
-import { useQuery } from '@tanstack/react-query'
-import { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, Lumbercamp, Mill, Ballistics, Bloodlines, VillUpgrades } from './components';
+import { useState, useEffect, useMemo } from 'react';
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from './components/Tooltip.jsx';
+import { useQuery } from '@tanstack/react-query';
+import {
+  ArcherArmor,
+  ArcherAttack,
+  CavalryArmor,
+  InfantryArmor,
+  InfCavAttack,
+  Lumbercamp,
+  Mill,
+  Ballistics,
+  Bloodlines,
+  VillUpgrades,
+} from './components';
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { createClient } from '@supabase/supabase-js';
 import profiles from './lib/profiles.json';
 
-const supabaseUrl = 'https://gdnizyznpnafddhacchf.supabase.co'
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl = 'https://gdnizyznpnafddhacchf.supabase.co';
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
   const [displayResolution, setDisplayResolution] = useState({
@@ -23,12 +38,20 @@ function App() {
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
 
-  const twitch = window.Twitch.ext;  
+  const twitch = window.Twitch.ext;
 
-  const components = [<Ballistics key='ballistics'/>, <Bloodlines key='bloodlines'/>, <ArcherAttack key='archer-attack'/>, 
-                      <InfCavAttack key='inf-cav-attack'/>, <Lumbercamp key='lumbercamp'/>, <Mill key='mill'/>, 
-                      <ArcherArmor key='archer-armor'/>, <CavalryArmor key='cavalry-armor'/>, 
-                      <InfantryArmor key='infantry-armor'/>, <VillUpgrades key='vill-upgrades'/>]
+  const components = [
+    <Ballistics key='ballistics' />,
+    <Bloodlines key='bloodlines' />,
+    <ArcherAttack key='archer-attack' />,
+    <InfCavAttack key='inf-cav-attack' />,
+    <Lumbercamp key='lumbercamp' />,
+    <Mill key='mill' />,
+    <ArcherArmor key='archer-armor' />,
+    <CavalryArmor key='cavalry-armor' />,
+    <InfantryArmor key='infantry-armor' />,
+    <VillUpgrades key='vill-upgrades' />,
+  ];
 
   const fetchCivs = async (streamUrl) => {
     try {
@@ -38,7 +61,7 @@ function App() {
         .eq('broadcaster_name', streamUrl)
         .single();
       const convertedArray = JSON.parse(response.civ_data);
-      
+
       if (!showNotice) {
         setShowNotice(true);
       }
@@ -61,18 +84,22 @@ function App() {
     enabled: !!streamUrl,
   });
   // DEBUG TESTING
-  // const civs = ["ethiopians", "sicilians"]
+  // const civs = ['ethiopians', 'sicilians'];
 
   // Resize observer to track window size
-  const resizeObserver = useMemo(() => new ResizeObserver(entries => {
-    const { width, height } = entries[0].contentRect;
-    
-    setDisplayResolution({
-      width,
-      height,
-    });    
-  }), []);
-  
+  const resizeObserver = useMemo(
+    () =>
+      new ResizeObserver((entries) => {
+        const { width, height } = entries[0].contentRect;
+
+        setDisplayResolution({
+          width,
+          height,
+        });
+      }),
+    []
+  );
+
   useEffect(() => {
     resizeObserver.observe(document.body);
     return () => {
@@ -86,7 +113,7 @@ function App() {
       if (context.playerChannel !== streamUrl) {
         const stream = context.playerChannel;
         setStreamUrl(stream);
-        
+
         // If current streamer has a separate profile, use that profile
         if (profiles[stream]) {
           setProfile(profiles[stream]);
@@ -103,7 +130,7 @@ function App() {
       if (aspectRatio > 1.78) {
         if (ratio >= 1.409) {
           setRatio(1.409);
-        } 
+        }
       } else {
         setRatio(1920 / displayResolution.width);
       }
@@ -111,78 +138,83 @@ function App() {
   }, [displayResolution, ratio]);
 
   return (
-    <div>  
-      {profile?.coordinatesLeft && Object.keys(profile.coordinatesLeft).length > 0 &&
-        Object.entries(profile.coordinatesLeft).map(([, value], i) => {
-          return (
-            <Tooltip key={value[2]}>
+    <div>
+      {/* skip rendering entirely if no civs // blocks elements from staying on stream at all times */}
+      {civs?.length > 0 && (
+        <>
+          {profile.coordinatesLeft &&
+            Object.entries(profile.coordinatesLeft).map(([, value], i) => (
+              <Tooltip key={value[2]}>
+                <TooltipTrigger asChild={true}>
+                  <div
+                    className='tooltip-box'
+                    style={{
+                      width: 28 / ratio,
+                      height: 28 / ratio,
+                      left: value[0] / ratio,
+                      top: value[1] / ratio,
+                    }}
+                  ></div>
+                </TooltipTrigger>
+                <TooltipContent>{components[i]}</TooltipContent>
+              </Tooltip>
+            ))}
+          {profile.coordinatesRight &&
+            Object.entries(profile.coordinatesRight).map(([, value], i) => (
+              <Tooltip key={value[2]}>
+                <TooltipTrigger asChild={true}>
+                  <div
+                    className='tooltip-box'
+                    style={{
+                      width: 28 / ratio,
+                      height: 28 / ratio,
+                      left: value[0] / ratio,
+                      top: value[1] / ratio,
+                    }}
+                  ></div>
+                </TooltipTrigger>
+                <TooltipContent>{components[i]}</TooltipContent>
+              </Tooltip>
+            ))}
+          <div>
+            <NoticeBox show={showNotice} />
+            <Tooltip>
               <TooltipTrigger asChild={true}>
-                <div className='tooltip-box' style={{
-                  width: 28 / ratio, 
-                  height: 28 / ratio, 
-                  left: value[0] / ratio, 
-                  top: value[1] / ratio,
-                }}></div>
+                <div
+                  className='tooltip-box'
+                  style={{
+                    width: 220 / ratio,
+                    height: 50 / ratio,
+                    left: profile.leftCivBox[0] / ratio,
+                    top: profile.leftCivBox[1] / ratio,
+                  }}
+                ></div>
               </TooltipTrigger>
               <TooltipContent>
-                {components[i]}
-              </TooltipContent>  
+                <CivTooltip civ={civs[0]} />
+              </TooltipContent>
             </Tooltip>
-          )
-        })
-      }
-      {profile?.coordinatesRight && Object.keys(profile.coordinatesRight).length > 0 &&
-        Object.entries(profile.coordinatesRight).map(([, value], i) => {
-          return (
-            <Tooltip key={value[2]}>
+            <Tooltip>
               <TooltipTrigger asChild={true}>
-                <div className='tooltip-box' style={{
-                  width: 28 / ratio, 
-                  height: 28 / ratio, 
-                  left: value[0] / ratio, 
-                  top: value[1] / ratio,
-                }}></div>
+                <div
+                  className='tooltip-box'
+                  style={{
+                    width: 220 / ratio,
+                    height: 50 / ratio,
+                    left: profile.rightCivBox[0] / ratio,
+                    top: profile.rightCivBox[1] / ratio,
+                  }}
+                ></div>
               </TooltipTrigger>
               <TooltipContent>
-                {components[i]}
-              </TooltipContent>  
+                <CivTooltip civ={civs[1]} />
+              </TooltipContent>
             </Tooltip>
-          )
-        })
-      }
-      {civs?.length > 0 &&
-        <div>
-          <NoticeBox show={showNotice} />
-          <Tooltip>
-            <TooltipTrigger asChild={true}>
-              <div className='tooltip-box' style={{
-              width: 220 / ratio, 
-              height: 50 / ratio, 
-              left: (profile.leftCivBox[0] / ratio),
-              top: (profile.leftCivBox[1] / ratio),
-              }}></div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <CivTooltip civ={civs[0]} />
-            </TooltipContent>  
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild={true}>
-              <div className='tooltip-box' style={{
-                width: 220 / ratio, 
-                height: 50 / ratio, 
-                left: (profile.rightCivBox[0] / ratio),
-                top: (profile.rightCivBox[1] / ratio),
-              }}></div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <CivTooltip civ={civs[1]} />
-            </TooltipContent>  
-          </Tooltip>
-        </div>
-      }
+          </div>
+        </>
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
