@@ -20,12 +20,8 @@ import {
 } from './components';
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from './lib/db.js';
 import profiles from './lib/profiles.json';
-
-const supabaseUrl = 'https://gdnizyznpnafddhacchf.supabase.co';
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
   const [displayResolution, setDisplayResolution] = useState({
