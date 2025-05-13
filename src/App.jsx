@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect, useMemo } from 'react';
 import {
   Tooltip,
@@ -42,7 +41,8 @@ function App() {
     <ArcherAttack key='archer-attack' />,
     <InfCavAttack key='inf-cav-attack' />,
     <Lumbercamp key='lumbercamp' />,
-    <Mill key='mill' />,
+    // If either civ is khitans, use khitans tech descriptions
+    <Mill key='mill' civ={civs?.[0] === 'khitans' ? civs[0] : civs?.[1] === 'khitans' ? civs[1] : null } />,
     <ArcherArmor key='archer-armor' />,
     <CavalryArmor key='cavalry-armor' />,
     <InfantryArmor key='infantry-armor' />,
