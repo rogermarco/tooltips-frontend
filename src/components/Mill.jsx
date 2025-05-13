@@ -27,7 +27,7 @@ export default function Mill({ civ }) {
 
   return (
     <div className='tooltip-bg'>
-      <p className='tooltip-title'>Farm Upgrades</p>
+      <p className='tooltip-title'>{isKhitans ? 'Pasture Upgrades' : 'Farm Upgrades'}</p>
       {/* MILL UPGRADES */}
       {!isKhitans && visibleTech === 1 &&
       <div className='horsecollar-container'>
