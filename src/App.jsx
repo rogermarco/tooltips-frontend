@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect, useMemo } from 'react';
 import {
   Tooltip,
@@ -36,19 +35,6 @@ function App() {
 
   const twitch = window.Twitch.ext;
 
-  const components = [
-    <Ballistics key='ballistics' />,
-    <Bloodlines key='bloodlines' />,
-    <ArcherAttack key='archer-attack' />,
-    <InfCavAttack key='inf-cav-attack' />,
-    <Lumbercamp key='lumbercamp' />,
-    <Mill key='mill' />,
-    <ArcherArmor key='archer-armor' />,
-    <CavalryArmor key='cavalry-armor' />,
-    <InfantryArmor key='infantry-armor' />,
-    <VillUpgrades key='vill-upgrades' />,
-  ];
-
   const fetchCivs = async (streamUrl) => {
     try {
       const { data: response } = await supabase
@@ -81,6 +67,20 @@ function App() {
   });
   // DEBUG TESTING
   // const civs = ['ethiopians', 'sicilians'];
+
+  const components = [
+    <Ballistics key='ballistics' />,
+    <Bloodlines key='bloodlines' />,
+    <ArcherAttack key='archer-attack' />,
+    <InfCavAttack key='inf-cav-attack' />,
+    <Lumbercamp key='lumbercamp' />,
+    // If either civ is khitans, use khitans tech descriptions
+    <Mill key='mill' civ={civs?.[0] === 'khitans' ? civs[0] : civs?.[1] === 'khitans' ? civs[1] : null } />,
+    <ArcherArmor key='archer-armor' />,
+    <CavalryArmor key='cavalry-armor' />,
+    <InfantryArmor key='infantry-armor' />,
+    <VillUpgrades key='vill-upgrades' />,
+  ];
 
   // Resize observer to track window size
   const resizeObserver = useMemo(
