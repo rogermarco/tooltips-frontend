@@ -3,14 +3,14 @@ import { useEffect, useState, useRef } from 'react'
 export default function NoticeBox(show) {
   const [isVisible, setIsVisible] = useState(false);
   const prevShowRef = useRef(false);
-  // const mountedRef = useRef(false);
+  const mountedRef = useRef(false);
 
   useEffect(() => {
     // Skips first mount in Strict Mode
-    // if (!mountedRef.current) {
-    //   mountedRef.current = true;
-    //   return;
-    // }
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      return;
+    }
     let timer;
 
     if (show && !prevShowRef.current) {

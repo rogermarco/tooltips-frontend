@@ -1,0 +1,253 @@
+{
+  "archerArmor": {
+    "title": "Archer Armor Upgrades",
+    "tierOne": {
+      "name": "Padded Archer Armor",
+      "cost": [
+        {"amount": 100, "resource": "food"}
+      ],
+      "description": "Archers and cavalry archers have +1 normal/+1 pierce armor."
+    },
+    "tierTwo": {
+      "name": "Leather Archer Armor",
+      "cost": [
+        {"amount": 150, "resource": "food"},
+        {"amount": 150, "resource": "gold"}
+      ],
+      "description": "Archers and cavalry archers have +1 normal/+1 pierce armor."
+    },
+    "tierThree": {
+      "name": "Ring Archer Armor",
+      "cost": [
+        {"amount": 250, "resource": "food"},
+        {"amount": 250, "resource": "gold"}
+      ],
+      "description": "Archers and cavalry archers have +1 normal/+2 pierce armor."
+    }
+  },
+  "archerAttack": {
+    "title": "Archer Attack & Range Upgrades",
+    "tierOne": {
+      "name": "Fletching",
+      "cost": [
+        {"amount": 100, "resource": "food"},
+        {"amount": 50, "resource": "gold"}
+      ],
+      "description": "Archers, galleys, Castles, and towers have +1 attack and +1 range. Town Centers have +1 attack."
+    },
+    "tierTwo": {
+      "name": "Bodkin Arrow",
+      "cost": [
+        {"amount": 200, "resource": "food"},
+        {"amount": 100, "resource": "gold"}
+      ],
+      "description": "Archers, galleys, Castles, and towers have +1 attack and +1 range. Town Centers have +1 attack."
+    },
+    "tierThree": {
+      "name": "Bracer",
+      "cost": [
+        {"amount": 300, "resource": "food"},
+        {"amount": 200, "resource": "gold"}
+      ],
+      "description": "Archers, galleys, Castles, and towers have +1 attack and +1 range. Town Centers have +1 attack."
+    }
+  },
+  "ballistics": {
+    "title": "Ballistics",
+    "cost": [
+      {"amount": 300, "resource": "wood"},
+      {"amount": 175, "resource": "gold"}
+    ],
+    "description": "Foot Archers, Skirmishers, Mounted Archers, ranged Warships, ranged Fortifications and some Siege Weapons fire more accurately at moving targets."
+
+  },
+  "bloodlines": {
+    "title": "Bloodlines",
+    "cost": [
+      {"amount": 150, "resource": "food"},
+      {"amount": 100, "resource": "gold"}
+    ],
+    "description": "Mounted units have +20 hit points."
+  },
+  "cavalryArmor": {
+    "title": "Cavalry Armor Upgrades",
+    "tierOne": {
+      "name": "Scale Barding Armor",
+      "cost": [
+        {"amount": 150, "resource": "food"}
+      ],
+      "description": "Cavalry have +1 normal/+1 pierce armor."
+    },
+    "tierTwo": {
+      "name": "Chain Barding Armor",
+      "cost": [
+        {"amount": 250, "resource": "food"},
+        {"amount": 150, "resource": "gold"}
+      ],
+      "description": "Cavalry have +1 normal/+1 pierce armor."
+    },
+    "tierThree": {
+      "name": "Plate Barding Armor",
+      "cost": [
+        {"amount": 350, "resource": "food"},
+        {"amount": 200, "resource": "gold"}
+      ],
+      "description": "Cavalry have +1 normal/+2 pierce armor."
+    }
+  },
+  "infantryArmor": {
+    "title": "Infantry Armor Upgrades",
+    "tierOne": {
+      "name": "Scale Mail Armor",
+      "cost": [
+        {"amount": 100, "resource": "food"}
+      ],
+      "description": "Infantry have +1 normal/+1 pierce armor."
+    },
+    "tierTwo": {
+      "name": "Chain Mail Armor",
+      "cost": [
+        {"amount": 200, "resource": "food"},
+        {"amount": 100, "resource": "gold"}
+      ],
+      "description": "Infantry have +1 normal/+1 pierce armor."
+    },
+    "tierThree": {
+      "name": "Plate Mail Armor",
+      "cost": [
+        {"amount": 300, "resource": "food"},
+        {"amount": 150, "resource": "gold"}
+      ],
+      "description": "Infantry have +1 normal/+2 pierce armor."
+    }
+  },
+  "infantryCavalryAttack": {
+    "title": "Infantry & Cavalry Attack Upgrades",
+    "tierOne": {
+      "name": "Forging",
+      "cost": [
+        {"amount": 150, "resource": "food"}
+      ],
+      "description": "Infantry and cavalry have +1 attack."
+    },
+    "tierTwo": {
+      "name": "Iron Casting",
+      "cost": [
+        {"amount": 220, "resource": "food"},
+        {"amount": 120, "resource": "gold"}
+      ],
+      "description": "Infantry and cavalry have +1 attack."
+    },
+    "tierThree": {
+      "name": "Blast Furnace",
+      "cost": [
+        {"amount": 275, "resource": "food"},
+        {"amount": 225, "resource": "gold"}
+      ],
+      "description": "Infantry and cavalry have +2 attack."
+    }
+  },
+  "lumbercamp": {
+    "title": "Lumber Camp Upgrades",
+    "tierOne": {
+      "name": "Double-Bit Axe",
+      "cost": [
+        {"amount": 100, "resource": "food"},
+        {"amount": 50, "resource": "wood"}
+      ],
+      "description": "Villagers chop wood 20% faster."
+    },
+    "tierTwo": {
+      "name": "Bow Saw",
+      "cost": [
+        {"amount": 150, "resource": "food"},
+        {"amount": 100, "resource": "wood"}
+      ],
+      "description": "Villagers chop wood 20% faster."
+    },
+    "tierThree": {
+      "name": "Two-Man Saw",
+      "cost": [
+        {"amount": 300, "resource": "food"},
+        {"amount": 200, "resource": "wood"}
+      ],
+      "description": "Villagers chop wood 10% faster."
+    }
+  },
+  "mill": {
+    "title": "Farm Upgrades",
+    "tierOne": {
+      "name": "Horse Collar",
+      "cost": [
+        {"amount": 75, "resource": "food"},
+        {"amount": 75, "resource": "wood"}
+      ],
+      "description": "Farms produce +75 food so they last longer before you must rebuild them."
+    },
+    "tierTwo": {
+      "name": "Heavy Plow",
+      "cost": [
+        {"amount": 125, "resource": "food"},
+        {"amount": 125, "resource": "wood"}
+      ],
+      "description": "Farms produce +125 food so they last longer before you must rebuild them. Farmers carry +1 food each trip."
+    },
+    "tierThree": {
+      "name": "Crop Rotation",
+      "cost": [
+        {"amount": 250, "resource": "food"},
+        {"amount": 250, "resource": "wood"}
+      ],
+      "description": "Farms produce +175 food so they last longer before you must rebuild them."
+    }
+  },
+  "pasture": {
+    "title": "Pasture Upgrades",
+    "tierOne": {
+      "name": "Domestication",
+      "cost": [
+        {"amount": 50, "resource": "food"},
+        {"amount": 100, "resource": "wood"}
+      ],
+      "description": "New Pastures provide +1 animal."
+    },
+    "tierTwo": {
+      "name": "Pastoralism",
+      "cost": [
+        {"amount": 100, "resource": "food"},
+        {"amount": 150, "resource": "wood"}
+      ],
+      "description": "New Pastures provide +2 animals."
+    },
+    "tierThree": {
+      "name": "Transhumance",
+      "cost": [
+        {"amount": 175, "resource": "food"},
+        {"amount": 325, "resource": "wood"}
+      ],
+      "description": "New Pastures provide +3 animals."
+    }
+  },
+  "noticeBox": {
+    "text": "You can mouseover tech icons and player name boxes to see more info!"
+  },
+  "villUpgrades": {
+    "title": "Villager Upgrades",
+    "tierOne": {
+      "name": "Wheelbarrow",
+      "cost": [
+        {"amount": 175, "resource": "food"},
+        {"amount": 50, "resource": "wood"}
+      ],
+      "description": "Villagers work more efficiently by moving 10% faster and carrying 25% more resources."
+    },
+    "tierTwo": {
+      "name": "Hand Cart",
+      "cost": [
+        {"amount": 300, "resource": "food"},
+        {"amount": 200, "resource": "wood"}
+      ],
+      "description": "Villagers work more efficiently by moving 10% faster and carrying 50% more resources."
+    }
+  }
+}

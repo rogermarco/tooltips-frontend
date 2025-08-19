@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
+import { useTextContent } from '../hooks/useTextContent';
+// import content from '../lib/content.json';
 
 export default function ArcherArmor() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -17,40 +19,63 @@ export default function ArcherArmor() {
     }
   }
 
+  const text = useTextContent();
+
   return (
     <div className='tooltip-bg'>
-      <p className='tooltip-title'>Archer Armor Upgrades</p>
+      <p className='tooltip-title'>{text.archerArmor.title}</p>
       {visibleTech === 1 &&
       <div className='padded-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Padded Archer Armor</p>
+          <p className='tooltip-tech-name'>{text.archerArmor.tierOne.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 100 <img src={images.food}/>)</span>
-        <p className='tooltip-text'>Archers and cavalry archers have +1 normal/+1 pierce armor.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.archerArmor.tierOne.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.archerArmor.tierOne.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.archerArmor.tierOne.description}</p>
       </div>
       }
       {visibleTech === 2 &&
       <div className='leather-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} /> 
-          <p className='tooltip-tech-name'>Leather Archer Armor</p>
+          <p className='tooltip-tech-name'>{text.archerArmor.tierTwo.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 150 <img src={images.food}/> 150 <img src={images.gold}/>)</span>
-        <p className='tooltip-text'>Archers and cavalry archers have +1 normal/+1 pierce armor.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.archerArmor.tierTwo.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.archerArmor.tierOne.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.archerArmor.tierTwo.description}</p>
       </div>
       }
       {visibleTech === 3 &&
       <div className='ring-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} /> 
-          <p className='tooltip-tech-name'>Ring Archer Armor</p>
+          <p className='tooltip-tech-name'>{text.archerArmor.tierThree.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 250 <img src={images.food}/> 250 <img src={images.gold}/>)</span>
-        <p className='tooltip-text'>Archers and cavalry archers have +1 normal/+2 pierce armor.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.archerArmor.tierThree.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.archerArmor.tierOne.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.archerArmor.tierThree.description}</p>
       </div>
       }
     </div>

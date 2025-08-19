@@ -31,42 +31,42 @@ function App() {
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   // eslint-disable-next-line no-unused-vars
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, setShowNotice] = useState(false);
+  const [showNotice, setShowNotice] = useState(true);
 
   const twitch = window.Twitch.ext;
 
-  const fetchCivs = async (streamUrl) => {
-    try {
-      const { data: response } = await supabase
-        .from('streamdata')
-        .select('civ_data')
-        .eq('broadcaster_name', streamUrl)
-        .single();
-      const convertedArray = JSON.parse(response.civ_data);
+  // const fetchCivs = async (streamUrl) => {
+  //   try {
+  //     const { data: response } = await supabase
+  //       .from('streamdata')
+  //       .select('civ_data')
+  //       .eq('broadcaster_name', streamUrl)
+  //       .single();
+  //     const convertedArray = JSON.parse(response.civ_data);
 
-      if (!showNotice) {
-        setShowNotice(true);
-      }
+  //     if (!showNotice) {
+  //       setShowNotice(true);
+  //     }
 
-      return convertedArray;
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  };
+  //     return convertedArray;
+  //   } catch (error) {
+  //     console.error(error);
+  //     return null;
+  //   }
+  // };
 
-  const { data: civs } = useQuery({
-    queryKey: ['civs', streamUrl],
-    queryFn: () => fetchCivs(streamUrl),
-    staleTime: Infinity,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    refetchInterval: 180000, // 3 minutes
-    cacheTime: 180000,
-    enabled: !!streamUrl,
-  });
+  // const { data: civs } = useQuery({
+  //   queryKey: ['civs', streamUrl],
+  //   queryFn: () => fetchCivs(streamUrl),
+  //   staleTime: Infinity,
+  //   refetchOnMount: false,
+  //   refetchOnWindowFocus: false,
+  //   refetchInterval: 180000, // 3 minutes
+  //   cacheTime: 180000,
+  //   enabled: !!streamUrl,
+  // });
   // DEBUG TESTING
-  // const civs = ['ethiopians', 'sicilians'];
+  const civs = ['ethiopians', 'sicilians'];
 
   const components = [
     <Ballistics key='ballistics' />,
@@ -75,7 +75,7 @@ function App() {
     <InfCavAttack key='inf-cav-attack' />,
     <Lumbercamp key='lumbercamp' />,
     // If either civ is khitans, use khitans tech descriptions
-    <Mill key='mill' civ={civs?.[0] === 'khitans' ? civs[0] : civs?.[1] === 'khitans' ? civs[1] : null } />,
+    <Mill key='mill' civ= {civs?.[0] === 'khitans' ? civs[0] : civs?.[1] === 'khitans' ? civs[1] : null} />,
     <ArcherArmor key='archer-armor' />,
     <CavalryArmor key='cavalry-armor' />,
     <InfantryArmor key='infantry-armor' />,
