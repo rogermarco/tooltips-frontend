@@ -1,9 +1,11 @@
 import { useEffect, useState, useRef } from 'react'
+import { useTextContent } from '../hooks/useTextContent';
 
 export default function NoticeBox(show) {
   const [isVisible, setIsVisible] = useState(false);
   const prevShowRef = useRef(false);
   const mountedRef = useRef(false);
+  const { data: text, isLoading } = useTextContent();
 
   useEffect(() => {
     // Skips first mount in Strict Mode
@@ -29,8 +31,9 @@ export default function NoticeBox(show) {
   }, [show]);
 
   if (!isVisible) return null;
+  if (isLoading) return null;
 
   return (
-    <div className='notice-box'>You can mouseover tech icons and player name boxes to see more info!</div>
+    <div className='notice-box'>{text.noticeBox.text}</div>
   )
 }

@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-span.tooltip-cost > img {
+span.tooltip-cost > span > img {
   vertical-align: -17%;
 }
 

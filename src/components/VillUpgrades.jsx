@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
+import { useTextContent } from '../hooks/useTextContent';
 
 export default function VillUpgrades() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -17,28 +18,45 @@ export default function VillUpgrades() {
     }
   }
 
+  const { data: text, isLoading } = useTextContent();
+  if (isLoading) return null;
+
   return (
     <div className='tooltip-bg'>
-      <p className='tooltip-title'>Villager Upgrades</p>
+      <p className='tooltip-title'>{text.villUpgrades.title}</p>
       {visibleTech === 1 ?
       <div className='wheelbarrow-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Wheelbarrow</p>
+          <p className='tooltip-tech-name'>{text.villUpgrades.tierOne.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 175 <img src={images.food}/> 50 <img src={images.wood}/>)</span>
-        <p className='tooltip-text'>Villagers work more efficiently by moving 10% faster and carrying 25% more resources.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.villUpgrades.tierOne.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.villUpgrades.tierOne.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.villUpgrades.tierOne.description}</p>
       </div>
       :
       <div className='handcart-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Hand Cart</p>
+          <p className='tooltip-tech-name'>{text.villUpgrades.tierTwo.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 300 <img src={images.food}/> 200 <img src={images.wood}/>)</span>
-        <p className='tooltip-text'>Villagers work more efficiently by moving 10% faster and carrying 50% more resources.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.villUpgrades.tierTwo.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.villUpgrades.tierTwo.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.villUpgrades.tierTwo.description}</p>
       </div>
       }
     </div>

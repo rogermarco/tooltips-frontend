@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { TextContent } from "../types/techTypes";
 
-const TEXT_URL = "https://vtzytnb0le.ufs.sh/f/mDQGH9aJhVWMQBHs98JN7XoWL21IYpznPUKeau4kfOT3SmbE";
+const TEXT_URL = "https://rogermarco.github.io/tooltips-frontend/src/public/content.json";
 
 export function useTextContent() {
   return useQuery<TextContent, Error>({

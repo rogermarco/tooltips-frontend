@@ -20,7 +20,7 @@ import {
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { supabase } from './lib/db.js';
-import profiles from './lib/profiles.json';
+import profiles from './public/profiles.json';
 
 function App() {
   const [displayResolution, setDisplayResolution] = useState({

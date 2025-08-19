@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
 import { useTextContent } from '../hooks/useTextContent';
-// import content from '../lib/content.json';
 
 export default function ArcherArmor() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -19,7 +18,8 @@ export default function ArcherArmor() {
     }
   }
 
-  const text = useTextContent();
+  const { data: text, isLoading } = useTextContent();
+  if (isLoading) return null;
 
   return (
     <div className='tooltip-bg'>
@@ -53,7 +53,7 @@ export default function ArcherArmor() {
           Cost: {text.archerArmor.tierTwo.cost.map((item, index) => (
             <span key={index}>
               {item.amount} <img src={images[item.resource]} alt={item.resource} />
-              {index < text.archerArmor.tierOne.cost.length - 1 ? ' ' : ''}
+              {index < text.archerArmor.tierTwo.cost.length - 1 ? ' ' : ''}
             </span>
           ))}
         </span>
@@ -71,7 +71,7 @@ export default function ArcherArmor() {
           Cost: {text.archerArmor.tierThree.cost.map((item, index) => (
             <span key={index}>
               {item.amount} <img src={images[item.resource]} alt={item.resource} />
-              {index < text.archerArmor.tierOne.cost.length - 1 ? ' ' : ''}
+              {index < text.archerArmor.tierThree.cost.length - 1 ? ' ' : ''}
             </span>
           ))}
         </span>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
+import { useTextContent } from '../hooks/useTextContent';
 
 export default function Lumbercamp() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -17,40 +18,64 @@ export default function Lumbercamp() {
     }
   }
 
+  const { data: text, isLoading } = useTextContent();
+  if (isLoading) return null;
+
   return (
     <div className='tooltip-bg'>
-      <p className='tooltip-title'>Lumber Camp Upgrades</p>
+      <p className='tooltip-title'>{text.lumbercamp.title}</p>
       {visibleTech === 1 &&
       <div className='bitaxe-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Double-Bit Axe</p>
+          <p className='tooltip-tech-name'>{text.lumbercamp.tierOne.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 100 <img src={images.food}/> 50 <img src={images.wood}/>)</span>
-        <p className='tooltip-text'>Villagers chop wood 20% faster.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.lumbercamp.tierOne.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.lumbercamp.tierOne.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.lumbercamp.tierOne.description}</p>
       </div>
       }
       {visibleTech === 2 &&
       <div className='bowsaw-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Bow Saw</p>
+          <p className='tooltip-tech-name'>{text.lumbercamp.tierTwo.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 150 <img src={images.food}/> 100 <img src={images.wood}/>)</span>
-        <p className='tooltip-text'>Villagers chop wood 20% faster.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.lumbercamp.tierTwo.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.lumbercamp.tierTwo.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.lumbercamp.tierTwo.description}</p>
       </div>
       }
       {visibleTech === 3 &&
       <div className='twoman-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Two-Man Saw</p>
+          <p className='tooltip-tech-name'>{text.lumbercamp.tierThree.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 300 <img src={images.food}/> 200 <img src={images.wood}/>)</span>
-        <p className='tooltip-text'>Villagers chop wood 10% faster.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.lumbercamp.tierThree.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.lumbercamp.tierThree.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.lumbercamp.tierThree.description}</p>
       </div>
       }
     </div>

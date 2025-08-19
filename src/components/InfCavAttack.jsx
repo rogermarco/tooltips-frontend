@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
+import { useTextContent } from '../hooks/useTextContent';
 
 export default function InfCavAttack() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -17,40 +18,64 @@ export default function InfCavAttack() {
     }
   }
 
+  const { data: text, isLoading } = useTextContent();
+  if (isLoading) return null;
+
   return (
     <div className='tooltip-bg'>
-      <p className='tooltip-title'>Infantry & Cavalry Attack Upgrades</p>
+      <p className='tooltip-title'>{text.infantryCavalryAttack.title}</p>
       {visibleTech === 1 &&
       <div className='forging-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Forging</p>
+          <p className='tooltip-tech-name'>{text.infantryCavalryAttack.tierOne.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 150 <img src={images.food}/>)</span>
-        <p className='tooltip-text'>Infantry and cavalry have +1 attack.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.infantryCavalryAttack.tierOne.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.infantryCavalryAttack.tierOne.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.infantryCavalryAttack.tierOne.description}</p>
       </div>
       }
       {visibleTech === 2 &&
       <div className='ironcasting-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Iron Casting</p>
+          <p className='tooltip-tech-name'>{text.infantryCavalryAttack.tierTwo.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 220 <img src={images.food}/> 120 <img src={images.gold}/>)</span>
-        <p className='tooltip-text'>Infantry and cavalry have +1 attack.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.infantryCavalryAttack.tierTwo.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.infantryCavalryAttack.tierTwo.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.infantryCavalryAttack.tierTwo.description}</p>
       </div>
       }
       {visibleTech === 3 &&
       <div className='blastfurnace-container'>
         <div className='tooltip-container'>
           <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
-          <p className='tooltip-tech-name'>Blast Furnace</p>
+          <p className='tooltip-tech-name'>{text.infantryCavalryAttack.tierThree.name}</p>
           <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
-        <span className='tooltip-cost'>(Cost: 275 <img src={images.food}/> 225 <img src={images.gold}/>)</span>
-        <p className='tooltip-text'>Infantry and cavalry have +2 attack.</p>
+        <span className='tooltip-cost'>
+          Cost: {text.infantryCavalryAttack.tierThree.cost.map((item, index) => (
+            <span key={index}>
+              {item.amount} <img src={images[item.resource]} alt={item.resource} />
+              {index < text.infantryCavalryAttack.tierThree.cost.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </span>
+        <p className='tooltip-text'>{text.infantryCavalryAttack.tierThree.description}</p>
       </div>
       }
     </div>

@@ -1,11 +1,23 @@
 import images from '../lib/imagestrings.json';
+import { useTextContent } from '../hooks/useTextContent';
 
 export default function Ballistics() {
+
+  const { data: text, isLoading } = useTextContent();
+  if (isLoading) return null;
+
   return (
     <div className='tooltip-bg'>
-      <p className='tooltip-single-tech-name'>Ballistics</p> 
-      <span className='tooltip-cost'>(Cost: 300 <img src={images.wood}/> 175 <img src={images.gold}/>)</span>
-      <p className='tooltip-text'>Archers, Town Centers, Castles, Galleys, Unique Naval Units, and Mounted Archers fire more accurately at moving targets.</p>
+      <p className='tooltip-single-tech-name'>{text.ballistics.title}</p> 
+      <span className='tooltip-cost'>
+        Cost: {text.ballistics.cost.map((item, index) => (
+          <span key={index}>
+            {item.amount} <img src={images[item.resource]} alt={item.resource} />
+            {index < text.ballistics.cost.length - 1 ? ' ' : ''}
+          </span>
+        ))}
+      </span>
+      <p className='tooltip-text'>{text.ballistics.description}</p>
     </div>
   )
 }
