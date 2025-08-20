@@ -66,16 +66,29 @@ function App() {
   //   enabled: !!streamUrl,
   // });
   // DEBUG TESTING
-  const civs = ['ethiopians', 'sicilians'];
+  const civs = ['khitans', 'shu'];
 
-  const components = [
+  const componentsLeft = [
     <Ballistics key='ballistics' />,
     <Bloodlines key='bloodlines' />,
     <ArcherAttack key='archer-attack' />,
     <InfCavAttack key='inf-cav-attack' />,
     <Lumbercamp key='lumbercamp' />,
-    // If either civ is khitans, use khitans tech descriptions
-    <Mill key='mill' civ= {civs?.[0] === 'khitans' ? civs[0] : civs?.[1] === 'khitans' ? civs[1] : null} />,
+    // If civ is khitans, use khitans tech descriptions
+    <Mill key='mill' civ={civs?.[0] === 'khitans' ? civs[0] : null} />,
+    <ArcherArmor key='archer-armor' />,
+    <CavalryArmor key='cavalry-armor' />,
+    <InfantryArmor key='infantry-armor' />,
+    <VillUpgrades key='vill-upgrades' />,
+  ];
+    const componentsRight = [
+    <Ballistics key='ballistics' />,
+    <Bloodlines key='bloodlines' />,
+    <ArcherAttack key='archer-attack' />,
+    <InfCavAttack key='inf-cav-attack' />,
+    <Lumbercamp key='lumbercamp' />,
+    // If civ is khitans, use khitans tech descriptions
+    <Mill key='mill' civ={civs?.[1] === 'khitans' ? civs[1] : null} />,
     <ArcherArmor key='archer-armor' />,
     <CavalryArmor key='cavalry-armor' />,
     <InfantryArmor key='infantry-armor' />,
@@ -152,7 +165,7 @@ function App() {
                     }}
                   ></div>
                 </TooltipTrigger>
-                <TooltipContent>{components[i]}</TooltipContent>
+                <TooltipContent>{componentsLeft[i]}</TooltipContent>
               </Tooltip>
             ))}
           {profile.coordinatesRight &&
@@ -169,7 +182,7 @@ function App() {
                     }}
                   ></div>
                 </TooltipTrigger>
-                <TooltipContent>{components[i]}</TooltipContent>
+                <TooltipContent>{componentsRight[i]}</TooltipContent>
               </Tooltip>
             ))}
           <div>
