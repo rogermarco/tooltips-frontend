@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
 import PropTypes from 'prop-types';
-import { useTextContent } from '../hooks/useTextContent';
+import { useTechstrings } from '../hooks/helpers';
 
 Mill.propTypes = {
   civ: PropTypes.string
@@ -26,7 +26,7 @@ export default function Mill({ civ }) {
     }
   }
 
-  const { data: text, isLoading } = useTextContent();
+  const { data: text, isLoading } = useTechstrings();
   if (isLoading) return null;
 
   return (

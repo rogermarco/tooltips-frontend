@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import images from '../lib/imagestrings.json';
-import { useTextContent } from '../hooks/useTextContent';
+import { useTechstrings } from '../hooks/helpers';
 
 export default function CavalryArmor() {
   const [visibleTech, setVisibleTech] = useState(1);
@@ -18,7 +18,7 @@ export default function CavalryArmor() {
     }
   }
 
-  const { data: text, isLoading } = useTextContent();
+  const { data: text, isLoading } = useTechstrings();
   if (isLoading) return null;
 
   return (

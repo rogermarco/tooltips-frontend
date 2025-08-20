@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from 'react'
-import { useTextContent } from '../hooks/useTextContent';
+import { useTechstrings } from '../hooks/helpers';
 
 export default function NoticeBox(show) {
   const [isVisible, setIsVisible] = useState(false);
   const prevShowRef = useRef(false);
   const mountedRef = useRef(false);
-  const { data: text, isLoading } = useTextContent();
+  const { data: text, isLoading } = useTechstrings();
 
   useEffect(() => {
     // Skips first mount in Strict Mode

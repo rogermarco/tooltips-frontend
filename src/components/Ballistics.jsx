@@ -1,9 +1,9 @@
 import images from '../lib/imagestrings.json';
-import { useTextContent } from '../hooks/useTextContent';
+import { useTechstrings } from '../hooks/helpers';
 
 export default function Ballistics() {
 
-  const { data: text, isLoading } = useTextContent();
+  const { data: text, isLoading } = useTechstrings();
   if (isLoading) return null;
 
   return (

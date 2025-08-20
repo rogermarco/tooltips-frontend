@@ -20,7 +20,8 @@ import {
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { supabase } from './lib/db.js';
-import profiles from './public/profiles.json';
+// import profiles from './public/profiles.json';
+import { useProfiles } from './hooks/helpers';
 
 function App() {
   const [displayResolution, setDisplayResolution] = useState({
@@ -34,6 +35,7 @@ function App() {
   const [showNotice, setShowNotice] = useState(true);
 
   const twitch = window.Twitch.ext;
+  const profiles = useProfiles();
 
   // const fetchCivs = async (streamUrl) => {
   //   try {
@@ -129,7 +131,7 @@ function App() {
         } else setProfile(profiles.defaultProfile);
       }
     });
-  }, [twitch, streamUrl]);
+  }, [twitch, streamUrl, profiles]);
 
   // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
   useEffect(() => {
