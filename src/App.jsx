@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Tooltip,
   TooltipTrigger,
@@ -20,55 +20,54 @@ import {
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { supabase } from './lib/db.js';
-// import profiles from './public/profiles.json';
 import { useProfiles } from './hooks/helpers';
 
 function App() {
+  const { data: profiles } = useProfiles();
+
   const [displayResolution, setDisplayResolution] = useState({
     width: 0,
     height: 0,
   }); // Viewers stream window resolution
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
-  // eslint-disable-next-line no-unused-vars
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(true);
 
   const twitch = window.Twitch.ext;
-  const profiles = useProfiles();
 
-  // const fetchCivs = async (streamUrl) => {
-  //   try {
-  //     const { data: response } = await supabase
-  //       .from('streamdata')
-  //       .select('civ_data')
-  //       .eq('broadcaster_name', streamUrl)
-  //       .single();
-  //     const convertedArray = JSON.parse(response.civ_data);
+  const fetchCivs = async (streamUrl) => {
+    try {
+      const { data: response } = await supabase
+        .from('streamdata')
+        .select('civ_data')
+        .eq('broadcaster_name', streamUrl)
+        .single();
+      const convertedArray = JSON.parse(response.civ_data);
 
-  //     if (!showNotice) {
-  //       setShowNotice(true);
-  //     }
+      if (!showNotice) {
+        setShowNotice(true);
+      }
 
-  //     return convertedArray;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return null;
-  //   }
-  // };
+      return convertedArray;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
 
-  // const { data: civs } = useQuery({
-  //   queryKey: ['civs', streamUrl],
-  //   queryFn: () => fetchCivs(streamUrl),
-  //   staleTime: Infinity,
-  //   refetchOnMount: false,
-  //   refetchOnWindowFocus: false,
-  //   refetchInterval: 180000, // 3 minutes
-  //   cacheTime: 180000,
-  //   enabled: !!streamUrl,
-  // });
+  const { data: civs } = useQuery({
+    queryKey: ['civs', streamUrl],
+    queryFn: () => fetchCivs(streamUrl),
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: 180000, // 3 minutes
+    cacheTime: 180000,
+    enabled: !!streamUrl,
+  });
   // DEBUG TESTING
-  const civs = ['khitans', 'shu'];
+  // const civs = ['khitans', 'shu'];
 
   const componentsLeft = [
     <Ballistics key='ballistics' />,
@@ -98,25 +97,20 @@ function App() {
   ];
 
   // Resize observer to track window size
-  const resizeObserver = useMemo(
-    () =>
-      new ResizeObserver((entries) => {
-        const { width, height } = entries[0].contentRect;
-
-        setDisplayResolution({
-          width,
-          height,
-        });
-      }),
-    []
-  );
-
   useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      const { width, height } = entries[0].contentRect;
+      setDisplayResolution({
+        width,
+        height,
+      });
+    });
     resizeObserver.observe(document.body);
+
     return () => {
       resizeObserver.disconnect();
     };
-  }, [resizeObserver]);
+  }, []); // Empty dep array since we don't need to recreate it
 
   // Fetch streamer from Twitch context
   useEffect(() => {
@@ -124,11 +118,12 @@ function App() {
       if (context.playerChannel !== streamUrl) {
         const stream = context.playerChannel;
         setStreamUrl(stream);
-
-        // If current streamer has a separate profile, use that profile
-        if (profiles[stream]) {
-          setProfile(profiles[stream]);
-        } else setProfile(profiles.defaultProfile);
+        if (profiles) {
+          // If current streamer has a separate profile, use that profile
+          if (profiles[stream]) {
+            setProfile(profiles[stream]);
+          } else setProfile(profiles.defaultProfile);
+        }
       }
     });
   }, [twitch, streamUrl, profiles]);

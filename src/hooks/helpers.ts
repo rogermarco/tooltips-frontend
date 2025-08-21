@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { TextContent } from "../types/techTypes";
 
 const TEXT_URL = "https://rogermarco.github.io/tooltips-frontend/src/public/";
@@ -28,7 +28,7 @@ export function useCivstrings() {
 }
 
 export function useProfiles() {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["profiles"],
     queryFn: async () => {
       const res = await fetch(TEXT_URL + "profiles.json");
