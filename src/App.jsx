@@ -32,10 +32,11 @@ function App() {
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, setShowNotice] = useState(true);
+  const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;
 
+  // Comment out for testing
   const fetchCivs = async (streamUrl) => {
     try {
       const { data: response } = await supabase

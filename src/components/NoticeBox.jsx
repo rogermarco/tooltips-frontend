@@ -1,18 +1,21 @@
 import { useEffect, useState, useRef } from 'react'
 import { useTechstrings } from '../hooks/helpers';
 
-export default function NoticeBox(show) {
+// eslint-disable-next-line react/prop-types
+export default function NoticeBox({ show }) {
   const [isVisible, setIsVisible] = useState(false);
   const prevShowRef = useRef(false);
-  const mountedRef = useRef(false);
-  const { data: text, isLoading } = useTechstrings();
+  // LOCAL TESTS
+  // const mountedRef = useRef(false);
+  const { data: text, isLoading } = useTechstrings();  
 
   useEffect(() => {
+    // LOCAL TESTS
     // Skips first mount in Strict Mode
-    if (!mountedRef.current) {
-      mountedRef.current = true;
-      return;
-    }
+    // if (!mountedRef.current) {
+    //   mountedRef.current = true;
+    //   return;
+    // }
     let timer;
 
     if (show && !prevShowRef.current) {
