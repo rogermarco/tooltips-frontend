@@ -1,7 +1,17 @@
 import { useState } from 'react';
-import images from '../lib/imagestrings.json';
+import buttonLeft from '../public/button_left.png';
+import buttonRight from '../public/button_right.png';
 import PropTypes from 'prop-types';
+import food from '../public/food.png';
+import gold from '../public/gold.png';
+import wood from '../public/wood.png';
 import { useTechstrings } from '../hooks/helpers';
+
+const images = {
+  food,
+  wood,
+  gold,
+};
 
 Mill.propTypes = {
   civ: PropTypes.string
@@ -36,9 +46,9 @@ export default function Mill({ civ }) {
       {!isKhitans && visibleTech === 1 &&
       <div className='horsecollar-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.mill.tierOne.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.mill.tierOne.cost.map((item, index) => (
@@ -54,9 +64,9 @@ export default function Mill({ civ }) {
       {!isKhitans && visibleTech === 2 &&
       <div className='heavyplow-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.mill.tierTwo.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.mill.tierTwo.cost.map((item, index) => (
@@ -72,9 +82,9 @@ export default function Mill({ civ }) {
       {!isKhitans && visibleTech === 3 &&
       <div className='croprotation-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.mill.tierThree.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.mill.tierThree.cost.map((item, index) => (
@@ -91,9 +101,9 @@ export default function Mill({ civ }) {
       {isKhitans && visibleTech === 1 &&
       <div className='domestication-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.pasture.tierOne.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.pasture.tierOne.cost.map((item, index) => (
@@ -109,9 +119,9 @@ export default function Mill({ civ }) {
       {isKhitans && visibleTech === 2 &&
       <div className='pastoralism-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.pasture.tierTwo.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.pasture.tierTwo.cost.map((item, index) => (
@@ -127,9 +137,9 @@ export default function Mill({ civ }) {
       {isKhitans && visibleTech === 3 &&
       <div className='transhumance-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.pasture.tierThree.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.pasture.tierThree.cost.map((item, index) => (

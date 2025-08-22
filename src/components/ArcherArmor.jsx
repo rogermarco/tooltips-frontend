@@ -1,10 +1,21 @@
 import { useState } from 'react';
-import images from '../lib/imagestrings.json';
+import buttonLeft from '../public/button_left.png';
+import buttonRight from '../public/button_right.png';
+import food from '../public/food.png';
+import gold from '../public/gold.png';
+import wood from '../public/wood.png';
 import { useTechstrings } from '../hooks/helpers';
+
+const images = {
+  food,
+  wood,
+  gold,
+};
 
 export default function ArcherArmor() {
   const [visibleTech, setVisibleTech] = useState(1);
   // 1 = padded, 2 = leather, 3 = ring
+
 
   const toggleTechLeft = () => {
     if (visibleTech === 2 || visibleTech === 3) {
@@ -27,9 +38,9 @@ export default function ArcherArmor() {
       {visibleTech === 1 &&
       <div className='padded-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} />
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} />
           <p className='tooltip-tech-name'>{text.archerArmor.tierOne.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.archerArmor.tierOne.cost.map((item, index) => (
@@ -45,9 +56,9 @@ export default function ArcherArmor() {
       {visibleTech === 2 &&
       <div className='leather-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} /> 
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} /> 
           <p className='tooltip-tech-name'>{text.archerArmor.tierTwo.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.archerArmor.tierTwo.cost.map((item, index) => (
@@ -63,9 +74,9 @@ export default function ArcherArmor() {
       {visibleTech === 3 &&
       <div className='ring-container'>
         <div className='tooltip-container'>
-          <img src={images.buttonL} className='tooltip-arrow-left' onClick={toggleTechLeft} /> 
+          <img src={buttonLeft} className='tooltip-arrow-left' onClick={toggleTechLeft} /> 
           <p className='tooltip-tech-name'>{text.archerArmor.tierThree.name}</p>
-          <img src={images.buttonR} className='tooltip-arrow-right' onClick={toggleTechRight} />
+          <img src={buttonRight} className='tooltip-arrow-right' onClick={toggleTechRight} />
         </div>
         <span className='tooltip-cost'>
           Cost: {text.archerArmor.tierThree.cost.map((item, index) => (

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// import civs from '../public/civstrings.json';
 import { useCivstrings } from "../hooks/helpers";
 
 export default function CivTooltip({ civ }) {

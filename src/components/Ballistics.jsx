@@ -1,5 +1,13 @@
-import images from '../lib/imagestrings.json';
+import food from '../public/food.png';
+import gold from '../public/gold.png';
+import wood from '../public/wood.png';
 import { useTechstrings } from '../hooks/helpers';
+
+const images = {
+  food,
+  wood,
+  gold,
+};
 
 export default function Ballistics() {
 

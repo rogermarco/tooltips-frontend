@@ -37,38 +37,38 @@ function App() {
   const twitch = window.Twitch.ext;
 
   // Comment out for testing
-  const fetchCivs = async (streamUrl) => {
-    try {
-      const { data: response } = await supabase
-        .from('streamdata')
-        .select('civ_data')
-        .eq('broadcaster_name', streamUrl)
-        .single();
-      const convertedArray = JSON.parse(response.civ_data);
+  // const fetchCivs = async (streamUrl) => {
+  //   try {
+  //     const { data: response } = await supabase
+  //       .from('streamdata')
+  //       .select('civ_data')
+  //       .eq('broadcaster_name', streamUrl)
+  //       .single();
+  //     const convertedArray = JSON.parse(response.civ_data);
 
-      if (!showNotice) {
-        setShowNotice(true);
-      }
+  //     if (!showNotice) {
+  //       setShowNotice(true);
+  //     }
 
-      return convertedArray;
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  };
+  //     return convertedArray;
+  //   } catch (error) {
+  //     console.error(error);
+  //     return null;
+  //   }
+  // };
 
-  const { data: civs } = useQuery({
-    queryKey: ['civs', streamUrl],
-    queryFn: () => fetchCivs(streamUrl),
-    staleTime: Infinity,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    refetchInterval: 180000, // 3 minutes
-    cacheTime: 180000,
-    enabled: !!streamUrl,
-  });
+  // const { data: civs } = useQuery({
+  //   queryKey: ['civs', streamUrl],
+  //   queryFn: () => fetchCivs(streamUrl),
+  //   staleTime: Infinity,
+  //   refetchOnMount: false,
+  //   refetchOnWindowFocus: false,
+  //   refetchInterval: 180000, // 3 minutes
+  //   cacheTime: 180000,
+  //   enabled: !!streamUrl,
+  // });
   // DEBUG TESTING
-  // const civs = ['khitans', 'shu'];
+  const civs = ['khitans', 'shu'];
 
   const componentsLeft = [
     <Ballistics key='ballistics' />,

@@ -1,5 +1,5 @@
 .tooltip-bg {
-  background-image: url('https://vtzytnb0le.ufs.sh/f/mDQGH9aJhVWMy5astEkVQ2kuDYCUd7Es9r5NjiZ6qMyAbTcR');
+  background-image: url('/src/public/frame_gold.png');
   background-size: cover;
   background-color: black;
   background-position: center;
@@ -70,7 +70,7 @@ span.tooltip-cost > span > img {
 }
 
 .civ-tooltip {
-  background-image: url('https://vtzytnb0le.ufs.sh/f/mDQGH9aJhVWMWVss607YhmFgDP6RjC5bS1OTIdrl8LtKkBno');
+  background-image: url('/src/public/bg_paper.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
