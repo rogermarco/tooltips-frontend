@@ -16,6 +16,8 @@ import {
   Ballistics,
   Bloodlines,
   VillUpgrades,
+  CastleTech,
+  ImperialTech
 } from './components';
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
@@ -31,7 +33,7 @@ function App() {
   }); // Viewers stream window resolution
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
-  const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
+  const [profile, setProfile] = useState(profiles.t90Official); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;
@@ -82,6 +84,8 @@ function App() {
     <CavalryArmor key='cavalry-armor' />,
     <InfantryArmor key='infantry-armor' />,
     <VillUpgrades key='vill-upgrades' />,
+    <CastleTech key='castle-tech' civ={civs?.[0]} />,
+    <ImperialTech key='imperial-tech' civ={civs?.[0]} />,
   ];
     const componentsRight = [
     <Ballistics key='ballistics' />,
@@ -95,6 +99,8 @@ function App() {
     <CavalryArmor key='cavalry-armor' />,
     <InfantryArmor key='infantry-armor' />,
     <VillUpgrades key='vill-upgrades' />,
+    <CastleTech key='castle-tech' civ={civs?.[1]} />,
+    <ImperialTech key='imperial-tech' civ={civs?.[1]} />,
   ];
 
   // Resize observer to track window size

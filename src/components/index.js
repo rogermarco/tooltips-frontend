@@ -8,5 +8,7 @@ import Mill from './Mill.jsx';
 import Ballistics from './Ballistics.jsx';
 import Bloodlines from './Bloodlines.jsx';
 import VillUpgrades from './VillUpgrades.jsx';
+import CastleTech from './CastleTech.jsx';
+import ImperialTech from './ImperialTech.jsx';
 
-export { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, Lumbercamp, Mill, Ballistics, Bloodlines, VillUpgrades };
+export { ArcherArmor, ArcherAttack, CavalryArmor, InfantryArmor, InfCavAttack, Lumbercamp, Mill, Ballistics, Bloodlines, VillUpgrades, CastleTech, ImperialTech };

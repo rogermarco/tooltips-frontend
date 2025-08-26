@@ -1,0 +1,902 @@
+{
+  "armenians": {
+    "castle": {
+      "title": "Cilician Fleet",
+      "cost": [
+        {"amount": "350", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Demolition Ships +20% blast radius; Galley-line and Dromons +1 range."
+    },
+    "imperial": {
+      "title": "Fereters",
+      "cost": [
+        {"amount": "550", "resource": "food"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Infantry (except Spearman-line) +30 HP; Warrior Priests heal +100% faster."
+    }
+  },
+  "aztecs": {
+    "castle": {
+      "title": "Atlatl",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "350", "resource": "gold"}
+      ],
+      "description": "Skirmishers +1 attack, +1 range."
+    },
+    "imperial": {
+      "title": "Garland Wars",
+      "cost": [
+        {"amount": "450", "resource": "food"},
+        {"amount": "750", "resource": "gold"}
+      ],
+      "description": "Infantry +4 attack."
+    }
+  },
+  "bengalis": {
+    "castle": {
+      "title": "Paiks",
+      "cost": [
+        {"amount": "375", "resource": "wood"},
+        {"amount": "275", "resource": "gold"}
+      ],
+      "description": "Rathas and Elephant Units attack +20% faster."
+    },
+    "imperial": {
+      "title": "Mahayana",
+      "cost": [
+        {"amount": "800", "resource": "wood"},
+        {"amount": "650", "resource": "gold"}
+      ],
+      "description": "Villagers and Monks take -10% population space."
+    }
+  },
+  "berbers": {
+    "castle": {
+      "title": "Kasbah",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Team Castles work +25% faster."
+    },
+    "imperial": {
+      "title": "Maghrebi Camels",
+      "cost": [
+        {"amount": "700", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Camel Units regenerate 15 HP per minute."
+    }
+  },
+  "bohemians": {
+    "castle": {
+      "title": "Wagenburg Tactics",
+      "cost": [
+        {"amount": "300", "resource": ""},
+        {"amount": "300", "resource": ""}
+      ],
+      "description": "Gunpowder Units move +15% faster."
+    },
+    "imperial": {
+      "title": "Hussite Reforms",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Monks and Monastery technologies gold cost is replaced by food cost."
+    }
+  },
+  "britons": {
+    "castle": {
+      "title": "Yeomen",
+      "cost": [
+        {"amount": "750", "resource": "wood"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Foot Archers and Skirmisher-line +1 range; Watch Tower-line +2 attack."
+    },
+    "imperial": {
+      "title": "Warwolf",
+      "cost": [
+        {"amount": "800", "resource": "wood"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Trebuchets deal blast damage and are more accurate."
+    }
+  },
+  "bulgarians": {
+    "castle": {
+      "title": "Stirrups",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Cavalry attacks +33% faster."
+    },
+    "imperial": {
+      "title": "Bagains",
+      "cost": [
+        {"amount": "900", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Militia-line +5 melee armor."
+    }
+  },
+  "burgundians": {
+    "castle": {
+      "title": "Burgundian Vineyards",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Farmers slowly generate gold in addition to food."
+    },
+    "imperial": {
+      "title": "Flemish Revolution",
+      "cost": [
+        {"amount": "200", "resource": "food"},
+        {"amount": "150", "resource": "gold"}
+      ],
+      "description": "All existing Villagers are transformed to Flemish Militia."
+    }
+  },
+  "burmese": {
+    "castle": {
+      "title": "Manipur Cavalry",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Cavalry +4 attack vs. Ranged Soldiers."
+    },
+    "imperial": {
+      "title": "Howdah",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Battle Elephants +1 melee/+1 pierce armor."
+    }
+  },
+  "byzantines": {
+    "castle": {
+      "title": "Greek Fire",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Fire Ships +1 range; Dromons and Bombard Towers increased blast radius."
+    },
+    "imperial": {
+      "title": "Logistica",
+      "cost": [
+        {"amount": "800", "resource": "food"},
+        {"amount": "600", "resource": "gold"}
+      ],
+      "description": "Cataphracts deal trample damage, +6 attack vs. Infantry."
+    }
+  },
+  "celts": {
+    "castle": {
+      "title": "Stronghold",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Castles and Watch Tower-line attack +33% faster; Castles heal allied Infantry in a 7 tile radius."
+    },
+    "imperial": {
+      "title": "Furor Celtica",
+      "cost": [
+        {"amount": "750", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Siege Weapons +40% HP."
+    }
+  },
+  "chinese": {
+    "castle": {
+      "title": "Great Wall",
+      "cost": [
+        {"amount": "400", "resource": "wood"},
+        {"amount": "200", "resource": "stone"}
+      ],
+      "description": "Walls, Watch Tower-line and Bombard Towers +30% HP."
+    },
+    "imperial": {
+      "title": "Rocketry",
+      "cost": [
+        {"amount": "1100", "resource": "food"},
+        {"amount": "900", "resource": "gold"}
+      ],
+      "description": "Scorpions, Rocket Carts and Lou Chuans +25% attack; Lou Chuans fire rockets."
+    }
+  },
+  "cumans": {
+    "castle": {
+      "title": "Steppe Husbandry",
+      "cost": [
+        {"amount": "200", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Light Horsemen and Cavalry Archers train +100% faster."
+    },
+    "imperial": {
+      "title": "Cuman Mercenaries",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "All team members can train 5 free Elite Kipchaks per Castle."
+    }
+  },
+  "dravidians": {
+    "castle": {
+      "title": "Medical Corps",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Elephant Units regenerate 30 HP per minute."
+    },
+    "imperial": {
+      "title": "Wootz Steel",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "550", "resource": "gold"}
+      ],
+      "description": "Infantry and Cavalry attacks ignore armor."
+    }
+  },
+  "ethiopians": {
+    "castle": {
+      "title": "Royal Heirs",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Shotel Warriors and Camel Riders receive -3 damage from Mounted Units."
+    },
+    "imperial": {
+      "title": "Torsion Engines",
+      "cost": [
+        {"amount": "1000", "resource": "food"},
+        {"amount": "600", "resource": "gold"}
+      ],
+      "description": "Siege Workshop Units' blast radius increased."
+    }
+  },
+  "franks": {
+    "castle": {
+      "title": "Bearded Axe",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Throwing Axemen +2 range."
+    },
+    "imperial": {
+      "title": "Chivalry",
+      "cost": [
+        {"amount": "600", "resource": "wood"},
+        {"amount": "500", "resource": "gold"}
+      ],
+      "description": "Stables work +40% faster."
+    }
+  },
+  "georgians": {
+    "castle": {
+      "title": "Svan Towers",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Fortifications +2 attack; Watch Tower-line deals pass through damage."
+    },
+    "imperial": {
+      "title": "Aznauri Cavalry",
+      "cost": [
+        {"amount": "750", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Mounted Units take -15% population space."
+    }
+  },
+  "goths": {
+    "castle": {
+      "title": "Anarchy",
+      "cost": [
+        {"amount": "450", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Huskarls can be trained at Barracks."
+    },
+    "imperial": {
+      "title": "Perfusion",
+      "cost": [
+        {"amount": "400", "resource": "wood"},
+        {"amount": "600", "resource": "gold"}
+      ],
+      "description": "Barracks work +100% faster."
+    }
+  },
+  "gurjaras": {
+    "castle": {
+      "title": "Kshatriyas",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Military Units cost -25% food."
+    },
+    "imperial": {
+      "title": "Frontier Guards",
+      "cost": [
+        {"amount": "800", "resource": "food"},
+        {"amount": "700", "resource": "gold"}
+      ],
+      "description": "Camel Riders and Elephant Archers +4 melee armor."
+    }
+  },
+  "hindustanis": {
+    "castle": {
+      "title": "Grand Trunk Road",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "200", "resource": "wood"}
+      ],
+      "description": "All gold income +10% faster; Market trading fee reduced to 10%."
+    },
+    "imperial": {
+      "title": "Shatagni",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "650", "resource": "gold"}
+      ],
+      "description": "Hand Cannoneers +2 range."
+    }
+  },
+  "huns": {
+    "castle": {
+      "title": "Marauders",
+      "cost": [
+        {"amount": "300", "resource": "wood"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Tarkans can be trained at Stables."
+    },
+    "imperial": {
+      "title": "Atheism",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Enemy Relics generate -50% resources; Wonder and Relic victory takes +100 years."
+    }
+  },
+  "inca": {
+    "castle": {
+      "title": "Andean Sling",
+      "cost": [
+        {"amount": "200", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Skirmishers and Slingers no minimum range; Slingers +1 attack."
+    },
+    "imperial": {
+      "title": "Fabric Shields",
+      "cost": [
+        {"amount": "600", "resource": "food"},
+        {"amount": "600", "resource": "gold"}
+      ],
+      "description": "Kamayuks, Slingers and Eagle Warriors +1 melee/+2 pierce armor."
+    }
+  },
+  "italians": {
+    "castle": {
+      "title": "Silk Road",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Trade Units cost -50%."
+    },
+    "imperial": {
+      "title": "Pirotechnia",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "500", "resource": "gold"}
+      ],
+      "description": "Hand Cannoneers deal +15% pass through damage and are more accurate."
+    }
+  },
+  "japanese": {
+    "castle": {
+      "title": "Yasama",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Watch Tower-line fires additional arrows."
+    },
+    "imperial": {
+      "title": "Kataparuto",
+      "cost": [
+        {"amount": "550", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Trebuchets attack and pack/unpack faster."
+    }
+  },
+  "jurchens": {
+    "castle": {
+      "title": "Fortified Bastions",
+      "cost": [
+        {"amount": "350", "resource": "food"},
+        {"amount": "250", "resource": "wood"}
+      ],
+      "description": "Fortifications regenerate 500 HP per minute."
+    },
+    "imperial": {
+      "title": "Thunderclap Bombs",
+      "cost": [
+        {"amount": "900", "resource": "food"},
+        {"amount": "600", "resource": "gold"}
+      ],
+      "description": "Rocket Carts, Grenadiers and Lou Chuans detonate when defeated; projectiles produce additional explosions."
+    }
+  },
+  "khitans": {
+    "castle": {
+      "title": "Lamellar Armor",
+      "cost": [
+        {"amount": "450", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Infantry and Skirmishers reflect 25% melee damage back to the attacker."
+    },
+    "imperial": {
+      "title": "Ordo Cavalry",
+      "cost": [
+        {"amount": "600", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Cavalry regenerates HP in combat."
+    }
+  },
+  "khmer": {
+    "castle": {
+      "title": "Tusk Swords",
+      "cost": [
+        {"amount": "300", "resource": "wood"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Battle Elephants +3 attack."
+    },
+    "imperial": {
+      "title": "Double Crossbows",
+      "cost": [
+        {"amount": "700", "resource": "food"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Ballista Elephants and Scorpions fire an additional projectile."
+    }
+  },
+  "koreans": {
+    "castle": {
+      "title": "Eupseong",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Watch Tower-line +2 range."
+    },
+    "imperial": {
+      "title": "Shinkichon",
+      "cost": [
+        {"amount": "1100", "resource": "food"},
+        {"amount": "800", "resource": "gold"}
+      ],
+      "description": "Rocket Carts and Turtle Ships +1 range, fire additional projectiles."
+    }
+  },
+  "lithuanians": {
+    "castle": {
+      "title": "Hill Forts",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Town Centers +3 range."
+    },
+    "imperial": {
+      "title": "Tower Shields",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Spearman-line and Skirmishers +2 pierce armor."
+    }
+  },
+  "magyars": {
+    "castle": {
+      "title": "Corvinian Army",
+      "cost": [
+        {"amount": "200", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Magyar Huszar gold cost is replaced by additional food cost."
+    },
+    "imperial": {
+      "title": "Recurve Bow",
+      "cost": [
+        {"amount": "600", "resource": "wood"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Mounted Archers +1 attack, +1 range."
+    }
+  },
+  "malay": {
+    "castle": {
+      "title": "Thalassocracy",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Docks are upgraded to Harbors."
+    },
+    "imperial": {
+      "title": "Forced Levy",
+      "cost": [
+        {"amount": "850", "resource": "food"},
+        {"amount": "500", "resource": "gold"}
+      ],
+      "description": "Militia-line gold cost is replaced by additional food cost."
+    }
+  },
+  "malians": {
+    "castle": {
+      "title": "Tigui",
+      "cost": [
+        {"amount": "200", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Town Centers fire arrows without garrison."
+    },
+    "imperial": {
+      "title": "Farimba",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Cavalry +5 attack."
+    }
+  },
+  "maya": {
+    "castle": {
+      "title": "Hul'che Javelineers",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Skirmishers fire an additional projectile."
+    },
+    "imperial": {
+      "title": "El Dorado",
+      "cost": [
+        {"amount": "750", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Eagle Warriors +40 HP."
+    }
+  },
+  "mongols": {
+    "castle": {
+      "title": "Nomads",
+      "cost": [
+        {"amount": "300", "resource": "wood"},
+        {"amount": "150", "resource": "gold"}
+      ],
+      "description": "Lost Houses do not decrease population space."
+    },
+    "imperial": {
+      "title": "Drill",
+      "cost": [
+        {"amount": "500", "resource": "wood"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Siege Workshop Units move +50% faster."
+    }
+  },
+  "persians": {
+    "castle": {
+      "title": "Kamandaran",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Archer-line gold cost replaced by additional wood cost."
+    },
+    "imperial": {
+      "title": "Citadels",
+      "cost": [
+        {"amount": "600", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Castles +4 attack, +3 vs. Rams, +3 vs. Infantry and receive -25% bonus damage."
+    }
+  },
+  "poles": {
+    "castle": {
+      "title": "Szlachta Privileges",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Knight-line costs -60% gold."
+    },
+    "imperial": {
+      "title": "Lechitic Legacy",
+      "cost": [
+        {"amount": "750", "resource": "food"},
+        {"amount": "550", "resource": "gold"}
+      ],
+      "description": "Scout Cavalry-line deals trample damage."
+    }
+  },
+  "portuguese": {
+    "castle": {
+      "title": "Carrack",
+      "cost": [
+        {"amount": "200", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Ships +1 melee/+1 pierce armor."
+    },
+    "imperial": {
+      "title": "Arquebus",
+      "cost": [
+        {"amount": "700", "resource": "food"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Gunpowder Units fire more accurately at moving targets."
+    }
+  },
+  "romans": {
+    "castle": {
+      "title": "Ballistas",
+      "cost": [
+        {"amount": "400", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Scorpions attack +33% faster; Galley-line +2 attack."
+    },
+    "imperial": {
+      "title": "Comitatenses",
+      "cost": [
+        {"amount": "700", "resource": "food"},
+        {"amount": "800", "resource": "gold"}
+      ],
+      "description": "Militia-line, Knight-line, and Centurions train +50% faster and receive a charge attack."
+    }
+  },
+  "saracens": {
+    "castle": {
+      "title": "Bimaristan",
+      "cost": [
+        {"amount": "300", "resource": "wood"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Monks passively heal multiple nearby units."
+    },
+    "imperial": {
+      "title": "Counterweights",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "500", "resource": "gold"}
+      ],
+      "description": "Trebuchets and Mangonel-line +15% attack."
+    }
+  },
+  "shu": {
+    "castle": {
+      "title": "Coiled Serpent Array",
+      "cost": [
+        {"amount": "350", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Spearman-line and White Feather Guards gain additional HP when near each other."
+    },
+    "imperial": {
+      "title": "Bolt Magazine",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "750", "resource": "gold"}
+      ],
+      "description": "Archer-line, War Chariots and Lou Chuans fire additional projectiles."
+    }
+  },
+  "sicilians": {
+    "castle": {
+      "title": "First Crusade",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Up to 5 Town Centers spawn 5 Serjeants each; units more resistant to conversion."
+    },
+    "imperial": {
+      "title": "Hauberk",
+      "cost": [
+        {"amount": "700", "resource": "food"},
+        {"amount": "600", "resource": "gold"}
+      ],
+      "description": "Knight-line +1 melee/+2 pierce armor."
+    }
+  },
+  "slavs": {
+    "castle": {
+      "title": "Detinets",
+      "cost": [
+        {"amount": "400", "resource": "wood"},
+        {"amount": "200", "resource": "gold"}
+      ],
+      "description": "Replaces 40% of Castle and Watch Tower-line stone cost with additional wood cost."
+    },
+    "imperial": {
+      "title": "Druzhina",
+      "cost": [
+        {"amount": "900", "resource": "food"},
+        {"amount": "500", "resource": "gold"}
+      ],
+      "description": "Infantry deals trample damage."
+    }
+  },
+  "spanish": {
+    "castle": {
+      "title": "Inquisition",
+      "cost": [
+        {"amount": "1000", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Monks and Missionaries convert faster; Missionaries +1 range."
+    },
+    "imperial": {
+      "title": "Supremacy",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Villagers +40 HP, +6 attack, +2 melee/+2 pierce armor."
+    }
+  },
+  "tatars": {
+    "castle": {
+      "title": "Silk Armor",
+      "cost": [
+        {"amount": "400", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Light Horsemen and Cavalry Archers +1 melee/+1 pierce armor."
+    },
+    "imperial": {
+      "title": "Timurid Siegecraft",
+      "cost": [
+        {"amount": "500", "resource": "wood"},
+        {"amount": "400", "resource": "gold"}
+      ],
+      "description": "Trebuchets +2 range."
+    }
+  },
+  "teutons": {
+    "castle": {
+      "title": "Ironclad",
+      "cost": [
+        {"amount": "400", "resource": "wood"},
+        {"amount": "350", "resource": "gold"}
+      ],
+      "description": "Siege Weapons +4 melee armor."
+    },
+    "imperial": {
+      "title": "Crenellations",
+      "cost": [
+        {"amount": "600", "resource": "food"},
+        {"amount": "400", "resource": "stone"}
+      ],
+      "description": "Castles +3 range, garrisoned Infantry fires arrows."
+    }
+  },
+  "turks": {
+    "castle": {
+      "title": "Sipahi",
+      "cost": [
+        {"amount": "350", "resource": "food"},
+        {"amount": "150", "resource": "gold"}
+      ],
+      "description": "Mounted Archers +20 HP."
+    },
+    "imperial": {
+      "title": "Artillery",
+      "cost": [
+        {"amount": "600", "resource": "food"},
+        {"amount": "650", "resource": "gold"}
+      ],
+      "description": "Bombard Towers, Bombard Cannons, Cannon Galleons +2 range."
+    }
+  },
+  "vietnamese": {
+    "castle": {
+      "title": "Chatras",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Battle Elephants +100 HP."
+    },
+    "imperial": {
+      "title": "Paper Money",
+      "cost": [
+        {"amount": "550", "resource": "food"},
+        {"amount": "200", "resource": "wood"}
+      ],
+      "description": "Lumberjacks slowly generate gold in addition to wood."
+    }
+  },
+  "vikings": {
+    "castle": {
+      "title": "Chieftains",
+      "cost": [
+        {"amount": "600", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Infantry +5 attack vs. Cavalry, +4 vs. Camel Units; generate +5 gold when defeating Villagers, Trade Units and Monks."
+    },
+    "imperial": {
+      "title": "Bogsveigar",
+      "cost": [
+        {"amount": "650", "resource": "food"},
+        {"amount": "500", "resource": "gold"}
+      ],
+      "description": "Archer-line and Longboats +1 attack."
+    }
+  },
+  "wei": {
+    "castle": {
+      "title": "Tuntian",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "300", "resource": "wood"}
+      ],
+      "description": "Soldiers passively produce food."
+    },
+    "imperial": {
+      "title": "Ming Guang Armor",
+      "cost": [
+        {"amount": "600", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Mounted Units +4 melee armor."
+    }
+  },
+  "wu": {
+    "castle": {
+      "title": "Red Cliffs Tactics",
+      "cost": [
+        {"amount": "400", "resource": "food"},
+        {"amount": "250", "resource": "gold"}
+      ],
+      "description": "Demolition Ships and Fire Archers deal fire damage to ships and buildings."
+    },
+    "imperial": {
+      "title": "Sitting Tiger",
+      "cost": [
+        {"amount": "600", "resource": "wood"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Traction Trebuchets and Lou Chuan trebuchet weapons fire additional projectiles."
+    }
+  }
+}

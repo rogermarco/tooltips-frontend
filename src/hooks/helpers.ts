@@ -38,3 +38,15 @@ export function useProfiles() {
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
+
+export function useUniquestrings() {
+  return useSuspenseQuery({
+    queryKey: ["uniquestrings"],
+    queryFn: async () => {
+      const res = await fetch(TEXT_URL + "uniquestrings.json");
+      if (!res.ok) throw new Error("Failed to fetch text content");
+      return res.json();
+    },
+    staleTime: 1000 * 60 * 60, // 1 hour
+  });
+}
