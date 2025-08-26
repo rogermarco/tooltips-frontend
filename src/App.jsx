@@ -33,44 +33,44 @@ function App() {
   }); // Viewers stream window resolution
   const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
-  const [profile, setProfile] = useState(profiles.t90Official); // Which coordinates to use // Some streamers have different CaptureAge layouts
+  const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;
 
   // Comment out for testing
-  // const fetchCivs = async (streamUrl) => {
-  //   try {
-  //     const { data: response } = await supabase
-  //       .from('streamdata')
-  //       .select('civ_data')
-  //       .eq('broadcaster_name', streamUrl)
-  //       .single();
-  //     const convertedArray = JSON.parse(response.civ_data);
+  const fetchCivs = async (streamUrl) => {
+    try {
+      const { data: response } = await supabase
+        .from('streamdata')
+        .select('civ_data')
+        .eq('broadcaster_name', streamUrl)
+        .single();
+      const convertedArray = JSON.parse(response.civ_data);
 
-  //     if (!showNotice) {
-  //       setShowNotice(true);
-  //     }
+      if (!showNotice) {
+        setShowNotice(true);
+      }
 
-  //     return convertedArray;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return null;
-  //   }
-  // };
+      return convertedArray;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
 
-  // const { data: civs } = useQuery({
-  //   queryKey: ['civs', streamUrl],
-  //   queryFn: () => fetchCivs(streamUrl),
-  //   staleTime: Infinity,
-  //   refetchOnMount: false,
-  //   refetchOnWindowFocus: false,
-  //   refetchInterval: 180000, // 3 minutes
-  //   cacheTime: 180000,
-  //   enabled: !!streamUrl,
-  // });
+  const { data: civs } = useQuery({
+    queryKey: ['civs', streamUrl],
+    queryFn: () => fetchCivs(streamUrl),
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: 180000, // 3 minutes
+    cacheTime: 180000,
+    enabled: !!streamUrl,
+  });
   // DEBUG TESTING
-  const civs = ['khitans', 'shu'];
+  // const civs = ['byzantines', 'aztecs'];
 
   const componentsLeft = [
     <Ballistics key='ballistics' />,
