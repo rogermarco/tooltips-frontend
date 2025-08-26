@@ -17,8 +17,8 @@
 
     "coordinatesLeft":{"ballistics.png":[104,58,4],"bloodlines.png":[136,58,5],"fletching.png":[104,101,9],
     "forging.png":[5,101,6],"bit_axe.png":[5,58,1],"horsecollar.png":[37,58,2],"pad_arch_arm.png":[136,101,10],
-    "scale_bard_arm.png":[37,101,7],"scale_mail_arm.png":[69,101,8],"wheelbarrow.png":[69,58,3]}, 
-    "castle.png":[168,58,21], "imperial.png":[168,101,22],
+    "scale_bard_arm.png":[37,101,7],"scale_mail_arm.png":[69,101,8],"wheelbarrow.png":[69,58,3],
+    "castle.png":[168,58,21], "imperial.png":[168,101,22]},
     "leftCivBox": [570,13], "rightCivBox": [1130,13]},
 
   "membTV":
