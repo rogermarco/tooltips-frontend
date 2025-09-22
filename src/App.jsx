@@ -122,6 +122,7 @@ function App() {
   // Fetch streamer from Twitch context
   useEffect(() => {
     twitch.onContext((context) => {
+      // console.log(context); // DEBUG
       if (context.playerChannel !== streamUrl) {
         const stream = context.playerChannel;
         setStreamUrl(stream);

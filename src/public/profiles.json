@@ -9,7 +9,7 @@
     "scale_bard_arm.png":[37,48,7],"scale_mail_arm.png":[69,48,8],"wheelbarrow.png":[69,5,3]}, 
     "leftCivBox": [650,0], "rightCivBox": [1050,0]},
 
-  "T90Official":
+  "t90official":
     {"coordinatesRight":{"ballistics.png":[1820,58,14],"bloodlines.png":[1852,58,15],"fletching.png":[1820,101,19],
     "forging.png":[1722,101,16],"bit_axe.png":[1722,58,11],"horsecollar.png":[1755,58,12],"pad_arch_arm.png":[1852,101,20],
     "scale_bard_arm.png":[1755,101,17],"scale_mail_arm.png":[1787,101,18],"wheelbarrow.png":[1787,58,13],
@@ -21,7 +21,7 @@
     "castle.png":[168,58,21], "imperial.png":[168,101,22]},
     "leftCivBox": [570,13], "rightCivBox": [1130,13]},
 
-  "MembTV":
+  "membtv":
     {"coordinatesRight":{"ballistics.png":[1854,34,14],"bloodlines.png":[1886,34,15],"fletching.png":[1854,78,19],
     "forging.png":[1755,78,16],"bit_axe.png":[1755,34,11],"horsecollar.png":[1787,34,12],"pad_arch_arm.png":[1886,78,20],
     "scale_bard_arm.png":[1787,78,17],"scale_mail_arm.png":[1819,78,18],"wheelbarrow.png":[1819,34,13]},
