@@ -1,0 +1,557 @@
+{
+  "barracks": {
+    "lines": {
+      "militia": {
+        "progression": ["militia", "man-at-arms", "longsword", "two-handed-sword", "champion", "centurion"],
+        "cost": [
+          {"amount": 50, "resource": "food"},
+          {"amount": 20, "resource": "gold"}
+        ]
+      },
+      "spearman": {
+        "progression": ["spearman", "pikeman", "halberdier"],
+        "cost": [
+          {"amount": 35, "resource": "food"},
+          {"amount": 25, "resource": "wood"}
+        ]
+      },
+      "eagle-scout": {
+        "progression": ["eagle-scout", "eagle-warrior", "elite-eagle-warrior"],
+        "cost": [
+          {"amount": 25, "resource": "food"},
+          {"amount": 50, "resource": "gold"}
+        ]
+      },
+      "flemish-militia": {
+        "progression": ["flemish-militia"],
+        "cost": [
+          {"amount": 30, "resource": "food"},
+          {"amount": 25, "resource": "gold"}
+        ]
+      },
+      "fire-lancer": {
+        "progression": ["fire-lancer", "elite-fire-lancer"],
+        "cost": [
+          {"amount": 40, "resource": "wood"},
+          {"amount": 45, "resource": "gold"}
+        ]
+      },
+      "jian-swordsman": {
+        "progression": ["jian-swordsman"],
+        "cost": [
+          {"amount": 45, "resource": "food"},
+          {"amount": 50, "resource": "gold"}
+        ]
+      },
+      "condottiero": {
+        "progression": ["condottiero"],
+        "cost": [
+          {"amount": 50, "resource": "food"},
+          {"amount": 35, "resource": "gold"}
+        ]
+      }
+    },
+    "techs": {
+      "arson": {
+        "cost": [
+          {"amount": 75, "resource": "food"},
+          {"amount": 25, "resource": "gold"}
+        ]
+      },
+      "gambesons": {
+        "cost": [
+          {"amount": 100, "resource": "food"},
+          {"amount": 100, "resource": "gold"}
+        ]
+      },
+      "squires": {
+        "cost": [
+          {"amount": 100, "resource": "food"}
+        ]
+      }
+    }
+  },
+  "archery-range": {
+    "lines": {
+      "archer": {
+        "progression": ["archer", "crossbowman", "arbalester"],
+        "cost": [
+          {"amount": 25, "resource": "wood"},
+          {"amount": 45, "resource": "gold"}
+        ]
+      },
+      "skirmisher": {
+        "progression": ["skirmisher", "elite-skirmisher", "imperial-skirmisher"],
+        "cost": [
+          {"amount": 25, "resource": "food"},
+          {"amount": 35, "resource": "wood"}
+        ]
+      },
+      "cavalry-archer": {
+        "progression": ["cavalry-archer", "heavy-cavalry-archer"],
+        "cost": [
+          {"amount": 40, "resource": "wood"},
+          {"amount": 60, "resource": "gold"}
+        ]
+      },
+      "slinger": {
+        "progression": ["slinger"],
+        "cost": [
+          {"amount": 40, "resource": "food"},
+          {"amount": 40, "resource": "gold"}
+        ]
+      },
+      "hand-cannoneer": {
+        "progression": ["hand-cannoneer"],
+        "cost": [
+          {"amount": 45, "resource": "food"},
+          {"amount": 50, "resource": "gold"}
+        ]
+      },
+      "elephant-archer": {
+        "progression": ["elephant-archer", "elite-elephant-archer"],
+        "cost": [
+          {"amount": 60, "resource": "food"},
+          {"amount": 50, "resource": "gold"}
+        ]
+      },
+      "genitour": {
+        "progression": ["genitour", "elite-genitour"],
+        "cost": [
+          {"amount": 40, "resource": "food"},
+          {"amount": 35, "resource": "wood"}
+        ]
+      },
+      "grenadier": {
+        "progression": ["grenadier"],
+        "cost": [
+          {"amount": 35, "resource": "food"},
+          {"amount": 65, "resource": "gold"}
+        ]
+      },
+      "xianbei-raider": {
+        "progression": ["xianbei-raider"],
+        "cost": [
+          {"amount": 60, "resource": "wood"},
+          {"amount": 25, "resource": "gold"}
+        ]
+      }
+    },
+    "techs": {
+      "thumb-ring": {
+        "cost": [
+          {"amount": 300, "resource": "food"},
+          {"amount": 250, "resource": "wood"}
+        ]
+      },
+      "parthian-tactics": {
+        "cost": [
+          {"amount": 200, "resource": "food"},
+          {"amount": 250, "resource": "gold"}
+        ]
+      }
+    }
+  },
+  "stable": {
+    "lines": {
+      "scout": {
+        "progression": ["scout", "light-cavalry", "hussar"],
+        "cost": [
+          {"amount": 80, "resource": "food"}
+        ]
+      },
+      "knight": {
+        "progression": ["knight", "cavalier", "paladin", "savar"],
+        "cost": [
+          {"amount": 60, "resource": "food"},
+          {"amount": 75, "resource": "gold"}
+        ]
+      },
+      "xolotl-warrior": {
+        "progression": ["xolotl-warrior"],
+        "cost": [
+          {"amount": 60, "resource": "food"},
+          {"amount": 75, "resource": "gold"}
+        ]
+      },
+      "camel-scout": {
+        "progression": ["camel-scout", "camel-rider", "heavy-camel-rider", "imperial-camel-rider"],
+        "cost": [
+          {"amount": 55, "resource": "food"},
+          {"amount": 60, "resource": "gold"}
+        ]
+      },
+      "steppe-lancer": {
+        "progression": ["steppe-lancer", "elite-steppe-lancer"],
+        "cost": [
+          {"amount": 70, "resource": "food"},
+          {"amount": 40, "resource": "gold"}
+        ]
+      },
+      "battle-elephant": {
+        "progression": ["battle-elephant", "elite-battle-elephant"],
+        "cost": [
+          {"amount": 100, "resource": "food"},
+          {"amount": 70, "resource": "gold"}
+        ]
+      },
+      "hei-guang-cavalry": {
+        "progression": ["hei-guang-cavalry", "heavy-hei-guang-cavalry"],
+        "cost": [
+          {"amount": 65, "resource": "food"},
+          {"amount": 65, "resource": "gold"}
+        ]
+      },
+      "shrivamsha-rider": {
+        "progression": ["shrivamsha-rider", "elite-shrivamsha-rider"],
+        "cost": [
+          {"amount": 70, "resource": "food"},
+          {"amount": 30, "resource": "gold"}
+        ]
+      }
+    },
+    "techs": {
+      "bloodlines": {
+        "cost": [
+          {"amount": 150, "resource": "food"},
+          {"amount": 100, "resource": "gold"}
+        ]
+      },
+      "husbandry": {
+        "cost": [
+          {"amount": 150, "resource": "food"}
+        ]
+      }
+    }
+  },
+  "siege-workshop": {
+    "lines": {
+      "battering-ram": {
+        "progression": ["battering-ram", "capped-ram", "siege-ram"],
+        "cost": [
+          {"amount": 160, "resource": "wood"},
+          {"amount": 75, "resource": "gold"}
+        ]
+      },
+      "armored-elephant": {
+        "progression": ["armored-elephant", "siege-elephant"],
+        "cost": [
+          {"amount": 120, "resource": "food"},
+          {"amount": 95, "resource": "gold"}
+        ]
+      },
+      "mangonel": {
+        "progression": ["mangonel", "onagerr", "seige-onager"],
+        "cost": [
+          {"amount": 160, "resource": "wood"},
+          {"amount": 135, "resource": "gold"}
+        ]
+      },
+      "scorpion": {
+        "progression": ["scorpion", "heavy-scorpion"],
+        "cost": [
+          {"amount": 75, "resource": "wood"},
+          {"amount": 75, "resource": "gold"}
+        ]
+      },
+      "rocket-cart": {
+        "progression": ["rocket-cart", "heavy-rocket-cart"],
+        "cost": [
+          {"amount": 130, "resource": "wood"},
+          {"amount": 155, "resource": "gold"}
+        ]
+      },
+      "siege-tower": {
+        "progression": ["siege-tower"],
+        "cost": [
+          {"amount": 100, "resource": "wood"},
+          {"amount": 120, "resource": "gold"}
+        ]
+      },
+      "war-chariot": {
+        "progression": ["war-chariot"],
+        "cost": [
+          {"amount": 65, "resource": "food"},
+          {"amount": 90, "resource": "gold"}
+        ]
+      },
+      "bombard-cannon": {
+        "progression": ["bombard-cannon", "houfnice"],
+        "cost": [
+          {"amount": 225, "resource": "wood"},
+          {"amount": 225, "resource": "gold"}
+        ]
+      },
+      "flaming-camel": {
+        "progression": ["flaming-camel"],
+        "cost": [
+          {"amount": 75, "resource": "food"},
+          {"amount": 30, "resource": "gold"}
+        ]
+      },
+      "mounted-trebuchet": {
+        "progression": ["mounted-trebuchet"],
+        "cost": [
+          {"amount": 175, "resource": "food"},
+          {"amount": 175, "resource": "gold"}
+        ]
+      },
+      "traction-trebuchet": {
+        "progression": ["traction-trebuchet"],
+        "cost": [
+          {"amount": 175, "resource": "wood"},
+          {"amount": 210, "resource": "gold"}
+        ]
+      }
+    }
+  },
+  "dock": {
+    "lines": {
+      "fire-galley": {
+        "progression": ["fire-galley", "fire-ship", "fast-fire-ship", "dragon-ship"],
+        "cost": [
+          {"amount": 75, "resource": "wood"},
+          {"amount": 45, "resource": "gold"}
+        ]
+      },
+      "galley": {
+        "progression": ["galley", "war-galley", "galleon"],
+        "cost": [
+          {"amount": 90, "resource": "wood"},
+          {"amount": 30, "resource": "gold"}
+        ]
+      },
+      "demolition-raft": {
+        "progression": ["demolition-raft", "demolition-ship", "heavy-demolition-ship"],
+        "cost": [
+          {"amount": 70, "resource": "wood"},
+          {"amount": 50, "resource": "gold"}
+        ]
+      },
+      "cannon-galleon": {
+        "progression": ["cannon-galleon", "elite-cannon-galleon"],
+        "cost": [
+          {"amount": 200, "resource": "wood"},
+          {"amount": 150, "resource": "gold"}
+        ]
+      },
+      "turtle-ship": {
+        "progression": ["turtle-ship", "elite-turtle-ship"],
+        "cost": [
+          {"amount": 190, "resource": "wood"},
+          {"amount": 180, "resource": "gold"}
+        ]
+      },
+      "longboat": {
+        "progression": ["longboat", "elite-longboat"],
+        "cost": [
+          {"amount": 100, "resource": "wood"},
+          {"amount": 50, "resource": "gold"}
+        ]
+      },
+      "caravel": {
+        "progression": ["caravel", "elite-caravel"],
+        "cost": [
+          {"amount": 90, "resource": "wood"},
+          {"amount": 43, "resource": "gold"}
+        ]
+      },
+      "dromon": {
+        "progression": ["dromon"],
+        "cost": [
+          {"amount": 175, "resource": "wood"},
+          {"amount": 150, "resource": "gold"}
+        ]
+      },
+      "lou-chuan": {
+        "progression": ["lou-chuan"],
+        "cost": [
+          {"amount": 250, "resource": "wood"},
+          {"amount": 225, "resource": "gold"}
+        ]
+      },
+      "thirisadai": {
+        "progression": ["thirisadai"],
+        "cost": [
+          {"amount": 180, "resource": "wood"},
+          {"amount": 60, "resource": "gold"}
+        ]
+      }
+    },
+    "techs": {
+      "gillnets": {
+        "cost": [
+          {"amount": 150, "resource": "food"},
+          {"amount": 200, "resource": "wood"}
+        ]
+      },
+      "shipwright": {
+        "cost": [
+          {"amount": 1000, "resource": "food"},
+          {"amount": 300, "resource": "gold"}
+        ]
+      },
+      "careening": {
+        "cost": [
+          {"amount": 250, "resource": "food"},
+          {"amount": 150, "resource": "gold"}
+        ]
+      },
+      "dry-dock": {
+        "cost": [
+          {"amount": 600, "resource": "food"},
+          {"amount": 400, "resource": "gold"}
+        ]
+      }
+    }
+  },
+  "university": {
+    "techs": {
+      "masonry": {
+        "cost": [
+          {"amount": 150, "resource": "food"},
+          {"amount": 175, "resource": "wood"}
+        ]
+      },
+      "architecture": {
+        "cost": [
+          {"amount": 300, "resource": "food"},
+          {"amount": 200, "resource": "wood"}
+        ]
+      },
+      "guard-tower": {
+        "cost": [
+          {"amount": 100, "resource": "food"},
+          {"amount": 250, "resource": "wood"}
+        ]
+      },
+      "keep": {
+        "cost": [
+          {"amount": 500, "resource": "food"},
+          {"amount": 350, "resource": "wood"}
+        ]
+      },
+      "chemistry": {
+        "cost": [
+          {"amount": 300, "resource": "food"},
+          {"amount": 200, "resource": "gold"}
+        ]
+      },
+      "bombard-tower": {
+        "cost": [
+          {"amount": 800, "resource": "food"},
+          {"amount": 400, "resource": "wood"}
+        ]
+      },
+      "fortified-wall": {
+        "cost": [
+          {"amount": 200, "resource": "food"},
+          {"amount": 100, "resource": "wood"}
+        ]
+      },
+      "ballistics": {
+        "cost": [
+          {"amount": 300, "resource": "wood"},
+          {"amount": 175, "resource": "gold"}
+        ]
+      },
+      "siege-engineers": {
+        "cost": [
+          {"amount": 500, "resource": "food"},
+          {"amount": 600, "resource": "wood"}
+        ]
+      },
+      "heated-shot": {
+        "cost": [
+          {"amount": 350, "resource": "food"},
+          {"amount": 100, "resource": "gold"}
+        ]
+      },
+      "murder-holes": {
+        "cost": [
+          {"amount": 200, "resource": "food"},
+          {"amount": 100, "resource": "stone"}
+        ]
+      },
+      "treadmill-crane": {
+        "cost": [
+          {"amount": 200, "resource": "wood"},
+          {"amount": 50, "resource": "stone"}
+        ]
+      },
+      "arrowslits": {
+        "cost": [
+          {"amount": 250, "resource": "food"},
+          {"amount": 250, "resource": "wood"}
+        ]
+      }
+    }
+  },
+  "monastery": {
+    "techs": {
+      "devotion": {
+        "cost": [
+          {"amount": 100, "resource": "food"},
+          {"amount": 200, "resource": "gold"}
+        ]
+      },
+      "faith": {
+        "cost": [
+          {"amount": 550, "resource": "food"},
+          {"amount": 750, "resource": "gold"}
+        ]
+      },
+      "redemption": {
+        "cost": [
+          {"amount": 475, "resource": "gold"}
+        ]
+      },
+      "atonement": {
+        "cost": [
+          {"amount": 325, "resource": "gold"}
+        ]
+      },
+      "herbal-medicine": {
+        "cost": [
+          {"amount": 200, "resource": "gold"}
+        ]
+      },
+      "heresy": {
+        "cost": [
+          {"amount": 1000, "resource": "gold"}
+        ]
+      },
+      "sanctity": {
+        "cost": [
+          {"amount": 175, "resource": "gold"}
+        ]
+      },
+      "fervor": {
+        "cost": [
+          {"amount": 140, "resource": "gold"}
+        ]
+      },
+      "illumination": {
+        "cost": [
+          {"amount": 120, "resource": "gold"}
+        ]
+      },
+      "block-printing": {
+        "cost": [
+          {"amount": 200, "resource": "gold"}
+        ]
+      },
+      "theocracy": {
+        "cost": [
+          {"amount": 200, "resource": "gold"}
+        ]
+      },
+      "warrior-priest": {
+        "cost": [
+          {"amount": 30, "resource": "food"},
+          {"amount": 60, "resource": "gold"}
+        ]
+      }
+    }
+  }
+}

@@ -66,7 +66,7 @@ span.tooltip-cost > span > img {
 .tooltip-box {
   position: absolute;
   /* DEBUG */
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .civ-tooltip {
@@ -74,11 +74,11 @@ span.tooltip-cost > span > img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  max-width: 375px;
+  width: 375px;
   height: 450px;
 }
 
-.civ-tooltip-text {
+.civ-tooltip-text, .tech-tree {
   color: black;
   padding-top: 22px;
   margin: 0px 35px;
@@ -110,6 +110,12 @@ span.tooltip-cost > span > img {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+}
+
+.page-buttons {
+  position: absolute;
+  top: 5%;
+  right: 10%;
 }
 
 @keyframes pulse {
