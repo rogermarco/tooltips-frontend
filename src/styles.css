@@ -118,6 +118,12 @@ span.tooltip-cost > span > img {
   right: 10%;
 }
 
+.tech-icon {
+  height: 35px;
+  margin-top: 5px;
+  /* width: auto; */
+}
+
 @keyframes pulse {
   0%, 100% {
     opacity: .9;

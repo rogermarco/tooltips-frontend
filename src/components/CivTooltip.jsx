@@ -6,7 +6,7 @@ import arrowRight from '../public/arrow_right.png';
 import TechTree from './TechTree';
 
 export default function CivTooltip({ civ }) {
-  const [visiblePage, setVisiblePage] = useState(1);
+  const [visiblePage, setVisiblePage] = useState(2);
   // 1 = overview, 2 = techtree
 
   const togglePageLeft = () => {
