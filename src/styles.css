@@ -118,10 +118,53 @@ span.tooltip-cost > span > img {
   right: 10%;
 }
 
+.tech-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.building-icon {
+  height: 40px;
+  box-shadow: 0px 0px 2px 1px #000;
+  margin-right: 5px;
+}
+
 .tech-icon {
-  height: 35px;
+  height: 30px;
   margin-top: 5px;
-  /* width: auto; */
+  margin-right: 5px;
+  box-shadow: 0px 0px 2px 1px #000;
+}
+
+.tech-icon.disabled {
+  filter: grayscale(100%);
+}
+
+.disabled-icon-overlay {
+  position: absolute;
+  top: 1px;
+  left: -4px;
+  width: 38px;
+}
+
+.tech-tree-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.tech-tree-section:first-child {
+  margin-top: 8px;
+}
+
+.uniques {
+  display: flex;
+}
+
+.icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
 }
 
 @keyframes pulse {

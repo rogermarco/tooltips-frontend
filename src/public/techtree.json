@@ -2,7 +2,7 @@
   "barracks": {
     "lines": {
       "militia": {
-        "progression": ["militia", "man-at-arms", "longsword", "two-handed-sword", "champion", "centurion"],
+        "progression": ["militia", "man-at-arms", "longsword", "two-handed-sword", "champion", "legionary"],
         "cost": [
           {"amount": 50, "resource": "food"},
           {"amount": 20, "resource": "gold"}
@@ -241,7 +241,7 @@
         ]
       },
       "mangonel": {
-        "progression": ["mangonel", "onagerr", "seige-onager"],
+        "progression": ["mangonel", "onager", "siege-onager"],
         "cost": [
           {"amount": 160, "resource": "wood"},
           {"amount": 135, "resource": "gold"}
@@ -379,12 +379,6 @@
       }
     },
     "techs": {
-      "gillnets": {
-        "cost": [
-          {"amount": 150, "resource": "food"},
-          {"amount": 200, "resource": "wood"}
-        ]
-      },
       "shipwright": {
         "cost": [
           {"amount": 1000, "resource": "food"},
@@ -488,6 +482,15 @@
     }
   },
   "monastery": {
+    "lines": {
+      "warrior-priest": {
+        "progression": ["warrior-priest"],
+        "cost": [
+          {"amount": 30, "resource": "food"},
+          {"amount": 60, "resource": "gold"}
+        ]
+      }
+    },
     "techs": {
       "devotion": {
         "cost": [
@@ -544,12 +547,6 @@
       "theocracy": {
         "cost": [
           {"amount": 200, "resource": "gold"}
-        ]
-      },
-      "warrior-priest": {
-        "cost": [
-          {"amount": 30, "resource": "food"},
-          {"amount": 60, "resource": "gold"}
         ]
       }
     }

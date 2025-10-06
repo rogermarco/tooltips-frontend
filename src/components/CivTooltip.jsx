@@ -4,6 +4,7 @@ import { useCivstrings } from "../hooks/helpers";
 import arrowLeft from '../public/arrow_left.png';
 import arrowRight from '../public/arrow_right.png';
 import TechTree from './TechTree';
+import civs from '../public/civstrings.json';
 
 export default function CivTooltip({ civ }) {
   const [visiblePage, setVisiblePage] = useState(2);
@@ -21,10 +22,9 @@ export default function CivTooltip({ civ }) {
     }
   }
 
-  const { data: civs, isLoading } = useCivstrings();
-  if (isLoading) return null;
+  // const { data: civs, isLoading } = useCivstrings();
+  // if (isLoading) return null;
   
-  // const civstrings = civs[civ];
   const requiredCiv = civs[civ];
 
   return (
@@ -34,9 +34,9 @@ export default function CivTooltip({ civ }) {
         <img src={arrowRight} className='tooltip-arrow-right' onClick={togglePageRight} />
       </div>
       {visiblePage === 1 ?
-      <div className='civ-tooltip-text' dangerouslySetInnerHTML={{ __html: requiredCiv }}></div>
+      <div className='civ-tooltip-text' dangerouslySetInnerHTML={{ __html: requiredCiv.string }}></div>
       :
-      <TechTree />
+      <TechTree civ={civ} />
       }
     </div>
   );

@@ -91,7 +91,7 @@
   },
   "britons": {
     "castle": {
-      "title": "Yeomen",
+      "title": "yeomen",
       "cost": [
         {"amount": "750", "resource": "wood"},
         {"amount": "450", "resource": "gold"}
@@ -99,7 +99,7 @@
       "description": "Foot Archers and Skirmisher-line +1 range; Watch Tower-line +2 attack."
     },
     "imperial": {
-      "title": "Warwolf",
+      "title": "warwolf",
       "cost": [
         {"amount": "800", "resource": "wood"},
         {"amount": "400", "resource": "gold"}
@@ -271,7 +271,7 @@
   },
   "franks": {
     "castle": {
-      "title": "Bearded Axe",
+      "title": "bearded-axe",
       "cost": [
         {"amount": "300", "resource": "food"},
         {"amount": "300", "resource": "gold"}
@@ -279,7 +279,7 @@
       "description": "Throwing Axemen +2 range."
     },
     "imperial": {
-      "title": "Chivalry",
+      "title": "chivalry",
       "cost": [
         {"amount": "600", "resource": "wood"},
         {"amount": "500", "resource": "gold"}
