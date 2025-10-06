@@ -2,7 +2,7 @@
   "barracks": {
     "lines": {
       "militia": {
-        "progression": ["militia", "man-at-arms", "longsword", "two-handed-sword", "champion", "legionary"],
+        "progression": ["militia", "man-at-arms", "longsword", "two-handed-sword", "champion"],
         "cost": [
           {"amount": 50, "resource": "food"},
           {"amount": 20, "resource": "gold"}
@@ -161,7 +161,7 @@
         ]
       },
       "knight": {
-        "progression": ["knight", "cavalier", "paladin", "savar"],
+        "progression": ["knight", "cavalier", "paladin"],
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 75, "resource": "gold"}
@@ -308,7 +308,7 @@
   "dock": {
     "lines": {
       "fire-galley": {
-        "progression": ["fire-galley", "fire-ship", "fast-fire-ship", "dragon-ship"],
+        "progression": ["fire-galley", "fire-ship", "fast-fire-ship"],
         "cost": [
           {"amount": 75, "resource": "wood"},
           {"amount": 45, "resource": "gold"}

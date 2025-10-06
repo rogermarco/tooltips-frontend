@@ -1,7 +1,7 @@
 {
   "britons": {
     "string": "<b>Foot Archer civilization</b><br>\n<br>\n• Shepherds work +25% faster<br>\n• Town Centers cost -50% wood starting in Castle Age<br>\n• Foot Archers +1/+2 range in Castle/Imperial Age <br>\n<br>\n<b>Unique Unit:</b> <br>\nLongbowman (Foot Archer)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Yeomen (Foot Archers and Skirmisher-line +1 range; Watch Tower-line +2 attack)<br>\n• Warwolf (Trebuchets deal blast damage and are more accurate)<br>\n<br>\n<b>Team Bonus:</b> <br>\nArchery Ranges work +10% faster",
-    "excludedTechs": ["imperial-skirmisher", "hand-cannoneer", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "paladin", "savar", "siege-ram", "siege-onager", "bombard-cannon", "houfnice", "elite-cannon-galleon", "bombard-tower", "redemption", "atonement", "heresy"],
+    "excludedTechs": ["imperial-skirmisher", "hand-cannoneer", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "siege-ram", "siege-onager", "bombard-cannon", "houfnice", "elite-cannon-galleon", "bombard-tower", "redemption", "atonement", "heresy"],
     "uniques": {
       "unit": {
         "name": "longbowman",
@@ -15,7 +15,7 @@
   },
   "franks": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• Foragers work +15% faster<br>\n• Mill technologies free<br>\n• Mounted Units +20% HP starting in Feudal Age<br>\n• Castles cost -15/25% in Castle/Imperial Age<br>\n<br>\n<b>Unique Unit:</b> <br>\nThrowing Axeman (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Bearded Axe (Throwing Axemen +2 range)<br>\n• Chivalry (Stables work +40% faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nKnight-line +2 line of sight",
-    "excludedTechs": ["legionary", "arbalester", "imperial-skirmisher", "thumb-ring", "parthian-tactics", "bloodlines", "savar", "hussar", "siege-ram", "siege-onager", "houfnice", "dragon-ship", "elite-cannon-galleon", "shipwright", "bombard-tower", "treadmill-crane", "keep", "redemption", "atonement"],
+    "excludedTechs": ["arbalester", "imperial-skirmisher", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "siege-ram", "siege-onager", "houfnice", "elite-cannon-galleon", "shipwright", "bombard-tower", "treadmill-crane", "keep", "redemption", "atonement"],
     "uniques": {
       "unit": {
         "name": "throwing-axeman",
@@ -29,7 +29,7 @@
   },
   "goths": {
     "string": "<b>Infantry civilization</b><br>\n<br>\n• Loom is researched instantly<br>\n• Hunters carry +15; hunted animals last +20% longer<br>\n• Infantry costs -15/20/25/30% in Dark/Feudal/Castle/<br>\nImperial Age<br>\n• Infantry +1/+2/+3 attack vs. buildings in Feudal/<br>\nCastle/Imperial Age<br>\n• +10 population space in Imperial Age<br>\n<br>\n<b>Unique Unit:</b> <br>\nHuskarl (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Anarchy (Huskarls can be trained at Barracks)<br>\n• Perfusion (Barracks work +100% faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nBarracks work +20% faster",
-    "excludedTechs": ["arbalester", "imperial-skirmisher", "thumb-ring", "parthian-tactics", "arson", "gambesons", "hussar", "siege-ram", "siege-onager", "cannon-galleon", "dry-dock", "treadmill-crane", "guard-tower", "fortified-wall", "siege-engineers", "arrowslits", "bombard-tower"],
+    "excludedTechs": ["arbalester", "imperial-skirmisher", "thumb-ring", "parthian-tactics", "arson", "gambesons", "paladin", "siege-ram", "siege-onager", "houfnice", "cannon-galleon", "elite-cannon-galleon", "dry-dock", "treadmill-crane", "guard-tower", "fortified-wall", "siege-engineers", "arrowslits", "keep", "bombard-tower", "redemption", "atonement", "heresy", "block-printing"],
     "uniques": {
       "unit": {
         "name": "huskarl",
@@ -113,6 +113,11 @@
       "unit": {
         "name": "dromon"
       }
+    },
+    "replacements": {
+      "dock": {
+        "fire-galley": { "replace": "fast-fire-ship", "with": "dragon-ship"}
+      }
     }
   },
   "persians": {
@@ -130,6 +135,11 @@
     "regionals": {
       "unit": {
         "name": "dromon"
+      }
+    },
+    "replacements": {
+      "stable": {
+        "knight": { "replace": "paladin", "with": "savar"}
       }
     }
   },
@@ -635,6 +645,11 @@
       "unit": {
         "name": "dromon"
       }
+    },
+    "replacements": {
+      "stable": {
+        "scout": { "replace": "hussar", "with": "winged-hussar"}
+      }
     }
   },
   "burgundians": {
@@ -688,6 +703,11 @@
     "regionals": {
       "unit": {
         "name": "dromon"
+      }
+    },
+    "replacements": {
+      "stable": {
+        "scout": { "replace": "hussar", "with": "winged-hussar"}
       }
     }
   },
@@ -778,6 +798,11 @@
     "regionals": {
       "unit": {
         "name": "dromon"
+      }
+    },
+    "replacements": {
+      "barracks": {
+        "militia": { "replace": "champion", "with": "legionary"}
       }
     }
   },

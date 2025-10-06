@@ -65,12 +65,12 @@ function App() {
   //   staleTime: Infinity,
   //   refetchOnMount: false,
   //   refetchOnWindowFocus: false,
-  //   refetchInterval: 180000, // 3 minutes
+  //   refetchInterval: 120000, // 2 minutes
   //   cacheTime: 180000,
   //   enabled: !!streamUrl,
   // });
   // DEBUG TESTING
-  const civs = ['britons', 'franks'];
+  const civs = ['britons', 'goths'];
 
   const componentsLeft = [
     <Ballistics key='ballistics' />,
