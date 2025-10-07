@@ -81,7 +81,7 @@
         ]
       },
       "skirmisher": {
-        "progression": ["skirmisher", "elite-skirmisher", "imperial-skirmisher"],
+        "progression": ["skirmisher", "elite-skirmisher"],
         "cost": [
           {"amount": 25, "resource": "food"},
           {"amount": 35, "resource": "wood"}
@@ -175,7 +175,7 @@
         ]
       },
       "camel-scout": {
-        "progression": ["camel-scout", "camel-rider", "heavy-camel-rider", "imperial-camel-rider"],
+        "progression": ["camel-scout", "camel-rider", "heavy-camel-rider"],
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 60, "resource": "gold"}
@@ -276,7 +276,7 @@
         ]
       },
       "bombard-cannon": {
-        "progression": ["bombard-cannon", "houfnice"],
+        "progression": ["bombard-cannon"],
         "cost": [
           {"amount": 225, "resource": "wood"},
           {"amount": 225, "resource": "gold"}

@@ -1,7 +1,7 @@
 {
   "britons": {
     "string": "<b>Foot Archer civilization</b><br>\n<br>\n• Shepherds work +25% faster<br>\n• Town Centers cost -50% wood starting in Castle Age<br>\n• Foot Archers +1/+2 range in Castle/Imperial Age <br>\n<br>\n<b>Unique Unit:</b> <br>\nLongbowman (Foot Archer)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Yeomen (Foot Archers and Skirmisher-line +1 range; Watch Tower-line +2 attack)<br>\n• Warwolf (Trebuchets deal blast damage and are more accurate)<br>\n<br>\n<b>Team Bonus:</b> <br>\nArchery Ranges work +10% faster",
-    "excludedTechs": ["imperial-skirmisher", "hand-cannoneer", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "siege-ram", "siege-onager", "bombard-cannon", "houfnice", "elite-cannon-galleon", "bombard-tower", "redemption", "atonement", "heresy"],
+    "excludedTechs": ["hand-cannoneer", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "siege-ram", "siege-onager", "bombard-cannon", "elite-cannon-galleon", "bombard-tower", "redemption", "atonement", "heresy"],
     "uniques": {
       "unit": {
         "name": "longbowman",
@@ -15,7 +15,7 @@
   },
   "franks": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• Foragers work +15% faster<br>\n• Mill technologies free<br>\n• Mounted Units +20% HP starting in Feudal Age<br>\n• Castles cost -15/25% in Castle/Imperial Age<br>\n<br>\n<b>Unique Unit:</b> <br>\nThrowing Axeman (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Bearded Axe (Throwing Axemen +2 range)<br>\n• Chivalry (Stables work +40% faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nKnight-line +2 line of sight",
-    "excludedTechs": ["arbalester", "imperial-skirmisher", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "siege-ram", "siege-onager", "houfnice", "elite-cannon-galleon", "shipwright", "bombard-tower", "treadmill-crane", "keep", "redemption", "atonement"],
+    "excludedTechs": ["arbalester", "thumb-ring", "parthian-tactics", "bloodlines", "hussar", "siege-ram", "siege-onager", "elite-cannon-galleon", "shipwright", "bombard-tower", "treadmill-crane", "keep", "redemption", "atonement"],
     "uniques": {
       "unit": {
         "name": "throwing-axeman",
@@ -29,7 +29,7 @@
   },
   "goths": {
     "string": "<b>Infantry civilization</b><br>\n<br>\n• Loom is researched instantly<br>\n• Hunters carry +15; hunted animals last +20% longer<br>\n• Infantry costs -15/20/25/30% in Dark/Feudal/Castle/<br>\nImperial Age<br>\n• Infantry +1/+2/+3 attack vs. buildings in Feudal/<br>\nCastle/Imperial Age<br>\n• +10 population space in Imperial Age<br>\n<br>\n<b>Unique Unit:</b> <br>\nHuskarl (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Anarchy (Huskarls can be trained at Barracks)<br>\n• Perfusion (Barracks work +100% faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nBarracks work +20% faster",
-    "excludedTechs": ["arbalester", "imperial-skirmisher", "thumb-ring", "parthian-tactics", "arson", "gambesons", "paladin", "siege-ram", "siege-onager", "houfnice", "cannon-galleon", "elite-cannon-galleon", "dry-dock", "treadmill-crane", "guard-tower", "fortified-wall", "siege-engineers", "arrowslits", "keep", "bombard-tower", "redemption", "atonement", "heresy", "block-printing"],
+    "excludedTechs": ["arbalester", "thumb-ring", "parthian-tactics", "arson", "gambesons", "paladin", "siege-ram", "siege-onager", "cannon-galleon", "elite-cannon-galleon", "dry-dock", "treadmill-crane", "guard-tower", "fortified-wall", "siege-engineers", "arrowslits", "keep", "bombard-tower", "redemption", "atonement", "heresy", "block-printing"],
     "uniques": {
       "unit": {
         "name": "huskarl",
@@ -40,14 +40,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["dromon"]
     }
   },
   "teutons": {
     "string": "<b>Infantry civilization</b><br>\n<br>\n• Farms cost -40%<br>\n• Town Centers +10 garrison capacity; Towers +5 garrison capacity<br>\n• Barracks and Stable Units +1/+2 melee armor in Castle/Imperial Age<br>\n• Monks +100% healing range<br>\n• Murder Holes, Herbal Medicine free<br>\n<br>\n<b>Unique Unit:</b> <br>\nTeutonic Knight (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Ironclad (Siege Weapons +4 melee armor)<br>\n• Crenellations (Castles +3 range, garrisoned Infantry fires arrows)<br>\n<br>\n<b>Team Bonus:</b> <br>\nUnits more resistant to conversion",
-    "excludedTechs": ["arbalester", "imperial-skirmisher", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "light-cavalry", "husbandry", "siege-ram", "shipwright", "dry-dock", "architecture", "treadmill-crane"],
+    "excludedTechs": ["arbalester", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "light-cavalry", "hussar", "husbandry", "siege-ram", "elite-cannon-galleon", "shipwright", "dry-dock", "architecture", "treadmill-crane"],
     "uniques": {
       "unit": {
         "name": "teutonic-knight",
@@ -57,15 +55,11 @@
         ]
       }
     },
-    "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
-    }
+    "regionals": {}
   },
   "japanese": {
     "string": "<b>Infantry civilization</b><br>\n<br>\n• Mills, Lumber- and Mining Camps cost -50%<br>\n• Infantry attacks +33% faster starting in Feudal Age<br>\n• Cavalry Archers +2 attack vs. Ranged Soldiers (except Skirmishers)<br>\n• Fishing Ships work +5/10/15/20% faster in Dark/Feudal/Castle/Imperial Age; +100% HP and +2 pierce armor<br>\n<br>\n<b>Unique Unit:</b> <br>\nSamurai (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Yasama (Watch Tower-line fires additional arrows)<br>\n• Kataparuto (Trebuchets attack and pack/unpack faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nGalley-line +4 line of sight",
-    "excludedTechs": ["hussar", "paladin", "camel-scout", "siege-ram", "siege-onager", "bombard-cannon", "heated-shot", "architecture", "bombard-tower"],
+    "excludedTechs": ["hussar", "paladin", "siege-ram", "siege-onager", "bombard-cannon", "heavy-demolition-ship", "heated-shot", "architecture", "bombard-tower", "heresy"],
     "uniques": {
       "unit": {
         "name": "samurai",
@@ -75,15 +69,11 @@
         ]
       }
     },
-    "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
-    }
+    "regionals": {}
   },
   "chinese": {
     "string": "<b>Archer and Gunpowder civilization</b><br>\n<br>\n• Start with +3 Villagers, but -50 wood and -200 food<br>\n• Technologies cost -5/10/15% in Feudal/Castle/Imperial Age<br>\n• Town Centers +7 line of sight and provide +15 population space<br>\n• Fire Lancers and Fire Ships move +5/10% faster in Castle/Imperial Age<br>\n<br>\n<b>Unique Unit:</b> <br>\nChu Ko Nu (Foot Archer), Dragon Ship (Warship)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Great Wall (Walls, Watch Tower-line and Bombard Towers +30% HP)<br>\n• Rocketry (Scorpions, Rocket Carts and Lou Chuans +25% attack; Lou Chuans fire rockets)<br>\n<br>\n<b>Team Bonus:</b> <br>\nFarms +10% food",
-    "excludedTechs": ["hand-cannoneer", "parthian-tactics", "gambesons", "hussar", "paladin", "camel-scout", "mangonel", "bombard-cannon", "cannon-galleon", "treadmill-crane", "siege-engineers"],
+    "excludedTechs": ["hand-cannoneer", "parthian-tactics", "gambesons", "hussar", "paladin", "camel-scout", "mangonel", "onager", "siege-onager", "bombard-cannon", "cannon-galleon", "elite-cannon-galleon", "treadmill-crane", "siege-engineers", "redemption", "heresy"],
     "uniques": {
       "unit": {
         "name": "chu-ko-nu",
@@ -94,12 +84,17 @@
       }
     },
     "regionals": {
-      "unit": ["fire-lancer", "rocket-cart", "dragon-ship"]
+      "unit": ["fire-lancer", "elite-fire-lancer", "rocket-cart", "heavy-rocket-cart", "lou-chuan"]
+    },
+    "replacements": {
+      "dock": {
+        "fire-galley": { "replace": "fast-fire-ship", "with": "dragon-ship"}
+      }
     }
   },
   "byzantines": {
     "string": "<b>Defensive civilization</b><br>\n<br>\n• Buildings +10/20/30/40% HP in Dark/Feudal/Castle/Imperial Age<br>\n• Camel Riders, Skirmishers and Spearman-line cost -25%<br>\n• Town Watch, Town Patrol free<br>\n• Advancing to Imperial Age costs -33%<br>\n• Fire Ships and Dromons attack +25% faster<br>\n<br>\n<b>Unique Unit:</b> <br>\nCataphract (Cavalry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Greek Fire (Fire Ships +1 range; Dromons and Bombard Towers increased blast radius)<br>\n• Logistica (Cataphracts deal trample damage, +6 attack vs. Infantry)<br>\n<br>\n<b>Team Bonus:</b> <br>\nMonks heal +100% faster",
-    "excludedTechs": [],
+    "excludedTechs": ["parthian-tactics", "bloodlines", "siege-onager", "heavy-scorpion", "cannon-galleon", "elite-cannon-galleon", "masonry", "architecture", "heated-shot", "siege-engineers", "herbal-medicine"],
     "uniques": {
       "unit": {
         "name": "cataphract",
@@ -110,19 +105,13 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["camel-rider", "heavy-camel-rider", "dromon"]
     },
-    "replacements": {
-      "dock": {
-        "fire-galley": { "replace": "fast-fire-ship", "with": "dragon-ship"}
-      }
-    }
+    "replacements": {}
   },
   "persians": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• Start with +50 wood and +50 food<br>\n• Town Centers and Docks +100% HP and work +5/10/15/20% faster in Dark/Feudal/Castle/Imperial Age<br>\n• Parthian Tactics available in Castle Age<br>\n• Can build Caravanserai in Imperial Age<br>\n<br>\n<b>Unique Units:</b> <br>\nWar Elephant (Cavalry), Savar (Cavalry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Kamandaran (Archer-line gold cost replaced by additional wood cost)<br>\n• Citadels (Castles +4 attack, +3 vs. Rams, +3 vs. Infantry and receive -25% bonus damage)<br>\n<br>\n<b>Team Bonus:</b> <br>\nKnight-line +2 attack vs. Ranged Soldiers",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "two-handed-swordsman", "champion", "siege-onager", "shipwright", "fortified-wall", "treadmill-crane", "siege-engineers", "keep", "arrowslits", "bombard-tower", "redemption", "atonement", "heresy", "sanctity", "illumination"],
     "uniques": {
       "unit": {
         "name": "war-elephant",
@@ -133,9 +122,7 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["camel-rider", "heavy-camel-rider"]
     },
     "replacements": {
       "stable": {
@@ -145,7 +132,7 @@
   },
   "saracens": {
     "string": "<b>Camel and Naval civilization</b><br>\n<br>\n• Market trading fee only 5%; Markets cost -100 wood<br>\n• Camel Units +25% HP<br>\n• Galley-line attacks +25% faster<br>\n• Transport Ships +100% HP, +20 carry capacity<br>\n<br>\n<b>Unique Unit:</b> <br>\nMameluke (Cavalry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Bimaristan (Monks passively heal multiple nearby units)<br>\n• Counterweights (Trebuchets and Mangonel-line +15% attack)<br>\n<br>\n<b>Team Bonus:</b> <br>\nFoot Archers and Skirmisher-line +2 attack vs. buildings",
-    "excludedTechs": [],
+    "excludedTechs": ["halberdier", "cavalier", "paladin", "heavy-scorpion", "fast-fire-ship", "shipwright"],
     "uniques": {
       "unit": {
         "name": "mameluke",
@@ -156,14 +143,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     }
   },
   "turks": {
     "string": "<b>Gunpowder civilization</b><br>\n<br>\n• Gold miners work +20% faster<br>\n• Scout Cavalry-line +1 pierce armor and upgrades free<br>\n• Chemistry free; Gunpowder technologies costs -50%<br>\n• Gunpowder Units +25% HP<br>\n<br>\n<b>Unique Unit:</b> <br>\nJanissary (Foot Gunner)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Sipahi (Mounted Archers +20 HP)<br>\n• Artillery (Bombard Towers, Bombard Cannons, Cannon Galleons +2 range)<br>\n<br>\n<b>Team Bonus:</b> <br>\nGunpowder Units train +25% faster",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "elite-skirmisher", "gambesons", "pikeman", "halberdier", "paladin", "onager", "siege-onager", "fast-fire-ship", "siege-engineers", "herbal-medicine", "illumination", "block-printing"],
     "uniques": {
       "unit": {
         "name": "janissary",
@@ -174,14 +159,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     }
   },
   "vikings": {
     "string": "<b>Infantry and Naval civilization</b><br>\n<br>\n• Wheelbarrow, Hand Cart free<br>\n• Infantry +20% HP starting in Feudal Age<br>\n• Warships cost -15/15/20% in Feudal/Castle/Imperial Age<br>\n<br>\n<b>Unique Units:</b> <br>\nBerserk (Infantry), Longboat (Warship)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Chieftains (Infantry +5 attack vs. Cavalry, +4 vs. Camel Units; generate +5 gold when defeating Villagers, Trade Units and Monks)<br>\n• Bogsveigar (Archer-line and Longboats +1 attack)<br>\n<br>\n<b>Team Bonus:</b> <br>\nDocks cost -15%",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "halberdier", "paladin", "bloodlines", "husbandry", "siege-onager", "bombard-cannon", "fire-galley", "fire-ship", "fast-fire-ship", "shipwright", "keep", "bombard-tower", "redemption", "herbal-medicine", "sanctity", "illumination", "theocracy"],
     "uniques": {
       "unit": {
         "name": "berserk",
@@ -192,14 +175,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["longboat", "elite-longboat"]
     }
   },
   "mongols": {
     "string": "<b>Cavalry Archer civilization</b><br>\n<br>\n• Hunters work +40% faster<br>\n• Cavalry Archers attack +25% faster<br>\n• Light Horsemen +20/30% HP in Castle/Imperial Age<br>\n<br>\n<b>Unique Unit:</b> <br>\nMangudai (Mounted Archer)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Nomads (Lost Houses do not decrease population space)<br>\n• Drill (Siege Workshop Units move +50% faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nScout Cavalry-line +2 line of sight",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "gambesons", "paladin", "bombard-cannon", "dry-dock","elite-cannon-galleon", "heated-shot", "treadmill-crane", "architecture", "keep", "arrowslits", "bombard-tower", "redemption", "sanctity", "illumination", "block-printing", "theocracy"],
     "uniques": {
       "unit": {
         "name": "mangudai",
@@ -210,14 +191,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["camel-rider", "heavy-camel-rider", "steppe-lancer", "elite-steppe-lancer"]
     }
   },
   "celts": {
     "string": "<b>Infantry and Siege civilization</b><br>\n<br>\n• Lumberjacks work +15% faster<br>\n• Livestock animals within Celt unit line of sight cannot be stolen<br>\n• Infantry moves +5/10/15/20% faster in Dark/Feudal/<br>\nCastle/Imperial Age<br>\n• Siege Weapons attack +25% faster<br>\n<br>\n<b>Unique Unit:</b> <br>\nWoad Raider (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Stronghold (Castles and Watch Tower-line attack +33% faster; Castles heal allied Infantry in a 7 tile radius)<br>\n• Furor Celtica (Siege Weapons +40% HP)<br>\n<br>\n<b>Team Bonus:</b> <br>\nSiege Workshops work +20% faster",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "hand-cannoneer", "thumb-ring", "parthian-tactics", "squires", "bloodlines", "bombard-cannon", "fast-fire-ship", "elite-cannon-galleon", "architecture", "bombard-tower", "redemption", "atonement", "illumination", "block-printing", "theocracy"],
     "uniques": {
       "unit": {
         "name": "woad-raider",
@@ -228,9 +207,7 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     }
   },
   "spanish": {
