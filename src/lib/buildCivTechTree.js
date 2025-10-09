@@ -51,7 +51,8 @@ const regionalUnits = [
   "dromon",
   "lou-chuan",
   "thirisadai",
-  "warrior-priest"
+  "warrior-priest",
+  "missionary"
 ];
 
 /**

@@ -489,6 +489,12 @@
           {"amount": 30, "resource": "food"},
           {"amount": 60, "resource": "gold"}
         ]
+      },
+      "missionary": {
+        "progression": ["missionary"],
+        "cost": [
+          {"amount": 100, "resource": "gold"}
+        ]
       }
     },
     "techs": {
