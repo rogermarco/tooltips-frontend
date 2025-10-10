@@ -543,12 +543,12 @@
       }
     },
     "regionals": {
-      "unit": ["camel-rider", "heavy-camel-rider", "steppe-lancer", "elite-steppe-lancer"]
+      "unit": ["camel-rider", "heavy-camel-rider", "steppe-lancer", "elite-steppe-lancer", "flaming-camel"]
     }
   },
   "cumans": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• One additional Town Center can be built in Feudal Age<br>\n• Mounted Units move +5/10/15% faster in Feudal/<br>\nCastle/Imperial Age<br>\n• Archery Ranges and Stables cost -75 wood<br>\n• Siege Workshop and Battering Ram available in Feudal Age; Capped Ram available in Castle Age<br>\n<br>\n<b>Unique Unit:</b><br>\nKipchak (Mounted Archer)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Steppe Husbandry (Light Horsemen and Cavalry Archers train +100% faster)<br>\n• Cuman Mercenaries (All team members can train 5 free Elite Kipchaks per Castle)<br>\n<br>\n<b>Team Bonus:</b><br>\nPalisade Walls +33% HP",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "hand-cannoneer", "gambesons", "husbandry", "heavy-scorpion", "bombard-cannon", "heavy-demolition-ship", "shipwright", "cannon-galleon", "elite-cannon-galleon", "dry-dock", "architecture", "fortified-wall", "bombard-tower", "siege-engineers", "guard-tower", "keep", "arrowslits", "treadmill-crane", "illumination", "block-printing", "redemption", "theocracy"],
     "uniques": {
       "unit": {
         "name": "kipchak",
@@ -559,14 +559,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["camel-rider", "steppe-lancer", "elite-steppe-lancer"]
     }
   },
   "lithuanians": {
     "string": "<b>Cavalry and Monk civilization</b><br>\n<br>\n• Each Town Center provides +100 food<br>\n• Spearman-line and Skirmisher-line move +10% faster<br>\n• Each garrisoned Relic provides +1 attack to Knight-line and Leitis (maximum +4)<br>\n<br>\n<b>Unique Units:</b><br>\nLeitis (Cavalry), Winged Hussar (Cavalry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Hill Forts (Town Centers +3 range)<br>\n• Tower Shields (Spearman-line and Skirmishers +2 pierce armor)<br>\n<br>\n<b>Team Bonus:</b><br>\nMonasteries work +20% faster",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "parthian-tactics", "gambesons", "siege-ram", "siege-onager", "heavy-scorpion", "heavy-demolition-ship", "shipwright", "siege-engineers", "arrowslits"],
     "uniques": {
       "unit": {
         "name": "leitis",
@@ -577,9 +575,7 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     },
     "replacements": {
       "stable": {
@@ -589,7 +585,7 @@
   },
   "burgundians": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• Economic upgrades available one age earlier and cost -33% food<br>\n• Stable technologies cost -50%<br>\n• Cavalier upgrade available in Castle Age<br>\n• Gunpowder Units +25% attack<br>\n<br>\n<b>Unique Units:</b><br>\nCoustillier (Cavalry), Flemish Militia (Infantry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Burgundian Vineyards (Farmers slowly generate gold in addition to food)<br>\n• Flemish Revolution (All existing Villagers are transformed to Flemish Militia)<br>\n<br>\n<b>Team Bonus:</b><br>\nRelics generate food in addition to gold",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "gambesons", "bloodlines", "siege-ram", "siege-onager", "heavy-scorpion", "heavy-demolition-ship", "shipwright", "dry-dock", "siege-engineers", "heated-shot", "theocracy", "heresy"],
     "uniques": {
       "unit": {
         "name": "coustillier",
@@ -600,17 +596,15 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     }
   },
   "sicilians": {
     "string": "<b>Infantry and Cavalry civilization</b><br>\n<br>\n• Start with +100 stone<br>\n• Farm upgrades provide +125% additional food<br>\n• Soldiers receive -40% bonus damage<br>\n• Can build Donjon in Dark Age, replaces Watch Tower-line<br>\n• Fortifications built +50% faster; Town Centers built +100% faster<br>\n<br>\n<b>Unique Unit:</b><br>\nSerjeant (Infantry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• First Crusade (Up to 5 Town Centers spawn 5 Serjeants each; units more resistant to conversion)<br>\n• Hauberk (Knight-line +1 melee/+2 pierce armor)<br>\n<br>\n<b>Team Bonus:</b><br>\nTransport Ships +5 line of sight and cost -50%",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "hussar", "paladin", "bombard-cannon", "elite-cannon-galleon", "architecture", "fortified-wall", "bombard-tower", "guard-tower", "keep", "treadmill-crane", "block-printing", "redemption", "theocracy", "atonement", "heresy"],
     "uniques": {
       "unit": {
-        "name": "serjent",
+        "name": "serjeant",
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 25, "resource": "gold"}
@@ -618,14 +612,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     }
   },
   "poles": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• Folwark replaces Mill<br>\n•Villagers regenerate 10/15/20 HP in Feudal/Castle/Imperial Age<br>\n• Stone Miners generate gold in addition to stone<br>\n• Bloodlines and Scout Cavalry-line upgrades cost -50% food<br>\n<br>\n<b>Unique Units:</b><br>\nObuch (Infantry), Winged Hussar (Cavalry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Szlachta Privileges (Knight-line costs -60% gold)<br>\n• Lechitic Legacy (Scout Cavalry-line deals trample damage)<br>\n<br>\n<b>Team Bonus:</b><br>\nScout Cavalry-line +1 attack vs. Ranged Soldiers",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "parthian-tactics", "gambesons", "halberdier", "hussar", "paladin", "siege-onager", "heavy-scorpion", "heavy-demolition-ship", "shipwright", "elite-cannon-galleon", "dry-dock", "architecture", "heated-shot", "illumination", "atonement", "heresy"],
     "uniques": {
       "unit": {
         "name": "obuch",
@@ -636,9 +628,7 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     },
     "replacements": {
       "stable": {
@@ -648,7 +638,7 @@
   },
   "bohemians": {
     "string": "<b>Gunpowder and Monk civilization</b><br>\n<br>\n• Mining Camp technologies free<br>\n• Blacksmiths and Universities cost -100 wood<br>\n• Spearman-line deals +25% bonus damage<br>\n• Fervor and Sanctity affect Villagers<br>\n• Chemistry and Hand Cannoneer available in Castle Age<br>\n<br>\n<b>Unique Units:</b><br>\nHussite Wagon (Siege Gunpowder Unit), Houfnice (Siege Gunpowder Unit)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Wagenburg Tactics (Gunpowder Units move +15% faster)<br>\n• Hussite Reforms (Monks and Monastery technologies gold cost is replaced by food cost)<br>\n<br>\n<b>Team Bonus:</b><br>\nMarkets work +80% faster",
-    "excludedTechs": [],
+    "excludedTechs": ["cavalry-archer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "gambesons", "hussar", "paladin", "bloodlines", "siege-ram", "siege-onager", "fast-fire-ship", "heavy-demolition-ship", "shipwright", "dry-dock", "heated-shot"],
     "uniques": {
       "unit": {
         "name": "hussite-wagon",
@@ -659,14 +649,17 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
+    },
+    "replacements": {
+      "siege-workshop": {
+        "bombard-cannon": { "replace": "bombard-cannon", "with": "houfnice"}
+    }
     }
   },
   "dravidians": {
     "string": "<b>Infantry and Naval civilization</b><br>\n<br>\n• Fishermen and Fishing Ships carry +15<br>\n• Receive +200 wood when advancing to the next Age<br>\n• Skirmishers and Elephant Archers attack +25% faster<br>\n• Barracks technologies cost -50%<br>\n• Siege Weapons cost -33% wood<br>\n<br>\n<b>Unique Units:</b><br>\nUrumi Swordsman (Infantry), Thirisadai (Warship)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Medical Corps (Elephant Units regenerate 30 HP per minute)<br>\n• Wootz Steel (Infantry and Cavalry attacks ignore armor)<br>\n<br>\n<b>Team Bonus:</b><br>\nDocks provide +5 population space",
-    "excludedTechs": [],
+    "excludedTechs": ["cavalry-archer", "heavy-cavalry-archer", "parthian-tactics", "hussar", "knight", "cavalier", "paladin", "bloodlines", "battering-ram", "capped-ram", "siege-ram", "architecture", "siege-engineers", "treadmill-crane", "illumination", "redemption", "heresy", "fervor"],
     "uniques": {
       "unit": {
         "name": "urumi-swordsman",
@@ -677,14 +670,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["elephant-archer", "elite-elephant-archer", "battle-elephant", "armored-elephant", "siege-elephant", "thirisadai"]
     }
   },
   "bengalis": {
     "string": "<b>Elephant and Naval civilization</b><br>\n<br>\n• Town Centers spawn 2 Villagers when the next Age is reached<br>\n• Cavalry +2 attack vs. Skirmishers<br>\n• Elephant Units receive -25% bonus damage and are more resistant to conversion<br>\n• Monks +3 melee/+3 pierce armor<br>\n• Ships regenerate 15 HP per minute<br>\n<br>\n<b>Unique Unit:</b><br>\nRatha (Mounted Archer)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Paiks (Rathas and Elephant Units attack +20% faster)<br>\n• Mahayana (Villagers and Monks take -10% population space)<br>\n<br>\n<b>Team Bonus:</b><br>\nTrade Units generate +10% food in addition to gold",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "cavalry-archer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "hussar", "knight", "cavalier", "paladin", "battering-ram", "capped-ram", "siege-ram", "siege-onager", "bombard-cannon", "heavy-demolition-ship", "bombard-tower", "heresy"],
     "uniques": {
       "unit": {
         "name": "ratha",
@@ -695,14 +686,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["elephant-archer", "elite-elephant-archer", "battle-elephant", "elite-battle-elephant", "armored-elephant", "siege-elephant"]
     }
   },
   "gurjaras": {
     "string": "<b>Cavalry and Camel civilization</b><br>\n<br>\n• Start with 2 Forage Bushes<br>\n• Can garrison livestock in Mills to passively produce food<br>\n• Mounted Units deal +20/30/40% bonus damage in Feudal/Castle/Imperial Age<br>\n• Fishing Ships can garrison in Docks for protection<br>\n<br>\n<b>Unique Units:</b><br>\nChakram Thrower (Infantry), Shrivamsha Rider (Cavalry), Camel Scout (Cavalry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Kshatriyas (Military Units cost -25% food)<br>\n• Frontier Guards (Camel Riders and Elephant Archers +4 melee armor)<br>\n<br>\n<b>Team Bonus:</b><br>\nCamel and Elephant Units train +25% faster",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "cavalry-archer", "heavy-cavalry-archer", "parthian-tactics", "gambesons", "pikeman", "halberdier", "squires", "knight", "cavalier", "paladin", "battering-ram", "capped-ram", "siege-ram", "siege-onager", "fast-fire-ship", "elite-cannon-galleon", "dry-dock", "bombard-tower", "siege-engineers", "arrowslits", "block-printing", "faith"],
     "uniques": {
       "unit": {
         "name": "chakram-thrower",
@@ -713,14 +702,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["elephant-archer", "elite-elephant-archer", "camel-scout", "camel-rider", "heavy-camel-rider", "shrivamsha-rider", "elite-shrivamsha-rider", "armored-elephant", "siege-elephant"]
     }
   },
   "romans": {
     "string": "<b>Infantry civilization</b><br>\n<br>\n• Villagers gather, build, and repair +5% faster<br>\n• Infantry armor upgrade effects are doubled<br>\n• Scorpions cost -50% gold<br>\n• Galley-line and Dromons +1 melee/+1 pierce armor<br>\n<br>\n<b>Unique Unit:</b><br>\nCenturion (Cavalry), Legionary (Infantry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Ballistas (Scorpions attack +33% faster; Galley-line +2 attack)<br>\n• Comitatenses (Militia-line, Knight-line, and Centurions train +50% faster and receive a charge attack)<br>\n<br>\n<b>Team Bonus:</b><br>\nScorpions minimum range reduced",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "hand-cannoneer", "parthian-tactics", "thumb-ring", "arson", "gambesons", "hussar", "paladin", "siege-onager", "bombard-cannon", "demolition-raft", "demolition-ship", "heavy-demolition-ship", "cannon-galleon", "elite-cannon-galleon", "dry-dock", "bombard-tower", "heated-shot", "arrowslits", "treadmill-crane", "theocracy", "heresy", "sanctity"],
     "uniques": {
       "unit": {
         "name": "centurion",
@@ -731,9 +718,7 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["dromon"]
     },
     "replacements": {
       "barracks": {
@@ -743,7 +728,7 @@
   },
   "armenians": {
     "string": "<b>Infantry and Naval civilization</b><br>\n<br>\n• Mule Carts cost -25%<br>\n• Mule Cart technologies are +40% more effective<br>\n• Spearman- and Militia-line upgrades (except Man-at-Arms) available one age earlier<br>\n• First Fortified Church receives a free Relic<br>\n• Galley-line and Dromons fire an additional projectile<br>\n<br>\n<b>Unique Unit:</b><br>\nComposite Bowman (Foot Archer), Warrior Priest (Infantry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Cilician Fleet (Demolition Ships +20% blast radius; Galley-line and Dromons +1 range)<br>\n• Fereters (Infantry (except Spearman-line) +30 HP; Warrior Priests heal +100% faster)<br>\n<br>\n<b>Team Bonus:</b><br>\nInfantry +2 line of sight",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "hussar", "paladin", "siege-ram", "siege-onager", "bombard-cannon", "fast-fire-ship", "shipwright", "cannon-galleon", "elite-cannon-galleon", "architecture", "siege-engineers", "keep", "arrowslits", "treadmill-crane"],
     "uniques": {
       "unit": {
         "name": "composite-bowman",
@@ -754,14 +739,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["dromon"]
     }
   },
   "georgians": {
     "string": "<b>Defensive and Cavalry civilization</b><br>\n<br>\n• Start with a Mule Cart<br>\n• Units and buildings receive -15% damage when located on higher elevation<br>\n• Mounted Units regenerate 2/8/14 HP per minute in Feudal/Castle/Imperial Age<br>\n• Fortified Churches provide Villagers in an 8 tile radius with +10% work rate<br>\n<br>\n<b>Unique Unit:</b><br>\nMonaspa (Cavalry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Svan Towers (Fortifications +2 attack; Watch Tower-line deals pass through damage)<br>\n• Aznauri Cavalry (Mounted Units take -15% population space)<br>\n<br>\n<b>Team Bonus:</b><br>\nBuilding repairs cost -25%",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "thumb-ring", "paladin", "bombard-cannon", "heavy-demolition-ship", "shipwright", "elite-cannon-galleon", "dry-dock", "bombard-tower", "heated-shot", "illumination", "atonement"],
     "uniques": {
       "unit": {
         "name": "monaspa",
@@ -772,14 +755,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": []
     }
   },
   "shu": {
     "string": "<b>Archer and Siege civilization</b><br>\n<br>\n• Lumberjacks generate food in addition to wood<br>\n• Archery Unit technologies at the Archery Range and Blacksmith cost -25%<br>\n• Siege Weapons and Siege Warships move +10/15% faster in Castle/Imperial Age<br>\n<br>\n<b>Unique Units:</b><br>\nWhite Feather Guard (Infantry), War Chariot (Siege Weapon), Liu Bei (Hero)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Coiled Serpent Array (Spearman-line and White Feather Guards gain additional HP when near each other)<br>\n• Bolt Magazine (Archer-line, War Chariots and Lou Chuans fire additional projectiles)<br>\n<br>\n<b>Team Bonus:</b><br>\nFoot Archers +2 line of sight",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "parthian-tactics", "hussar", "knight", "cavalier", "paladin", "bloodlines", "siege-onager", "scorpion", "heavy-scorpion", "bombard-cannon", "fast-fire-ship", "cannon-galleon", "elite-cannon-galleon", "bombard-tower", "keep", "treadmill-crane", "block-printing", "redemption", "herbal-medicine", "sanctity"],
     "uniques": {
       "unit": {
         "name": "white-feather-guard",
@@ -797,14 +778,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["hei-guang-cavalry", "heavy-hei-guang-cavalry", "traction-trebuchet", "lou-chuan", "war-chariot"]
     }
   },
   "wu": {
     "string": "<b>Infantry and Naval civilization</b><br>\n<br>\n<div style='line-height:125%'>• Military production buildings and Docks provide +55 food<br>\n• Infantry regenerates 10/20/30 HP per minute in Feudal/Castle/Imperial Age<br>\n• Jian Swordsmen and Hei Guang Cavalry +2 attack in Imperial Age<br>\n• Careening, Dry Dock available one age earlier, cost and research time -75%<br>\n<br>\n<b>Unique Units:</b><br>\nFire Archer (Foot Archer), Jian Swordsman (Infantry), Sun Jian (Hero)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Red Cliffs Tactics (Demolition Ships and Fire Archers deal fire damage to ships and buildings)<br>\n• Sitting Tiger (Traction Trebuchets and Lou Chuan trebuchet weapons fire additional projectiles)<br>\n<br>\n<b>Team Bonus:</b><br>\nHouses built +100% faster</div>",
-    "excludedTechs": [],
+    "excludedTechs": ["hand-cannoneer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "gambesons", "knight", "cavalier", "paladin", "capped-ram", "siege-ram", "siege-onager", "bombard-cannon", "shipwright", "cannon-galleon", "elite-cannon-galleon", "fortified-wall", "siege-engineers", "bombard-tower", "arrowslits", "block-printing", "heresy"],
     "uniques": {
       "unit": {
         "name": "fire-archer",
@@ -822,14 +801,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["jian-swordsman", "hei-guang-cavalry", "heavy-hei-guang-cavalry", "traction-trebuchet", "lou-chuan"]
     }
   },
   "wei": {
     "string": "<b>Cavalry civilization</b><br>\n<br>\n• Receive one free Villager for economy upgrade researched<br>\n• Hei Guang Cavalry and Xianbei Raider +20/30% HP in Castle/Imperial Age<br>\n• Traction Trebuchets and Lou Chuans cost -25%<br>\n<br>\n<b>Unique Units:</b><br>\nTiger Cavalry (Cavalry), Xianbei Raider (Mounted Archer), Cao Cao (Hero)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Tuntian (Soldiers passively produce food)<br>\n• Ming Guang Armor (Mounted Units +4 melee armor)<br>\n<br>\n<b>Team Bonus:</b><br>\nCavalry +2 attack vs. Siege Weapons",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "hand-cannoneer", "cavalry-archer", "heavy-cavalry-archer", "gambesons", "knight", "cavalier", "paladin", "siege-onager", "bombard-cannon", "heavy-demolition-ship", "shipwright", "cannon-galleon", "elite-cannon-galleon", "dry-dock", "architecture", "bombard-tower", "siege-engineers", "arrowslits", "redemption", "atonement", "herbal-medicine", "heresy"],
     "uniques": {
       "unit": {
         "name": "tiger-cavalry",
@@ -847,14 +824,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["hei-guang-cavalry", "heavy-hei-guang-cavalry", "traction-trebuchet", "lou-chuan"]
     }
   },
   "jurchens": {
     "string": "<b>Cavalry and Gunpowder civilization</b><br>\n<br>\n• Meat of hunted and livestock animals doesn't decay<br>\n• Mounted Units and Fire Lancers attack +20% faster starting in Feudal Age<br>\n• Siege Engineers available in Castle Age<br>\n• Siege and Fortification upgrades cost -75% wood and research +100% faster<br>\n• Units receive -50% friendly fire damage<br>\n<br>\n<b>Unique Units:</b><br>\nIron Pagoda (Cavalry), Grenadier (Gunpowder Unit)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Fortified Bastions (Fortifications regenerate 500 HP per minute)<br>\n• Thunderclap Bombs (Rocket Carts, Grenadiers and Lou Chuans detonate when defeated; projectiles produce additional explosions)<br>\n<br>\n<b>Team Bonus:</b><br>\nGunpowder Units +2 line of sight",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "hand-cannoneer", "parthian-tactics", "thumb-ring", "long-swordsman", "two-handed-swordsman", "champion", "knight", "cavalier", "paladin", "mangonel", "onager", "siege-onager", "fast-fire-ship", "shipwright", "cannon-galleon", "elite-cannon-galleon", "bombard-tower", "heated-shot", "faith", "redemption", "heresy"],
     "uniques": {
       "unit": {
         "name": "iron-pagoda",
@@ -865,14 +840,12 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["fire-lancer", "elite-fire-lancer", "steppe-lancer", "elite-steppe-lancer", "rocket-cart", "heavy-rocket-cart", "lou-chuan"]
     }
   },
   "khitans": {
     "string": "<b>Infantry and Cavalry civilization</b><br>\n<br>\n• Pastures replace Farms<br>\n• Melee attack upgrade effects are doubled<br>\n• Skirmishers, Spearman-, and Scout Cavalry-line train and upgrade +25% faster<br>\n• Heavy Cavalry Archer upgrade available in Castle Age and costs -50%<br>\n<br>\n<b>Unique Units:</b><br>\nLiao Dao (Infantry), Mounted Trebuchet (Siege Cavalry)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Lamellar Armor (Infantry and Skirmishers reflect 25% melee damage back to the attacker)<br>\n• Ordo Cavalry (Cavalry regenerates HP in combat)<br>\n<br>\n<b>Team Bonus:</b><br>\nInfantry +2 attack vs. Ranged Soldiers",
-    "excludedTechs": [],
+    "excludedTechs": ["arbalester", "hand-cannoneer", "halberdier", "knight", "cavalier", "paladin", "bloodlines", "mangonel", "onager", "siege-onager", "heavy-scorpion", "bombard-cannon", "heavy-demolition-ship", "shipwright", "elite-cannon-galleon", "dry-dock", "architecture", "bombard-tower", "keep", "arrowslits", "block-printing", "redemption", "herbal-medicine"],
     "uniques": {
       "unit": {
         "name": "liao-dao",
@@ -883,9 +856,7 @@
       }
     },
     "regionals": {
-      "unit": {
-        "name": "dromon"
-      }
+      "unit": ["fire-lancer", "elite-fire-lancer", "camel-rider", "heavy-camel-rider", "steppe-lancer", "elite-steppe-lancer", "rocket-cart", "heavy-rocket-cart", "mounted-trebuchet"]
     }
   }
 }

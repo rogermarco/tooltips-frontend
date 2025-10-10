@@ -2,7 +2,7 @@
   "barracks": {
     "lines": {
       "militia": {
-        "progression": ["militia", "man-at-arms", "longsword", "two-handed-sword", "champion"],
+        "progression": ["militia", "man-at-arms", "long-swordsman", "two-handed-sword", "champion"],
         "cost": [
           {"amount": 50, "resource": "food"},
           {"amount": 20, "resource": "gold"}
