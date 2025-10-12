@@ -155,7 +155,7 @@
   "stable": {
     "lines": {
       "scout": {
-        "progression": ["scout", "light-cavalry", "hussar"],
+        "progression": ["scout-cavalry", "light-cavalry", "hussar"],
         "cost": [
           {"amount": 80, "resource": "food"}
         ]

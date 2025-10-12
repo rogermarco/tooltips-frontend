@@ -80,9 +80,16 @@ span.tooltip-cost > span > img {
   height: 498px;
 }
 
+.civ-tooltip-text {
+  padding-top: 35px;
+}
+
+.tech-tree {
+  padding-top: 22px;
+}
+
 .civ-tooltip-text, .tech-tree {
   color: black;
-  padding-top: 22px;
   margin: 0px 35px;
   font-size: 13px;
   letter-spacing: 0.025em;
@@ -167,6 +174,16 @@ span.tooltip-cost > span > img {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+}
+
+.tech-tree-tooltip {
+  position: absolute;
+  top: 0;
+  left: -10px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  pointer-events: none;
 }
 
 @keyframes pulse {
