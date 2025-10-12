@@ -68,8 +68,8 @@ export function buildCivTechTree(civId) {
     return null;
   }
 
-  const excludedTechs = new Set(civ.excludedTechs || []);
-  const uniques = civ.uniques || {};
+  const excludedTechs = new Set(civ.excludedTechs);
+  const uniques = civ.uniques;
   const regionals = civ.regionals || {};
   const replacements = civ.replacements || {};
 
@@ -154,6 +154,10 @@ export function buildCivTechTree(civId) {
   if (uniques.hero) {
     const key = uniques.hero.name.toLowerCase().replace(/\s+/g, "-");
     uniques.hero.icon = iconMap[key] || null;
+  }
+  if (uniqueTechs) {
+    uniqueTechs.castle.icon = iconMap["unique-tech-1"];
+    uniqueTechs.imperial.icon = iconMap["unique-tech-2"];
   }
 
   return {

@@ -2,8 +2,20 @@
 import { Tooltip, TooltipTrigger, TooltipContent } from "./Tooltip.jsx";
 import { memo } from "react";
 import cross from "../assets/techtree/cross.png";
+import food from '../public/food.png';
+import gold from '../public/gold.png';
+import wood from '../public/wood.png';
+import stone from '../public/stone.png';
+
+const images = {
+  food,
+  wood,
+  gold,
+  stone
+};
 
 export const TechIcon = memo(function TechIcon({ data, name }) {
+
   return (
     <div className="tech-icon-wrapper">
       <Tooltip>
@@ -24,7 +36,17 @@ export const TechIcon = memo(function TechIcon({ data, name }) {
           </div>
         </TooltipTrigger>
         <TooltipContent>
-          <div className="tech-tree-tooltip">{name}</div>
+          <div className="tech-tree-tooltip">
+            <div>{name}</div>
+            <div className="tech-tree-tooltip-cost">
+              {data.cost.map((item, index) => (
+                <span key={index}>
+                  {item.amount} <img src={images[item.resource]} alt={item.resource} />
+                  {index < data.cost.length - 1 ? " " : ""}
+                </span>
+              ))}
+            </div>
+          </div>
         </TooltipContent>
       </Tooltip>
     </div>

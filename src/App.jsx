@@ -70,7 +70,7 @@ function App() {
   //   enabled: !!streamUrl,
   // });
   // DEBUG TESTING
-  const civs = ['wei', 'aztecs'];
+  const civs = ['wu', 'jurchens'];
 
   const componentsLeft = [
     <Ballistics key='ballistics' />,

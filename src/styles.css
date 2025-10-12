@@ -144,6 +144,10 @@ span.tooltip-cost > span > img {
   margin-right: 5px;
   box-shadow: 0px 0px 2px 1px #000;
 }
+.tech-icon:hover {
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 2px white;
+}
 
 .tech-icon.disabled {
   filter: grayscale(100%);
@@ -154,6 +158,10 @@ span.tooltip-cost > span > img {
   top: 1px;
   left: -4px;
   width: 38px;
+}
+.disabled-icon-overlay:hover {
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 2px white inset;
 }
 
 .tech-tree-section {

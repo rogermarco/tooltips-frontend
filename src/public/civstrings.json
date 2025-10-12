@@ -782,7 +782,7 @@
     }
   },
   "wu": {
-    "string": "<b>Infantry and Naval civilization</b><br>\n<br>\n• Military production buildings and Docks provide +55 food<br>\n• Infantry regenerates 10/20/30 HP per minute in Feudal/Castle/Imperial Age<br>\n• Jian Swordsmen and Hei Guang Cavalry +2 attack in Imperial Age<br>\n• Careening, Dry Dock available one age earlier, cost and research time -75%<br>\n<br>\n<b>Unique Units:</b><br>\nFire Archer (Foot Archer), Jian Swordsman (Infantry), Sun Jian (Hero)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Red Cliffs Tactics (Demolition Ships and Fire Archers deal fire damage to ships and buildings)<br>\n• Sitting Tiger (Traction Trebuchets and Lou Chuan trebuchet weapons fire additional projectiles)<br>\n<br>\n<b>Team Bonus:</b><br>\nHouses built +100% faster",
+    "string": "<b>Infantry and Naval civilization</b><br>\n<br>\n• Military production buildings and Docks provide +55&nbsp;food<br>\n• Infantry regenerates 10/20/30 HP per minute in Feudal/Castle/Imperial Age<br>\n• Jian Swordsmen and Hei Guang Cavalry +2 attack in Imperial Age<br>\n• Careening, Dry Dock available one age earlier, cost and research time -75%<br>\n<br>\n<b>Unique Units:</b><br>\nFire Archer (Foot Archer), Jian Swordsman (Infantry), Sun Jian (Hero)<br>\n<br>\n<b>Unique Techs:</b><br>\n• Red Cliffs Tactics (Demolition Ships and Fire Archers deal fire damage to ships and buildings)<br>\n• Sitting Tiger (Traction Trebuchets and Lou Chuan trebuchet weapons fire additional projectiles)<br>\n<br>\n<b>Team Bonus:</b><br>\nHouses built +100% faster",
     "excludedTechs": ["hand-cannoneer", "heavy-cavalry-archer", "parthian-tactics", "thumb-ring", "gambesons", "knight", "cavalier", "paladin", "capped-ram", "siege-ram", "siege-onager", "bombard-cannon", "shipwright", "cannon-galleon", "elite-cannon-galleon", "fortified-wall", "siege-engineers", "bombard-tower", "arrowslits", "block-printing", "heresy"],
     "uniques": {
       "unit": {
@@ -816,7 +816,7 @@
         ]
       },
       "hero": {
-        "name": "Cao Cao",
+        "name": "cao-cao",
         "cost": [
           {"amount": 500, "resource": "food"},
           {"amount": 500, "resource": "gold"}

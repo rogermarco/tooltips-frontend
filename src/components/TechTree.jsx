@@ -6,8 +6,6 @@
 import { useMemo } from 'react';
 import { buildCivTechTree } from '../lib/buildCivTechTree';
 import castle from '../assets/techtree/castle.png';
-import castleTech from '../assets/techtree/unique_tech_1.png';
-import imperialTech from '../assets/techtree/unique_tech_2.png';
 import { TechIcon } from './TechIcon.jsx';
 
 // const images = {
@@ -21,7 +19,7 @@ export default function TechTree({ civ }) {
   const civData = useMemo(() => buildCivTechTree(civ), [civ]);
   // console.log(civData);
   
-  const { techTree, uniques } = civData;
+  const { techTree, uniques, uniqueTechs } = civData;
 
   return (
     <div className="tech-tree">
@@ -46,9 +44,12 @@ export default function TechTree({ civ }) {
       {/* uniques */}
       <section className="uniques">
         <img src={castle} alt="castle" className="building-icon" />
-        <img src={uniques.unit.icon} alt={uniques.unit.name} className="tech-icon" />
-        <img src={castleTech} alt={civData.uniqueTechs.castle.title} className="tech-icon" />
-        <img src={imperialTech} alt={civData.uniqueTechs.imperial.title} className="tech-icon" />
+        <TechIcon data={uniques.unit} name={uniques.unit.name} />
+        {uniques.hero && (
+          <TechIcon data={uniques.hero} name={uniques.hero.name} />
+        )}
+        <TechIcon data={uniqueTechs.castle} name={uniqueTechs.castle.title} />
+        <TechIcon data={uniqueTechs.imperial} name={uniqueTechs.imperial.title} />
       </section>
     </div>
   );

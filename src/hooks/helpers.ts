@@ -50,3 +50,9 @@ export function useUniquestrings() {
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
+
+export const prettifyText = (text: string) => {
+  return text.split("-")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(" ");
+}
