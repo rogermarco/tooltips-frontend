@@ -13,10 +13,4 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 1080px;
-  /* DEBUG */
-  /* background-image: url('assets/default.jpg'); */
-  /* background-image: url('assets/t90_live.jpg'); */
-  /* background-image: url('assets/membtv_live.jpg'); */
-  /* overflow: hidden; */
-  /* DEBUG */
 }

@@ -9,7 +9,7 @@
 }
 
 span.tooltip-cost > span > img {
-  vertical-align: -17%;
+  vertical-align: -22%;
 }
 
 .tooltip-container {
@@ -86,6 +86,9 @@ span.tooltip-cost > span > img {
 
 .tech-tree {
   padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .civ-tooltip-text, .tech-tree {
@@ -122,6 +125,8 @@ span.tooltip-cost > span > img {
 }
 
 .page-buttons {
+  display: flex;
+  gap: 10px;
   position: absolute;
   top: 7%;
   right: 5%;
@@ -135,18 +140,17 @@ span.tooltip-cost > span > img {
 .building-icon {
   height: 40px;
   box-shadow: 0px 0px 2px 1px #000;
-  margin-right: 8px;
 }
 
 .tech-icon {
   height: 30px;
-  margin-top: 5px;
-  margin-right: 5px;
-  box-shadow: 0px 0px 2px 1px #000;
+  box-shadow: 0px 0px 1px 0px #000;
 }
+
 .tech-icon:hover {
   border-radius: 3px;
-  box-shadow: 0px 0px 5px 2px white;
+  box-shadow: 0px 0px 5px 3px white;
+  transform: scale(1.05);
 }
 
 .tech-icon.disabled {
@@ -155,19 +159,20 @@ span.tooltip-cost > span > img {
 
 .disabled-icon-overlay {
   position: absolute;
-  top: 1px;
-  left: -4px;
-  width: 38px;
+  top: -4px;
+  left: -3px;
+  width: 37px;
+  pointer-events: none;
 }
 .disabled-icon-overlay:hover {
   border-radius: 3px;
-  box-shadow: 0px 0px 5px 2px white inset;
+  box-shadow: 0px 0px 5px 3px white;
 }
 
 .tech-tree-section {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  gap: 8px;
 }
 
 .tech-tree-section:first-child {
@@ -182,16 +187,60 @@ span.tooltip-cost > span > img {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  gap: 5px;
 }
 
-.tech-tree-tooltip {
+.tech-tree-tooltip-unit {
+  background-image: url("/src/assets/techtree/tech_icon_unit.png");
+  top: -10px;
+  transform: translate(-40%);
+  width: 177px;
+  height: 118px;
+}
+
+.tech-tree-tooltip-tech {
+  background-image: url("/src/assets/techtree/tech_icon_tech.png");
+  top: -10px;
+  transform: translate(-40%);
+  font-size: 11px;
+  width: 216px;
+  height: 144px;
+}
+
+.tech-tree-tooltip-unit, .tech-tree-tooltip-tech {
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
-  top: 0;
-  left: -10px;
-  background-color: black;
+  display: flex;
+  flex-direction: column;
   color: white;
-  padding: 10px;
   pointer-events: none;
+  letter-spacing: 0.025em;
+  line-height: 1.3em;
+  text-align: center;
+}
+
+.tech-tree-tooltip-name {
+  margin-top: 1rem;
+  font-size: 15px;
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tech-tree-tooltip-unit > .tech-tree-tooltip-cost > span > img {
+  vertical-align: -25%;
+}
+
+.tech-tree-tooltip-tech > .tech-tree-tooltip-cost> span > img {
+  vertical-align: -35%;
+  scale: 0.8;
+}
+
+.tech-tree-tooltip-text {
+  width: 155px;
+  margin: auto;
+  margin-top: 0px;
 }
 
 @keyframes pulse {

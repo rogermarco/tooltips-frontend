@@ -6,6 +6,7 @@ import food from '../public/food.png';
 import gold from '../public/gold.png';
 import wood from '../public/wood.png';
 import stone from '../public/stone.png';
+import { prettifyText } from "../hooks/helpers";
 
 const images = {
   food,
@@ -14,7 +15,7 @@ const images = {
   stone
 };
 
-export const TechIcon = memo(function TechIcon({ data, name }) {
+export const TechIcon = memo(function TechIcon({ data, name, type }) {
 
   return (
     <div className="tech-icon-wrapper">
@@ -36,8 +37,11 @@ export const TechIcon = memo(function TechIcon({ data, name }) {
           </div>
         </TooltipTrigger>
         <TooltipContent>
-          <div className="tech-tree-tooltip">
-            <div>{name}</div>
+          <div className={`tech-tree-tooltip-${type}`}>
+            <div className="tech-tree-tooltip-name">
+              {name == "man-at-arms" ? "Man-at-Arms" : 
+              name == "two-handed-swordsman" ? "Two-handed Swordsman" : 
+              prettifyText(name)}</div>
             <div className="tech-tree-tooltip-cost">
               {data.cost.map((item, index) => (
                 <span key={index}>
@@ -46,6 +50,7 @@ export const TechIcon = memo(function TechIcon({ data, name }) {
                 </span>
               ))}
             </div>
+            <p className='tech-tree-tooltip-text'>{data.desc}</p>
           </div>
         </TooltipContent>
       </Tooltip>

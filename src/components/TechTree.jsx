@@ -1,19 +1,8 @@
 /* eslint-disable react/prop-types */
-// import food from '../public/food.png';
-// import gold from '../public/gold.png';
-// import wood from '../public/wood.png';
-// import stone from '../public/stone.png';
 import { useMemo } from 'react';
 import { buildCivTechTree } from '../lib/buildCivTechTree';
 import castle from '../assets/techtree/castle.png';
 import { TechIcon } from './TechIcon.jsx';
-
-// const images = {
-//   food,
-//   wood,
-//   gold,
-//   stone
-// };
 
 export default function TechTree({ civ }) {
   const civData = useMemo(() => buildCivTechTree(civ), [civ]);
@@ -31,25 +20,27 @@ export default function TechTree({ civ }) {
           {/* units */}
           <div className="icons-grid">
             {Object.entries(data.lines).map(([line, unit]) => (
-              <TechIcon key={line} data={unit} name={unit.current} />
+              <TechIcon key={line} data={unit} name={unit.current} type="unit" />
             ))}
             
             {/* techs */}
             {Object.entries(data.techs).map(([tech, tdata]) => (
-              <TechIcon key={tech} data={tdata} name={tech} />
+              <TechIcon key={tech} data={tdata} name={tech} type="tech" />
             ))}
           </div>
         </section>
       ))}
       {/* uniques */}
-      <section className="uniques">
+      <section className="castle tech-tree-section">
         <img src={castle} alt="castle" className="building-icon" />
-        <TechIcon data={uniques.unit} name={uniques.unit.name} />
-        {uniques.hero && (
-          <TechIcon data={uniques.hero} name={uniques.hero.name} />
-        )}
-        <TechIcon data={uniqueTechs.castle} name={uniqueTechs.castle.title} />
-        <TechIcon data={uniqueTechs.imperial} name={uniqueTechs.imperial.title} />
+        <div className="icons-grid">
+          <TechIcon data={uniques.unit} name={uniques.unit.name} type="unit" />
+          {uniques.hero && (
+            <TechIcon data={uniques.hero} name={uniques.hero.name} type="unit" />
+          )}
+          <TechIcon data={uniqueTechs.castle} name={uniqueTechs.castle.title} type="tech" />
+          <TechIcon data={uniqueTechs.imperial} name={uniqueTechs.imperial.title} type="tech" />
+        </div>
       </section>
     </div>
   );

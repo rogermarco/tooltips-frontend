@@ -30,7 +30,7 @@ export default function CivTooltip({ civ }) {
   return (
     <div className='civ-tooltip'>
       <div className='page-buttons'>
-        <img src={arrowLeft} className='tooltip-arrow-left' onClick={togglePageLeft} style={{marginRight: '10px'}} />
+        <img src={arrowLeft} className='tooltip-arrow-left' onClick={togglePageLeft} />
         <img src={arrowRight} className='tooltip-arrow-right' onClick={togglePageRight} />
       </div>
       {visiblePage === 1 ?
