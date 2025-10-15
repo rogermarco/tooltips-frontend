@@ -50,6 +50,30 @@ export const TechIcon = memo(function TechIcon({ data, name, type }) {
                 </span>
               ))}
             </div>
+            {data.progression && (
+              <div className="tech-tree-progression-container">
+                <div className="progression-title">Progression</div>
+
+                <div className="tech-tree-tooltip-progression">
+                  {data.progression.map((item, index) => {
+                    const availableCount = data.availableProgression?.length || 0;
+                    const isUnlocked = index < availableCount;
+
+                    return (
+                      <>
+                        <span
+                          key={index}
+                          className={`progression-icon ${isUnlocked ? "unlocked" : "locked"}`}
+                        />
+                        {index < data.progression.length - 1 && (
+                          <span className="progression-separator">·</span>
+                        )}
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
             {data.description &&
               <p className='tech-tree-tooltip-text'>{data.description}</p>
             }

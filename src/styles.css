@@ -190,19 +190,19 @@ span.tooltip-cost > span > img {
   gap: 5px;
 }
 
+/* Tech tree tooltips */
 .tech-tree-tooltip-unit {
   background-image: url("/src/assets/techtree/tech_icon_unit.png");
-  width: 165px;
-  height: 110px;
+  width: 195px;
+  height: 130px;
 }
-
 .tech-tree-tooltip-tech {
   background-image: url("/src/assets/techtree/tech_icon_tech.png");
   font-size: 11px;
   width: 225px;
   height: 150px;
+  line-height: 1.2em;
 }
-
 .tech-tree-tooltip-unit, .tech-tree-tooltip-tech {
   background-size: cover;
   background-repeat: no-repeat;
@@ -214,10 +214,8 @@ span.tooltip-cost > span > img {
   color: white;
   pointer-events: none;
   letter-spacing: 0.025em;
-  line-height: 1.2em;
   text-align: center;
 }
-
 .tech-tree-tooltip-name-unit, .tech-tree-tooltip-name-tech {
   font-size: 14px;
   width: 115px;
@@ -230,26 +228,53 @@ span.tooltip-cost > span > img {
 .tech-tree-tooltip-name-tech {
   margin-top: 1.2rem;
 }
-
 .tech-tree-tooltip-cost {
-  font-size: 13px;  
+  font-size: 13px;
 }
-
 .tech-tree-tooltip-unit > .tech-tree-tooltip-cost > span > img {
   vertical-align: -25%;
   scale: 0.9;
 }
-
 .tech-tree-tooltip-tech > .tech-tree-tooltip-cost> span > img {
   vertical-align: -35%;
   scale: 0.8;
 }
-
 .tech-tree-tooltip-text {
   width: 155px;
   margin: auto;
   margin-top: 0px;
 }
+/* Tech tree tooltips */
+
+/* Progression */
+.tech-tree-progression-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+}
+.progression-title {
+  font-size: 0.7rem;
+}
+.tech-tree-tooltip-progression {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.progression-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.progression-icon.unlocked {
+  background-color: white;
+}
+.progression-icon.locked {
+  background-color: #777;
+}
+/* Progression */
 
 @keyframes pulse {
   0%, 100% {
