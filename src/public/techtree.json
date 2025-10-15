@@ -465,7 +465,7 @@
           {"amount": 300, "resource": "wood"},
           {"amount": 175, "resource": "gold"}
         ],
-        "description": "Ranged units and Fortifications fire more accurately at moving targets."
+        "description": "Ranged units, ranged Warships, ranged Fortifications, and some Siege Weapons fire more accurately at moving targets."
       },
       "siege-engineers": {
         "cost": [

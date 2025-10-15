@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   Tooltip,
   TooltipTrigger,
@@ -31,7 +31,7 @@ function App() {
     width: 0,
     height: 0,
   }); // Viewers stream window resolution
-  const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
+  // const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
@@ -72,36 +72,24 @@ function App() {
   // DEBUG TESTING
   const civs = ['wu', 'jurchens'];
 
-  const componentsLeft = [
-    <Ballistics key='ballistics' />,
-    <Bloodlines key='bloodlines' />,
-    <ArcherAttack key='archer-attack' />,
-    <InfCavAttack key='inf-cav-attack' />,
-    <Lumbercamp key='lumbercamp' />,
-    // If civ is khitans, use khitans tech descriptions
-    <Mill key='mill' civ={civs?.[0] === 'khitans' ? civs[0] : null} />,
-    <ArcherArmor key='archer-armor' />,
-    <CavalryArmor key='cavalry-armor' />,
-    <InfantryArmor key='infantry-armor' />,
-    <VillUpgrades key='vill-upgrades' />,
-    <CastleTech key='castle-tech' civ={civs?.[0]} />,
-    <ImperialTech key='imperial-tech' civ={civs?.[0]} />,
-  ];
-    const componentsRight = [
-    <Ballistics key='ballistics' />,
-    <Bloodlines key='bloodlines' />,
-    <ArcherAttack key='archer-attack' />,
-    <InfCavAttack key='inf-cav-attack' />,
-    <Lumbercamp key='lumbercamp' />,
-    // If civ is khitans, use khitans tech descriptions
-    <Mill key='mill' civ={civs?.[1] === 'khitans' ? civs[1] : null} />,
-    <ArcherArmor key='archer-armor' />,
-    <CavalryArmor key='cavalry-armor' />,
-    <InfantryArmor key='infantry-armor' />,
-    <VillUpgrades key='vill-upgrades' />,
-    <CastleTech key='castle-tech' civ={civs?.[1]} />,
-    <ImperialTech key='imperial-tech' civ={civs?.[1]} />,
-  ];
+  function buildComponents(civ) {
+    return [
+      <Ballistics key="ballistics" />,
+      <Bloodlines key="bloodlines" />,
+      <ArcherAttack key="archer-attack" />,
+      <InfCavAttack key="inf-cav-attack" />,
+      <Lumbercamp key="lumbercamp" />,
+      <Mill key="mill" civ={civ === "khitans" ? civ : null} />,
+      <ArcherArmor key="archer-armor" />,
+      <CavalryArmor key="cavalry-armor" />,
+      <InfantryArmor key="infantry-armor" />,
+      <VillUpgrades key="vill-upgrades" />,
+      <CastleTech key="castle-tech" civ={civ} />,
+      <ImperialTech key="imperial-tech" civ={civ} />,
+    ];
+  }
+  const componentsLeft = buildComponents(civs?.[0]);
+  const componentsRight = buildComponents(civs?.[1]);
 
   // Resize observer to track window size
   useEffect(() => {
@@ -122,34 +110,24 @@ function App() {
   // Fetch streamer from Twitch context
   useEffect(() => {
     twitch.onContext((context) => {
-      // console.log(context); // DEBUG
-      if (context.playerChannel !== streamUrl) {
-        const stream = context.playerChannel;
+      const stream = context.playerChannel;
+      if (stream && stream !== streamUrl) {
         setStreamUrl(stream);
-        if (profiles) {
-          // If current streamer has a separate profile, use that profile
-          if (profiles[stream]) {
-            setProfile(profiles[stream]);
-          } else setProfile(profiles.defaultProfile);
-        }
+        setProfile(profiles?.[stream] ?? profiles?.defaultProfile);
       }
     });
   }, [twitch, streamUrl, profiles]);
 
   // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
-  useEffect(() => {
-    if (displayResolution.height !== 0) {
-      // CHECK PLAYER WINDOW ASPECT RATIO
-      const aspectRatio = displayResolution.width / displayResolution.height;
-      if (aspectRatio > 1.78) {
-        if (ratio >= 1.409) {
-          setRatio(1.409);
-        }
-      } else {
-        setRatio(1920 / displayResolution.width);
-      }
+  const ratio = useMemo(() => {
+    if (displayResolution.height === 0) return 1;
+
+    const aspectRatio = displayResolution.width / displayResolution.height;
+    if (aspectRatio > 1.78) {
+      return Math.min(ratio, 1.409);
     }
-  }, [displayResolution, ratio]);
+    return 1920 / displayResolution.width;
+  }, [displayResolution]);
 
   return (
     <div>
