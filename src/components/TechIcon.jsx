@@ -20,7 +20,7 @@ export const TechIcon = memo(function TechIcon({ data, name, type }) {
   return (
     <div className="tech-icon-wrapper">
       <Tooltip>
-        <TooltipTrigger asChild>
+        <TooltipTrigger asChild={true}>
           <div style={{ position: "relative" }}>
             <img
               src={data.icon}
@@ -38,8 +38,8 @@ export const TechIcon = memo(function TechIcon({ data, name, type }) {
         </TooltipTrigger>
         <TooltipContent>
           <div className={`tech-tree-tooltip-${type}`}>
-            <div className="tech-tree-tooltip-name">
-              {name == "man-at-arms" ? "Man-at-Arms" : 
+            <div className={`tech-tree-tooltip-name-${type}`}>
+              {name == "man-at-arms" ? "Man-at-Arms" :
               name == "two-handed-swordsman" ? "Two-handed Swordsman" : 
               prettifyText(name)}</div>
             <div className="tech-tree-tooltip-cost">
@@ -50,7 +50,9 @@ export const TechIcon = memo(function TechIcon({ data, name, type }) {
                 </span>
               ))}
             </div>
-            <p className='tech-tree-tooltip-text'>{data.desc}</p>
+            {data.description &&
+              <p className='tech-tree-tooltip-text'>{data.description}</p>
+            }
           </div>
         </TooltipContent>
       </Tooltip>

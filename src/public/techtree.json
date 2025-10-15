@@ -57,20 +57,20 @@
           {"amount": 75, "resource": "food"},
           {"amount": 25, "resource": "gold"}
         ],
-        "desc": "Infantry +2 attack vs. buildings."
+        "description": "Infantry +2 attack vs. buildings."
       },
       "gambesons": {
         "cost": [
           {"amount": 100, "resource": "food"},
           {"amount": 100, "resource": "gold"}
         ],
-        "desc": "Militia-line and Fire Lancers +1 pierce armor."
+        "description": "Militia-line and Fire Lancers +1 pierce armor."
       },
       "squires": {
         "cost": [
           {"amount": 100, "resource": "food"}
         ],
-        "desc": "Infantry moves +10% faster."
+        "description": "Infantry moves +10% faster."
       }
     }
   },
@@ -146,14 +146,14 @@
           {"amount": 300, "resource": "food"},
           {"amount": 250, "resource": "wood"}
         ],
-        "desc": "Archery Units attack +15% faster. Archery Units and Skirmishers fire with 100% accuracy."
+        "description": "Archery Units attack +15% faster. Archery Units and Skirmishers fire with 100% accuracy."
       },
       "parthian-tactics": {
         "cost": [
           {"amount": 200, "resource": "food"},
           {"amount": 250, "resource": "gold"}
         ],
-        "desc": "Mounted Archers +1 melee/+2 pierce armor; +2 attack vs. Spearman-line."
+        "description": "Mounted Archers +1 melee/+2 pierce armor; +2 attack vs. Spearman-line."
       }
     }
   },
@@ -221,13 +221,13 @@
           {"amount": 150, "resource": "food"},
           {"amount": 100, "resource": "gold"}
         ],
-        "desc": "Mounted Units +20 HP."
+        "description": "Mounted Units +20 HP."
       },
       "husbandry": {
         "cost": [
           {"amount": 150, "resource": "food"}
         ],
-        "desc": "Mounted Units move +10% faster."
+        "description": "Mounted Units move +10% faster."
       }
     }
   },
@@ -391,21 +391,21 @@
           {"amount": 1000, "resource": "food"},
           {"amount": 300, "resource": "gold"}
         ],
-        "desc": "Ships cost -20% wood and build +50% faster."
+        "description": "Ships cost -20% wood and build +50% faster."
       },
       "careening": {
         "cost": [
           {"amount": 250, "resource": "food"},
           {"amount": 150, "resource": "gold"}
         ],
-        "desc": "Ships +1 pierce armor."
+        "description": "Ships +1 pierce armor."
       },
       "dry-dock": {
         "cost": [
           {"amount": 600, "resource": "food"},
           {"amount": 400, "resource": "gold"}
         ],
-        "desc": "Ships move +15% faster."
+        "description": "Ships move +15% faster."
       }
     }
   },
@@ -416,91 +416,91 @@
           {"amount": 150, "resource": "food"},
           {"amount": 175, "resource": "wood"}
         ],
-        "desc": "Buildings +10% HP, +1 melee/+1 pierce armor and +3 building armor."
+        "description": "Buildings +10% HP, +1 melee/+1 pierce armor and +3 building armor."
       },
       "architecture": {
         "cost": [
           {"amount": 300, "resource": "food"},
           {"amount": 200, "resource": "wood"}
         ],
-        "desc": "Buildings +10% HP, +1 melee/+1 pierce armor and +3 building armor."
+        "description": "Buildings +10% HP, +1 melee/+1 pierce armor and +3 building armor."
       },
       "guard-tower": {
         "cost": [
           {"amount": 100, "resource": "food"},
           {"amount": 250, "resource": "wood"}
         ],
-        "desc": "Upgrades Watch Towers to Guard Towers, which are stronger."
+        "description": "Upgrades Watch Towers to Guard Towers, which are stronger."
       },
       "keep": {
         "cost": [
           {"amount": 500, "resource": "food"},
           {"amount": 350, "resource": "wood"}
         ],
-        "desc": "Upgrades Guard Towers to Keeps, which are stronger."
+        "description": "Upgrades Guard Towers to Keeps, which are stronger."
       },
       "chemistry": {
         "cost": [
           {"amount": 300, "resource": "food"},
           {"amount": 200, "resource": "gold"}
         ],
-        "desc": "Ranged units and Fortifications +1 attack. Required for Gunpowder Units"
+        "description": "Ranged units and Fortifications +1 attack. Required for Gunpowder Units"
       },
       "bombard-tower": {
         "cost": [
           {"amount": 800, "resource": "food"},
           {"amount": 400, "resource": "wood"}
         ],
-        "desc": "Unlocks Bombard Towers."
+        "description": "Unlocks Bombard Towers."
       },
       "fortified-wall": {
         "cost": [
           {"amount": 200, "resource": "food"},
           {"amount": 100, "resource": "wood"}
         ],
-        "desc": "Upgrades Stone Walls and Gates to Fortified Walls and Gates, which are stronger."
+        "description": "Upgrades Stone Walls and Gates to Fortified Walls and Gates, which are stronger."
       },
       "ballistics": {
         "cost": [
           {"amount": 300, "resource": "wood"},
           {"amount": 175, "resource": "gold"}
         ],
-        "desc": "Ranged units and Fortifications fire more accurately at moving targets."
+        "description": "Ranged units and Fortifications fire more accurately at moving targets."
       },
       "siege-engineers": {
         "cost": [
           {"amount": 500, "resource": "food"},
           {"amount": 600, "resource": "wood"}
         ],
-        "desc": "Siege Weapons and Siege Warships +1 range, +20% attack vs. buildings; Demolition Units +40% attack vs. buildings."
+        "description": "Siege Weapons and Siege Warships +1 range, +20% attack vs. buildings; Demolition Units +40% attack vs. buildings."
       },
       "heated-shot": {
         "cost": [
           {"amount": 350, "resource": "food"},
           {"amount": 100, "resource": "gold"}
         ],
-        "desc": "Towers +125% attack vs. ships; Castles +25% attack vs. ships."
+        "description": "Towers +125% attack vs. ships; Castles +25% attack vs. ships."
       },
       "murder-holes": {
         "cost": [
           {"amount": 200, "resource": "food"},
           {"amount": 100, "resource": "stone"}
         ],
-        "desc": "Removes minimum range of Fortifications so they can attack enemies at their base."
+        "description": "Removes minimum range of Fortifications so they can attack enemies at their base."
       },
       "treadmill-crane": {
         "cost": [
           {"amount": 200, "resource": "wood"},
           {"amount": 50, "resource": "stone"}
         ],
-        "desc": "Villagers construct buildings +20% faster."
+        "description": "Villagers construct buildings +20% faster."
       },
       "arrowslits": {
         "cost": [
           {"amount": 250, "resource": "food"},
           {"amount": 250, "resource": "wood"}
         ],
-        "desc": "Watch Towers +1, Guard Towers +2, Keeps and Donjons +3 attack."
+        "description": "Watch Towers +1, Guard Towers +2, Keeps and Donjons +3 attack."
       }
     }
   },
@@ -526,68 +526,68 @@
           {"amount": 100, "resource": "food"},
           {"amount": 200, "resource": "gold"}
         ],
-        "desc": "Units are 15% harder for enemy Monks to convert."
+        "description": "Units are 15% harder for enemy Monks to convert."
       },
       "faith": {
         "cost": [
           {"amount": 550, "resource": "food"},
           {"amount": 750, "resource": "gold"}
         ],
-        "desc": "Units are 50% harder for enemy Monks to convert."
+        "description": "Units are 50% harder for enemy Monks to convert."
       },
       "redemption": {
         "cost": [
           {"amount": 475, "resource": "gold"}
         ],
-        "desc": "Monks can convert enemy Siege Weapons and buildings."
+        "description": "Monks can convert enemy Siege Weapons and buildings."
       },
       "atonement": {
         "cost": [
           {"amount": 325, "resource": "gold"}
         ],
-        "desc": "Monks can convert enemy Monastery Units."
+        "description": "Monks can convert enemy Monastery Units."
       },
       "herbal-medicine": {
         "cost": [
           {"amount": 200, "resource": "gold"}
         ],
-        "desc": "Units garrisoned in buildings heal +500% faster."
+        "description": "Units garrisoned in buildings heal +500% faster."
       },
       "heresy": {
         "cost": [
           {"amount": 1000, "resource": "gold"}
         ],
-        "desc": "Units converted by an enemy Monk die instead of changing to the enemy's color."
+        "description": "Units converted by an enemy Monk die instead of changing to the enemy's color."
       },
       "sanctity": {
         "cost": [
           {"amount": 175, "resource": "gold"}
         ],
-        "desc": "Monastery Units +15 HP."
+        "description": "Monastery Units +15 HP."
       },
       "fervor": {
         "cost": [
           {"amount": 140, "resource": "gold"}
         ],
-        "desc": "Monastery Units move +15% faster."
+        "description": "Monastery Units move +15% faster."
       },
       "illumination": {
         "cost": [
           {"amount": 120, "resource": "gold"}
         ],
-        "desc": "Monastery Units regain their faith +100% faster after a successful conversion."
+        "description": "Monastery Units regain their faith +100% faster after a successful conversion."
       },
       "block-printing": {
         "cost": [
           {"amount": 200, "resource": "gold"}
         ],
-        "desc": "Monastery Units +3 conversion range."
+        "description": "Monastery Units +3 conversion range."
       },
       "theocracy": {
         "cost": [
           {"amount": 200, "resource": "gold"}
         ],
-        "desc": "If a group of Monks converts an enemy unit, only one of the Monks must rest afterward."
+        "description": "If a group of Monks converts an enemy unit, only one of the Monks must rest afterward."
       }
     }
   }
