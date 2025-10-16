@@ -258,9 +258,10 @@ span.tooltip-cost > span > img {
 }
 .tech-tree-tooltip-progression {
   display: flex;
-  gap: 4px;
   align-items: center;
   justify-content: center;
+  gap: 4px;
+  height: 20px;
 }
 .progression-icon {
   width: 8px;
