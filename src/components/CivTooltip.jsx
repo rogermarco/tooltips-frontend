@@ -4,10 +4,9 @@ import { useCivstrings } from "../hooks/helpers";
 import arrowLeft from '../public/arrow_left.png';
 import arrowRight from '../public/arrow_right.png';
 import TechTree from './TechTree';
-import civs from '../public/civstrings.json';
 
 export default function CivTooltip({ civ }) {
-  const [visiblePage, setVisiblePage] = useState(2);
+  const [visiblePage, setVisiblePage] = useState(1);
   // 1 = overview, 2 = techtree
 
   const togglePageLeft = () => {
@@ -22,8 +21,8 @@ export default function CivTooltip({ civ }) {
     }
   }
 
-  // const { data: civs, isLoading } = useCivstrings();
-  // if (isLoading) return null;
+  const { data: civs, isLoading } = useCivstrings();
+  if (isLoading) return null;
   
   const requiredCiv = civs[civ];
 

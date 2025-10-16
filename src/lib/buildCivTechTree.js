@@ -1,10 +1,7 @@
-import techTree from "../public/techtree.json";
-import civStrings from "../public/civstrings.json";
-import uniqueStrings from "../public/uniquestrings.json";
 import { iconMap } from "../index.js";
 
-// These units exist in the master tech tree but are regional —
-// they only appear for civs that specifically list them inside their "regionals" field.
+// These units exist in the master tech tree but are regional
+// They only appear for civs that specifically list them inside their "regionals" field.
 const regionalUnits = [
   "eagle-scout",
   "eagle-warrior",
@@ -60,7 +57,8 @@ const regionalUnits = [
  * @param {string} civId
  * @returns {object|null}
  */
-export function buildCivTechTree(civId) {
+export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
+  
   const civ = civStrings[civId];
   const uniqueTechs = uniqueStrings[civId];
   if (!civ) {

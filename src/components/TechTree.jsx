@@ -1,13 +1,26 @@
 /* eslint-disable react/prop-types */
 import { useMemo } from 'react';
 import { buildCivTechTree } from '../lib/buildCivTechTree';
+import { useAllTechtreeData } from "../hooks/helpers";
 import castle from '../assets/techtree/castle.png';
 import { TechIcon } from './TechIcon.jsx';
 
 export default function TechTree({ civ }) {
-  const civData = useMemo(() => buildCivTechTree(civ), [civ]);
-  // console.log(civData);
-  
+
+  const { data, isLoading, error } = useAllTechtreeData();
+
+  const civData = useMemo(() => {
+    if (!data) return null;
+
+    const { civStrings, uniqueStrings, techTree } = data;
+
+    return buildCivTechTree(civ, civStrings, uniqueStrings, techTree);
+  }, [civ, data]);
+
+  if (isLoading) return <div>Loading…</div>;
+  if (error) return <div>Error loading data</div>;
+  if (!civData) return <div>Loading…</div>;
+
   const { techTree, uniques, uniqueTechs } = civData;
 
   return (
