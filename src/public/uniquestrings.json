@@ -359,6 +359,24 @@
       "description": "Hand Cannoneers +2 range."
     }
   },
+  "indians": {
+    "castle": {
+      "title": "Grand Trunk Road",
+      "cost": [
+        {"amount": "250", "resource": "food"},
+        {"amount": "200", "resource": "wood"}
+      ],
+      "description": "All gold income +10% faster; Market trading fee reduced to 10%."
+    },
+    "imperial": {
+      "title": "Shatagni",
+      "cost": [
+        {"amount": "500", "resource": "food"},
+        {"amount": "650", "resource": "gold"}
+      ],
+      "description": "Hand Cannoneers +2 range."
+    }
+  },
   "huns": {
     "castle": {
       "title": "Marauders",

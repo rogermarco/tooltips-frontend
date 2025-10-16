@@ -180,7 +180,7 @@
         ]
       },
       "camel-scout": {
-        "progression": ["camel-scout", "camel-rider", "heavy-camel-rider"],
+        "progression": ["camel-rider", "heavy-camel-rider"],
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 60, "resource": "gold"}

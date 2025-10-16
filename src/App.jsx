@@ -70,7 +70,7 @@ function App() {
   //   enabled: !!streamUrl,
   // });
   // DEBUG TESTING
-  const civs = ['wu', 'jurchens'];
+  const civs = ['bohemians', 'hindustanis'];
 
   function buildComponents(civ) {
     return [

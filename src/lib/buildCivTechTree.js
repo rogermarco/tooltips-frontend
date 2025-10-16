@@ -102,14 +102,22 @@ export function buildCivTechTree(civId) {
         if (!civHasIt) continue;
       }
 
-      // Adjust progression if civ has unique replacements (e.g., Savar)
+      // Clone base progression
       let progression = [...line.progression];
+
+      // Adjust progression if civ has unique replacements (eg Savar)
       const replacementForBuilding = replacements?.[building]?.[lineName];
       if (replacementForBuilding) {
         const { replace, with: replaceWith } = replacementForBuilding;
         const idx = progression.indexOf(replace);
         if (idx !== -1) progression.splice(idx, 1, replaceWith);
         else progression.push(replaceWith);
+      }
+
+      // Apply civ-specific extensions (eg Imperial Skirmisher)
+      const extensionForBuilding = civ.extensions?.[building]?.[lineName];
+      if (extensionForBuilding) {
+        progression = [...progression, ...extensionForBuilding];
       }
 
       // Filter progression to what civ actually gets
