@@ -34,7 +34,7 @@ function App() {
   // const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, setShowNotice] = useState(false);
+  const [showNotice, setShowNotice] = useState(true);
 
   const twitch = window.Twitch.ext;
 
@@ -169,7 +169,7 @@ function App() {
               </Tooltip>
             ))}
           <div>
-            <NoticeBox show={showNotice} />
+            <NoticeBox show={showNotice} ratio={ratio} profile={profile} />
             <Tooltip>
               <TooltipTrigger asChild={true}>
                 <div

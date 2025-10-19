@@ -229,7 +229,7 @@
     }
   },
   "noticeBox": {
-    "text": "You can mouseover tech icons and player name boxes to see more info!"
+    "text": "Tooltips active!"
   },
   "villUpgrades": {
     "title": "Villager Upgrades",

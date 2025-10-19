@@ -66,7 +66,7 @@ span.tooltip-cost > span > img {
 .tooltip-box {
   position: absolute;
   /* DEBUG */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .civ-tooltip {
@@ -108,20 +108,48 @@ span.tooltip-cost > span > img {
 
 .notice-box {
   color: white;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.025em;
   background-color: palevioletred;
-  padding: 2px 3px;
-  max-width: 230px;
+  padding: 0px 3px;
+  /* max-width: 300px; */
+  width: 110px;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   border: 2px solid purple;
   border-radius: 10px;
   box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
   position: absolute;
-  top: 14%;
-  left: 50%;
-  transform: translateX(-50%);
+  /* top: 12%;
+  left: 60%;
+  transform: translateX(-50%); */
   text-align: center;
+}
+@media screen and (max-width: 1350px) {
+  .notice-box {
+    font-size: 11px;
+    width: 100px;
+  }
+}
+
+.left-tech-box, .right-tech-box, .left-civ-box, .right-civ-box {
+  position: absolute;
+  top: 0;
+  border: 3px solid purple;
+  box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  border-radius: 10px;
+}
+.left-tech-box {
+  left: 0;
+}
+.right-tech-box {
+  right: 0;
+}
+.left-civ-box {
+  left: 495px;
+}
+.right-civ-box {
+  right: 495px;
 }
 
 .page-buttons {

@@ -13,4 +13,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 1080px;
+  background-image: url('/src/public/italians_shu.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
