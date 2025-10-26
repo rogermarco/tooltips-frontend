@@ -8,7 +8,8 @@
         "cost": [
           {"amount": 35, "resource": "wood"},
           {"amount": 40, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer with exceptional range."
       }
     },
     "regionals": {}
@@ -22,7 +23,8 @@
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 25, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with ranged melee attack."
       }
     },
     "regionals": {}
@@ -36,7 +38,8 @@
         "cost": [
           {"amount": 75, "resource": "food"},
           {"amount": 35, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with exceptional pierce armor."
       }
     },
     "regionals": {
@@ -52,7 +55,8 @@
         "cost": [
           {"amount": 85, "resource": "food"},
           {"amount": 30, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with exceptional melee armor. Slow but resistant to conversion."
       }
     },
     "regionals": {}
@@ -66,7 +70,8 @@
         "cost": [
           {"amount": 45, "resource": "food"},
           {"amount": 30, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that quickly charges into battle and has fast attack."
       }
     },
     "regionals": {}
@@ -80,7 +85,8 @@
         "cost": [
           {"amount": 40, "resource": "wood"},
           {"amount": 35, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer with rapid-fire attack."
       }
     },
     "regionals": {
@@ -101,7 +107,8 @@
         "cost": [
           {"amount": 70, "resource": "food"},
           {"amount": 75, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry. Exceptionally strong vs. Infantry."
       }
     },
     "regionals": {
@@ -118,7 +125,8 @@
         "cost": [
           {"amount": 170, "resource": "food"},
           {"amount": 85, "resource": "gold"}
-        ]
+        ],
+        "description": "Cavalry that deals trample damage."
       }
     },
     "regionals": {
@@ -139,7 +147,8 @@
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 85, "resource": "gold"}
-        ]
+        ],
+        "description": "Cavalry with ranged melee attack."
       }
     },
     "regionals": {
@@ -155,7 +164,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 55, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Gunner with powerful attack. Strong vs. Infantry."
       }
     },
     "regionals": {
@@ -171,7 +181,8 @@
         "cost": [
           {"amount": 65, "resource": "food"},
           {"amount": 20, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that regenerates HP."
       }
     },
     "regionals": {
@@ -187,7 +198,8 @@
         "cost": [
           {"amount": 55, "resource": "wood"},
           {"amount": 65, "resource": "gold"}
-        ]
+        ],
+        "description": "Mounted Archer with fast attack. Strong vs. Siege Weapons."
       }
     },
     "regionals": {
@@ -203,7 +215,8 @@
         "cost": [
           {"amount": 70, "resource": "food"},
           {"amount": 25, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with fast movement speed."
       }
     },
     "regionals": {
@@ -219,7 +232,8 @@
         "cost": [
           {"amount": 70, "resource": "food"},
           {"amount": 60, "resource": "gold"}
-        ]
+        ],
+        "description": "Mounted Gunner with powerful attack and mobility."
       }
     },
     "regionals": {
@@ -235,7 +249,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 30, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that gains additional damage when defeating military units."
       }
     },
     "regionals": {
@@ -251,7 +266,8 @@
         "cost": [
           {"amount": 55, "resource": "wood"},
           {"amount": 55, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer with fast movement speed."
       }
     },
     "regionals": {
@@ -267,7 +283,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 60, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry. Exceptionally strong vs. buildings."
       }
     },
     "regionals": {
@@ -283,7 +300,8 @@
         "cost": [
           {"amount": 200, "resource": "wood"},
           {"amount": 60, "resource": "gold"}
-        ]
+        ],
+        "description": "Mounted Archer. Slow but durable."
       }
     },
     "regionals": {
@@ -299,7 +317,8 @@
         "cost": [
           {"amount": 45, "resource": "wood"},
           {"amount": 40, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer. Exceptionally strong vs. Cavalry."
       }
     },
     "regionals": {
@@ -315,7 +334,8 @@
         "cost": [
           {"amount": 30, "resource": "food"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that thrusts its spear through multiple targets."
       }
     },
     "regionals": {
@@ -336,7 +356,8 @@
         "cost": [
           {"amount": 30, "resource": "food"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that thrusts its spear through multiple targets."
       }
     },
     "regionals": {
@@ -357,7 +378,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 30, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with increased attack range."
       }
     },
     "regionals": {
@@ -373,7 +395,8 @@
         "cost": [
           {"amount": 35, "resource": "food"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Light Horseman. Strong vs. Siege Weapons."
       }
     },
     "regionals": {
@@ -389,7 +412,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 70, "resource": "gold"}
-        ]
+        ],
+        "description": "Cavalry with exceptional melee armor."
       }
     },
     "regionals": {
@@ -405,7 +429,8 @@
         "cost": [
           {"amount": 80, "resource": "wood"},
           {"amount": 70, "resource": "gold"}
-        ]
+        ],
+        "description": "Siege Gunpowder Unit. Fires a volley of bullets."
       }
     },
     "regionals": {
@@ -421,7 +446,8 @@
         "cost": [
           {"amount": 50, "resource": "food"},
           {"amount": 30, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with high attack and fast training speed."
       }
     },
     "regionals": {
@@ -437,7 +463,8 @@
         "cost": [
           {"amount": 50, "resource": "food"},
           {"amount": 40, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with ranged melee attack and fast movement speed."
       }
     },
     "regionals": {
@@ -453,7 +480,8 @@
         "cost": [
           {"amount": 50, "resource": "wood"},
           {"amount": 60, "resource": "gold"}
-        ]
+        ],
+        "description": "Mounted Archer. Exceptionally strong vs. Mounted Archers."
       }
     },
     "regionals": {
@@ -469,7 +497,8 @@
         "cost": [
           {"amount": 100, "resource": "food"},
           {"amount": 80, "resource": "gold"}
-        ]
+        ],
+        "description": "Siege Cavalry with ranged pass through attack. Can destroy trees."
       }
     },
     "regionals": {
@@ -485,7 +514,8 @@
         "cost": [
           {"amount": 25, "resource": "food"},
           {"amount": 15, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that only takes half population space."
       }
     },
     "regionals": {
@@ -501,7 +531,8 @@
         "cost": [
           {"amount": 75, "resource": "wood"},
           {"amount": 60, "resource": "gold"}
-        ]
+        ],
+        "description": "Ranged Mounted Unit with a powerful but inaccurate attack."
       }
     },
     "regionals": {
@@ -517,7 +548,8 @@
         "cost": [
           {"amount": 50, "resource": "wood"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer with exceptional pierce armor."
       }
     },
     "regionals": {
@@ -538,7 +570,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 70, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry that fights on as Infantry when felled."
       }
     },
     "regionals": {
@@ -554,7 +587,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 40, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry that generates gold when fighting other units."
       }
     },
     "regionals": {
@@ -570,7 +604,8 @@
         "cost": [
           {"amount": 60, "resource": "wood"},
           {"amount": 35, "resource": "gold"}
-        ]
+        ],
+        "description": "Mounted Archer that fires multiple arrows."
       }
     },
     "regionals": {
@@ -586,7 +621,8 @@
         "cost": [
           {"amount": 70, "resource": "food"},
           {"amount": 50, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry that ignores armor."
       }
     },
     "regionals": {
@@ -607,7 +643,8 @@
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 55, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry with a powerful charged attack."
       }
     },
     "regionals": {
@@ -623,7 +660,8 @@
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 25, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that can construct Donjons."
       }
     },
     "regionals": {
@@ -639,7 +677,8 @@
         "cost": [
           {"amount": 55, "resource": "food"},
           {"amount": 20, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that tears the armor of units it is fighting."
       }
     },
     "regionals": {
@@ -660,7 +699,8 @@
         "cost": [
           {"amount": 110, "resource": "food"},
           {"amount": 70, "resource": "gold"}
-        ]
+        ],
+        "description": "Siege Gunpowder Unit. Units behind it receive less from incoming projectiles."
       }
     },
     "regionals": {
@@ -681,7 +721,8 @@
         "cost": [
           {"amount": 65, "resource": "food"},
           {"amount": 20, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with a charged blast attack."
       }
     },
     "regionals": {
@@ -697,7 +738,8 @@
         "cost": [
           {"amount": 60, "resource": "wood"},
           {"amount": 60, "resource": "gold"}
-        ]
+        ],
+        "description": "Mounted Archer that can switch between melee and ranged attacks."
       }
     },
     "regionals": {
@@ -713,7 +755,8 @@
         "cost": [
           {"amount": 65, "resource": "food"},
           {"amount": 30, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with ranged melee attack that deals pass through damage."
       }
     },
     "regionals": {
@@ -729,7 +772,8 @@
         "cost": [
           {"amount": 75, "resource": "food"},
           {"amount": 85, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry that increases movement and attack speed of nearby Militia-line units."
       }
     },
     "regionals": {
@@ -750,7 +794,8 @@
         "cost": [
           {"amount": 35, "resource": "wood"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer that ignores armor."
       }
     },
     "regionals": {
@@ -766,7 +811,8 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry. Becomes stronger when other Monaspas or Knight-line units are nearby."
       }
     },
     "regionals": {
@@ -782,14 +828,16 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 15, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry that temporarily slows down the unit it attacks."
       },
       "hero": {
         "name": "Liu Bei",
         "cost": [
           {"amount": 500, "resource": "food"},
           {"amount": 500, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry Hero that heals all nearby units."
       }
     },
     "regionals": {
@@ -805,14 +853,16 @@
         "cost": [
           {"amount": 45, "resource": "food"},
           {"amount": 45, "resource": "gold"}
-        ]
+        ],
+        "description": "Foot Archer that fires multiple arrows at units and uses a long range attack against buildings."
       },
       "hero": {
         "name": "Sun Jian",
         "cost": [
           {"amount": 500, "resource": "food"},
           {"amount": 500, "resource": "gold"}
-        ]
+        ],
+        "description": "Cavalry Hero that increases the movement speed of nearby units."
       }
     },
     "regionals": {
@@ -828,14 +878,16 @@
         "cost": [
           {"amount": 60, "resource": "food"},
           {"amount": 80, "resource": "gold"}
-        ]
+        ],
+        "description": "Cavalry that gains HP and attack when defeating enemy military."
       },
       "hero": {
         "name": "cao-cao",
         "cost": [
           {"amount": 500, "resource": "food"},
           {"amount": 500, "resource": "gold"}
-        ]
+        ],
+        "description": "Cavalry Hero that increases the attack speed of nearby units."
       }
     },
     "regionals": {
@@ -851,7 +903,8 @@
         "cost": [
           {"amount": 80, "resource": "food"},
           {"amount": 55, "resource": "gold"}
-        ]
+        ],
+        "description": "Heavy Cavalry with durable armor that can completely block melee attacks."
       }
     },
     "regionals": {
@@ -867,7 +920,8 @@
         "cost": [
           {"amount": 40, "resource": "food"},
           {"amount": 40, "resource": "gold"}
-        ]
+        ],
+        "description": "Infantry with powerful attack that wounds enemies, dealing damage over time."
       }
     },
     "regionals": {
