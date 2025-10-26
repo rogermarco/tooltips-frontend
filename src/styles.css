@@ -108,36 +108,40 @@ span.tooltip-cost > span > img {
 
 .notice-box {
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.025em;
-  background-color: palevioletred;
+  background-color: rgb(31, 31, 31, 0.8);
   padding: 0px 3px;
-  /* max-width: 300px; */
-  width: 110px;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  width: 240px;
+  animation: bounce 3s cubic-bezier(0.4, 0.5, 0.6, 1) infinite;
   border: 2px solid purple;
   border-radius: 10px;
   box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
   position: absolute;
-  /* top: 12%;
-  left: 60%;
-  transform: translateX(-50%); */
   text-align: center;
+  transform: translateX(-50%);
 }
 @media screen and (max-width: 1350px) {
   .notice-box {
-    font-size: 11px;
-    width: 100px;
+    font-size: 10px;
+    width: 200px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .notice-box {
+    scale: 0.90;
   }
 }
 
-.left-tech-box, .right-tech-box, .left-civ-box, .right-civ-box {
+/* Do i even want this? */
+/* .left-tech-box, .right-tech-box, .left-civ-box, .right-civ-box {
   position: absolute;
   top: 0;
-  border: 3px solid purple;
-  box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  border: 3px solid rgba(128, 0, 128, 1);
+  box-shadow: 0 1px 3px purple;
+  animation: pulse 3s cubic-bezier(0.4, 0.5, 0.6, 1) infinite;
   border-radius: 10px;
+  pointer-events: none;
 }
 .left-tech-box {
   left: 0;
@@ -150,7 +154,7 @@ span.tooltip-cost > span > img {
 }
 .right-civ-box {
   right: 495px;
-}
+} */
 
 .page-buttons {
   display: flex;
@@ -221,8 +225,8 @@ span.tooltip-cost > span > img {
 /* Tech tree tooltips */
 .tech-tree-tooltip-unit {
   background-image: url("/src/assets/techtree/tech_icon_unit.png");
-  width: 195px;
-  height: 130px;
+  width: 210px;
+  height: 140px;
 }
 .tech-tree-tooltip-tech {
   background-image: url("/src/assets/techtree/tech_icon_tech.png");
@@ -271,6 +275,7 @@ span.tooltip-cost > span > img {
   width: 155px;
   margin: auto;
   margin-top: 0px;
+  font-size: 11px;
 }
 /* Tech tree tooltips */
 
@@ -279,7 +284,7 @@ span.tooltip-cost > span > img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2px;
+  margin-top: 5px;
 }
 .progression-title {
   font-size: 0.7rem;
@@ -307,11 +312,20 @@ span.tooltip-cost > span > img {
 
 @keyframes pulse {
   0%, 100% {
-    opacity: .9;
+    opacity: 1;
   }
   50% {
-    opacity: .6;
+    opacity: .8;
   }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20%);
+  }    
 }
 
 @media screen and (max-width: 1200px) {
@@ -321,10 +335,6 @@ span.tooltip-cost > span > img {
   .civ-tooltip {
     scale: 0.90;
     transform: translateY(-8%);
-  }
-  .notice-box {
-    scale: 0.95;
-    transform: translateX(-53%)
   }
 }
 
@@ -336,9 +346,5 @@ span.tooltip-cost > span > img {
  .civ-tooltip {
     scale: 0.85;
     transform: translateY(-12%);
-  }
- .notice-box {
-    scale: 0.85;
-    transform: translateX(-60%)
   }
 }

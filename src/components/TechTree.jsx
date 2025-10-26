@@ -11,15 +11,13 @@ export default function TechTree({ civ }) {
 
   const civData = useMemo(() => {
     if (!data) return null;
-
     const { civStrings, uniqueStrings, techTree } = data;
-
     return buildCivTechTree(civ, civStrings, uniqueStrings, techTree);
   }, [civ, data]);
 
-  if (isLoading) return <div>Loading…</div>;
-  if (error) return <div>Error loading data</div>;
-  if (!civData) return <div>Loading…</div>;
+  if (isLoading) return null;
+  if (error) return null;
+  if (!civData) return null;
 
   const { techTree, uniques, uniqueTechs } = civData;
 

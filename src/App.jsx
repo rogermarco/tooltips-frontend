@@ -21,8 +21,8 @@ import {
 } from './components';
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
-import { supabase } from './lib/db.js';
 import { useProfiles } from './hooks/helpers';
+// import { supabase } from './lib/db.js';
 
 function App() {
   const { data: profiles } = useProfiles();
@@ -34,7 +34,7 @@ function App() {
   // const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, setShowNotice] = useState(true);
+  const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;
 
@@ -59,18 +59,35 @@ function App() {
   //   }
   // };
 
-  // const { data: civs } = useQuery({
-  //   queryKey: ['civs', streamUrl],
-  //   queryFn: () => fetchCivs(streamUrl),
-  //   staleTime: Infinity,
-  //   refetchOnMount: false,
-  //   refetchOnWindowFocus: false,
-  //   refetchInterval: 120000, // 2 minutes
-  //   cacheTime: 180000,
-  //   enabled: !!streamUrl,
-  // });
+  const fetchCivs = async (streamUrl) => {
+    try {
+      const response = await fetch(`https://tooltips-worker.marcrogers90.workers.dev/civs/${streamUrl}`);
+      const data = await response.json();
+
+      if (!showNotice) {
+        setShowNotice(true);
+      }
+      // Return the civ_data array
+      return data;
+    } catch (error) {
+      console.error("error fetching civs", error);
+      return null;
+    }
+  }
+
+  const { data: civs } = useQuery({
+    queryKey: ['civs', streamUrl],
+    queryFn: () => fetchCivs(streamUrl),
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: 120000, // 2 minutes
+    refetchIntervalInBackground: true,
+    cacheTime: 240000, // 4 minutes
+    enabled: !!streamUrl,
+  });
   // DEBUG TESTING
-  const civs = ['tatars', 'hindustanis'];
+  // const civs = ['bengalis', 'georgians'];
 
   function buildComponents(civ) {
     return [
@@ -113,7 +130,7 @@ function App() {
       const stream = context.playerChannel;
       if (stream && stream !== streamUrl) {
         setStreamUrl(stream);
-        setProfile(profiles?.[stream] ?? profiles?.defaultProfile);
+        setProfile(profiles[stream] ?? profiles.defaultProfile);
       }
     });
   }, [twitch, streamUrl, profiles]);
@@ -169,7 +186,7 @@ function App() {
               </Tooltip>
             ))}
           <div>
-            <NoticeBox show={showNotice} ratio={ratio} profile={profile} />
+            <NoticeBox show={showNotice} ratio={ratio} />
             <Tooltip>
               <TooltipTrigger asChild={true}>
                 <div
