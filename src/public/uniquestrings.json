@@ -611,6 +611,24 @@
       "description": "Eagle Warriors +40 HP."
     }
   },
+  "mayans": {
+    "castle": {
+      "title": "Hul'che Javelineers",
+      "cost": [
+        {"amount": "300", "resource": "food"},
+        {"amount": "300", "resource": "gold"}
+      ],
+      "description": "Skirmishers fire an additional projectile."
+    },
+    "imperial": {
+      "title": "El Dorado",
+      "cost": [
+        {"amount": "750", "resource": "food"},
+        {"amount": "450", "resource": "gold"}
+      ],
+      "description": "Eagle Warriors +40 HP."
+    }
+  },
   "mongols": {
     "castle": {
       "title": "Nomads",
