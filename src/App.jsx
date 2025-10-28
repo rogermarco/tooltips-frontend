@@ -22,7 +22,6 @@ import {
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { useProfiles } from './hooks/helpers';
-// import { supabase } from './lib/db.js';
 
 function App() {
   const { data: profiles } = useProfiles();
@@ -31,33 +30,11 @@ function App() {
     width: 0,
     height: 0,
   }); // Viewers stream window resolution
-  // const [ratio, setRatio] = useState(1); // Aspect ratio of the viewers stream window
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
 
   const twitch = window.Twitch.ext;
-
-  // Comment out for testing
-  // const fetchCivs = async (streamUrl) => {
-  //   try {
-  //     const { data: response } = await supabase
-  //       .from('streamdata')
-  //       .select('civ_data')
-  //       .eq('broadcaster_name', streamUrl)
-  //       .single();
-  //     const convertedArray = JSON.parse(response.civ_data);
-
-  //     if (!showNotice) {
-  //       setShowNotice(true);
-  //     }
-
-  //     return convertedArray;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return null;
-  //   }
-  // };
 
   const fetchCivs = async (streamUrl) => {
     try {
@@ -105,8 +82,8 @@ function App() {
       <ImperialTech key="imperial-tech" civ={civ} />,
     ];
   }
-  const componentsLeft = buildComponents(civs?.[0]);
-  const componentsRight = buildComponents(civs?.[1]);
+  const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
+  const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
 
   // Resize observer to track window size
   useEffect(() => {

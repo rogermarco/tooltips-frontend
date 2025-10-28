@@ -2,13 +2,13 @@ import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { TextContent } from "../types/techTypes";
 
 const TEXT_URL = "https://rogermarco.github.io/tooltips-frontend/src/public/";
-const STAGING_URL = "https://rogermarco.github.io/tooltips-frontend-staging/src/public/";
+const CLOUDFLARE_URL = "https://tooltips-worker.marcrogers90.workers.dev/data/"
 
 export function useTechstrings() {
   return useQuery<TextContent, Error>({
     queryKey: ["content"],
     queryFn: async () => {
-      const res = await fetch(STAGING_URL + "techstrings.json");
+      const res = await fetch(CLOUDFLARE_URL + "techstrings.json");
       if (!res.ok) throw new Error("Failed to fetch text content");
       return res.json();
     },
@@ -20,7 +20,7 @@ export function useCivstrings() {
   return useQuery({
     queryKey: ["civstrings"],
     queryFn: async () => {
-      const res = await fetch(STAGING_URL + "civstrings.json");
+      const res = await fetch(CLOUDFLARE_URL + "civstrings.json");
       if (!res.ok) throw new Error("Failed to fetch text content");
       return res.json();
     },
@@ -32,7 +32,7 @@ export function useProfiles() {
   return useSuspenseQuery({
     queryKey: ["profiles"],
     queryFn: async () => {
-      const res = await fetch(STAGING_URL + "profiles.json");
+      const res = await fetch(CLOUDFLARE_URL + "profiles.json");
       if (!res.ok) throw new Error("Failed to fetch text content");
       return res.json();
     },
@@ -44,7 +44,7 @@ export function useUniquestrings() {
   return useSuspenseQuery({
     queryKey: ["uniquestrings"],
     queryFn: async () => {
-      const res = await fetch(STAGING_URL + "uniquestrings.json");
+      const res = await fetch(CLOUDFLARE_URL + "uniquestrings.json");
       if (!res.ok) throw new Error("Failed to fetch text content");
       return res.json();
     },
@@ -56,7 +56,7 @@ export function useTechtree() {
   return useSuspenseQuery({
     queryKey: ["techtree"],
     queryFn: async () => {
-      const res = await fetch(STAGING_URL + "techtree.json");
+      const res = await fetch(CLOUDFLARE_URL + "techtree.json");
       if (!res.ok) throw new Error("Failed to fetch text content");
       return res.json();
     },
@@ -66,9 +66,9 @@ export function useTechtree() {
 // Prefetch all data //
 export const fetchAll = async () => {
   const [civStrings, uniqueStrings, techTree] = await Promise.all([
-    fetch(STAGING_URL + "civstrings.json").then((r) => r.json()),
-    fetch(STAGING_URL + "uniquestrings.json").then((r) => r.json()),
-    fetch(STAGING_URL + "techtree.json").then((r) => r.json()),
+    fetch(CLOUDFLARE_URL + "civstrings.json").then((r) => r.json()),
+    fetch(CLOUDFLARE_URL + "uniquestrings.json").then((r) => r.json()),
+    fetch(CLOUDFLARE_URL + "techtree.json").then((r) => r.json()),
   ]);
   return { civStrings, uniqueStrings, techTree };
 };
