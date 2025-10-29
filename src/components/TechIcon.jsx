@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Tooltip, TooltipTrigger, TooltipContent } from "./Tooltip.jsx";
 import { memo } from "react";
-import cross from "../assets/techtree/cross.png";
+import cross from "../assets/techtree/cross.webp";
 import food from '../public/food.png';
 import gold from '../public/gold.png';
 import wood from '../public/wood.png';

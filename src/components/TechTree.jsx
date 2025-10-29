@@ -2,7 +2,7 @@
 import { useMemo } from 'react';
 import { buildCivTechTree } from '../lib/buildCivTechTree';
 import { useAllTechtreeData } from "../hooks/helpers";
-import castle from '../assets/techtree/castle.png';
+import castle from '../assets/techtree/castle.webp';
 import { TechIcon } from './TechIcon.jsx';
 
 export default function TechTree({ civ }) {

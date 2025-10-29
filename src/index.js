@@ -1,12 +1,12 @@
-const icons = import.meta.glob("./assets/techtree/*.png", {
+const icons = import.meta.glob("./assets/techtree/*.webp", {
   eager: true,
   import: "default",
 });
 
-// Convert keys => cleaner names (remove path + .png extension)
+// Convert keys => cleaner names (remove path + .webp extension)
 export const iconMap = Object.fromEntries(
   Object.entries(icons).map(([path, module]) => {
-    const name = path.split("/").pop().replace(".png", "");
+    const name = path.split("/").pop().replace(".webp", "");
     return [name, module];
   })
 );
