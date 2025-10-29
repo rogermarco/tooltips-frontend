@@ -123,82 +123,82 @@ function App() {
     return 1920 / displayResolution.width;
   }, [displayResolution]);
 
+  // skip rendering entirely if no civs // blocks elements from staying on stream at all times
+  if (!civs?.length) return null;
+
   return (
     <div>
-      {/* skip rendering entirely if no civs // blocks elements from staying on stream at all times */}
-      {civs?.length > 0 && (
-        <>
-          {profile.coordinatesLeft &&
-            Object.entries(profile.coordinatesLeft).map(([, value], i) => (
-              <Tooltip key={value[2]}>
-                <TooltipTrigger asChild={true}>
-                  <div
-                    className='tooltip-box'
-                    style={{
-                      width: 28 / ratio,
-                      height: 28 / ratio,
-                      left: value[0] / ratio,
-                      top: value[1] / ratio,
-                    }}
-                  ></div>
-                </TooltipTrigger>
-                <TooltipContent>{componentsLeft[i]}</TooltipContent>
-              </Tooltip>
-            ))}
-          {profile.coordinatesRight &&
-            Object.entries(profile.coordinatesRight).map(([, value], i) => (
-              <Tooltip key={value[2]}>
-                <TooltipTrigger asChild={true}>
-                  <div
-                    className='tooltip-box'
-                    style={{
-                      width: 28 / ratio,
-                      height: 28 / ratio,
-                      left: value[0] / ratio,
-                      top: value[1] / ratio,
-                    }}
-                  ></div>
-                </TooltipTrigger>
-                <TooltipContent>{componentsRight[i]}</TooltipContent>
-              </Tooltip>
-            ))}
-          <div>
-            <NoticeBox show={showNotice} ratio={ratio} />
-            <Tooltip>
+      <>
+        {profile.coordinatesLeft &&
+          Object.entries(profile.coordinatesLeft).map(([, value], i) => (
+            <Tooltip key={value[2]}>
               <TooltipTrigger asChild={true}>
                 <div
                   className='tooltip-box'
                   style={{
-                    width: 220 / ratio,
-                    height: 50 / ratio,
-                    left: profile.leftCivBox[0] / ratio,
-                    top: profile.leftCivBox[1] / ratio,
+                    width: 28 / ratio,
+                    height: 28 / ratio,
+                    left: value[0] / ratio,
+                    top: value[1] / ratio,
                   }}
                 ></div>
               </TooltipTrigger>
-              <TooltipContent>
-                <CivTooltip civ={civs[0]} />
-              </TooltipContent>
+              <TooltipContent>{componentsLeft[i]}</TooltipContent>
             </Tooltip>
-            <Tooltip>
+          ))}
+        {profile.coordinatesRight &&
+          Object.entries(profile.coordinatesRight).map(([, value], i) => (
+            <Tooltip key={value[2]}>
               <TooltipTrigger asChild={true}>
                 <div
                   className='tooltip-box'
                   style={{
-                    width: 220 / ratio,
-                    height: 50 / ratio,
-                    left: profile.rightCivBox[0] / ratio,
-                    top: profile.rightCivBox[1] / ratio,
+                    width: 28 / ratio,
+                    height: 28 / ratio,
+                    left: value[0] / ratio,
+                    top: value[1] / ratio,
                   }}
                 ></div>
               </TooltipTrigger>
-              <TooltipContent>
-                <CivTooltip civ={civs[1]} />
-              </TooltipContent>
+              <TooltipContent>{componentsRight[i]}</TooltipContent>
             </Tooltip>
-          </div>
-        </>
-      )}
+          ))}
+        <div>
+          <NoticeBox show={showNotice} ratio={ratio} />
+          <Tooltip>
+            <TooltipTrigger asChild={true}>
+              <div
+                className='tooltip-box'
+                style={{
+                  width: 220 / ratio,
+                  height: 50 / ratio,
+                  left: profile.leftCivBox[0] / ratio,
+                  top: profile.leftCivBox[1] / ratio,
+                }}
+              ></div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <CivTooltip civ={civs[0]} />
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger asChild={true}>
+              <div
+                className='tooltip-box'
+                style={{
+                  width: 220 / ratio,
+                  height: 50 / ratio,
+                  left: profile.rightCivBox[0] / ratio,
+                  top: profile.rightCivBox[1] / ratio,
+                }}
+              ></div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <CivTooltip civ={civs[1]} />
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </>
     </div>
   );
 }
