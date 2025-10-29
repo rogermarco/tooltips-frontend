@@ -6,17 +6,17 @@ export default function NoticeBox({ show, ratio }) {
   const [isVisible, setIsVisible] = useState(false);
   const prevShowRef = useRef(false);
   // UNCOMMENT FOR LOCAL TESTS
-  const mountedRef = useRef(false);
+  // const mountedRef = useRef(false);
   // ***
   const { data: text, isLoading } = useTechstrings();
 
   useEffect(() => {
     // Skips first mount in Strict Mode
     // UNCOMMENT FOR LOCAL TESTS
-    if (!mountedRef.current) {
-      mountedRef.current = true;
-      return;
-    }
+    // if (!mountedRef.current) {
+    //   mountedRef.current = true;
+    //   return;
+    // }
     // ***
     let timer;
 
