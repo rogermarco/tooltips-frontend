@@ -70,12 +70,10 @@ span.tooltip-cost > span > img {
 }
 
 .civ-tooltip {
-  background-image: url('/src/public/bg_paper.png');
+  background-image: url('/src/public/bg_paper.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* width: 375px;
-  height: 450px; */
   width: 415px;
   height: 498px;
 }
