@@ -82,8 +82,8 @@ function App() {
       <ImperialTech key="imperial-tech" civ={civ} />,
     ];
   }
-  const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
-  const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
+  const componentsLeft = () => buildComponents(civs?.[0]);
+  const componentsRight = () => buildComponents(civs?.[1]);
 
   // Resize observer to track window size
   useEffect(() => {
