@@ -1,8 +1,7 @@
 import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { TextContent } from "../types/techTypes";
 
-const TEXT_URL = "https://rogermarco.github.io/tooltips-frontend/src/public/";
-const CLOUDFLARE_URL = "https://tooltips-worker.marcrogers90.workers.dev/data/"
+const CLOUDFLARE_URL = "https://rogermarco.work/data/";
 
 export function useTechstrings() {
   return useQuery<TextContent, Error>({

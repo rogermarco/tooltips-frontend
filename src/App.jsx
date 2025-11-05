@@ -38,7 +38,7 @@ function App() {
 
   const fetchCivs = async (streamUrl) => {
     try {
-      const response = await fetch(`https://tooltips-worker.marcrogers90.workers.dev/civs/${streamUrl}`);
+      const response = await fetch(`https://rogermarco.work/civs/${streamUrl}`); // Worker URL
       const data = await response.json();
 
       if (!showNotice) {
