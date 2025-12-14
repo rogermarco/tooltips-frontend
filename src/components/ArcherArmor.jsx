@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import buttonLeft from '../public/button_left.png';
-import buttonRight from '../public/button_right.png';
-import food from '../public/food.png';
-import gold from '../public/gold.png';
-import wood from '../public/wood.png';
+import buttonLeft from '../public/button_left.webp';
+import buttonRight from '../public/button_right.webp';
+import food from '../public/food.webp';
+import gold from '../public/gold.webp';
+import wood from '../public/wood.webp';
 import { useTechstrings } from '../hooks/helpers';
 
 const images = {

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { useCivstrings } from "../hooks/helpers";
-import arrowLeft from '../public/arrow_left.png';
-import arrowRight from '../public/arrow_right.png';
+import arrowLeft from '../public/arrow_left.webp';
+import arrowRight from '../public/arrow_right.webp';
 import TechTree from './TechTree';
 
 export default function CivTooltip({ civ }) {

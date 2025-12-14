@@ -1,7 +1,7 @@
 import { useTechstrings } from '../hooks/helpers';
-import food from '../public/food.png';
-import gold from '../public/gold.png';
-import wood from '../public/wood.png';
+import food from '../public/food.webp';
+import gold from '../public/gold.webp';
+import wood from '../public/wood.webp';
 
 const images = {
   food,

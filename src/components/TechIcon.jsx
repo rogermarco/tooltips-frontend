@@ -2,10 +2,10 @@
 import { Tooltip, TooltipTrigger, TooltipContent } from "./Tooltip.jsx";
 import { memo } from "react";
 import cross from "../assets/techtree/cross.webp";
-import food from '../public/food.png';
-import gold from '../public/gold.png';
-import wood from '../public/wood.png';
-import stone from '../public/stone.png';
+import food from '../public/food.webp';
+import gold from '../public/gold.webp';
+import wood from '../public/wood.webp';
+import stone from '../public/stone.webp';
 import { prettifyText } from "../hooks/helpers";
 
 const images = {
