@@ -33,6 +33,7 @@ function App() {
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
+  const [isAoe2, setIsAoe2] = useState(false);
 
   const twitch = window.Twitch.ext;
 
@@ -61,10 +62,10 @@ function App() {
     refetchInterval: 120000, // 2 minutes
     refetchIntervalInBackground: true,
     cacheTime: 240000, // 4 minutes
-    enabled: !!streamUrl,
+    enabled: !!streamUrl && isAoe2,
   });
   // DEBUG TESTING
-  // const civs = ['bengalis', 'georgians'];
+  // const civs = ['vikings', 'berbers'];
 
   function buildComponents(civ) {
     return [
@@ -82,8 +83,10 @@ function App() {
       <ImperialTech key="imperial-tech" civ={civ} />,
     ];
   }
-  const componentsLeft = buildComponents(civs?.[0]);
-  const componentsRight = buildComponents(civs?.[1]);
+  // const componentsLeft = buildComponents(civs?.[0]);
+  // const componentsRight = buildComponents(civs?.[1]);
+  const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
+  const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
 
   // Resize observer to track window size
   useEffect(() => {
@@ -105,7 +108,12 @@ function App() {
   useEffect(() => {
     twitch.onContext((context) => {
       const stream = context.playerChannel;
-      if (stream && stream !== streamUrl) {
+      const currentGame = context.game;
+      // only do stuff if streamer is playing aoe2
+      const playingAoe2 = currentGame.includes("Age of Empires II");
+      setIsAoe2(playingAoe2);
+
+      if (playingAoe2 && stream && stream !== streamUrl) {
         setStreamUrl(stream);
         setProfile(profiles[stream] ?? profiles.defaultProfile);
       }
@@ -123,82 +131,81 @@ function App() {
     return 1920 / displayResolution.width;
   }, [displayResolution]);
 
-  // skip rendering entirely if no civs // blocks elements from staying on stream at all times
+  // skip rendering entirely if not playing aoe2 or no civs in db
+  if (!isAoe2) return null;
   if (!civs?.length) return null;
 
   return (
     <div>
-      <>
-        {profile.coordinatesLeft &&
-          Object.entries(profile.coordinatesLeft).map(([, value], i) => (
-            <Tooltip key={value[2]}>
-              <TooltipTrigger asChild={true}>
-                <div
-                  className='tooltip-box'
-                  style={{
-                    width: 28 / ratio,
-                    height: 28 / ratio,
-                    left: value[0] / ratio,
-                    top: value[1] / ratio,
-                  }}
-                ></div>
-              </TooltipTrigger>
-              <TooltipContent>{componentsLeft[i]}</TooltipContent>
-            </Tooltip>
-          ))}
-        {profile.coordinatesRight &&
-          Object.entries(profile.coordinatesRight).map(([, value], i) => (
-            <Tooltip key={value[2]}>
-              <TooltipTrigger asChild={true}>
-                <div
-                  className='tooltip-box'
-                  style={{
-                    width: 28 / ratio,
-                    height: 28 / ratio,
-                    left: value[0] / ratio,
-                    top: value[1] / ratio,
-                  }}
-                ></div>
-              </TooltipTrigger>
-              <TooltipContent>{componentsRight[i]}</TooltipContent>
-            </Tooltip>
-          ))}
-        <div>
-          <NoticeBox show={showNotice} ratio={ratio} />
-          <Tooltip>
+      {profile.coordinatesLeft &&
+        Object.entries(profile.coordinatesLeft).map(([, value], i) => (
+          <Tooltip key={value[2]}>
             <TooltipTrigger asChild={true}>
               <div
                 className='tooltip-box'
                 style={{
-                  width: 220 / ratio,
-                  height: 50 / ratio,
-                  left: profile.leftCivBox[0] / ratio,
-                  top: profile.leftCivBox[1] / ratio,
+                  width: 28 / ratio,
+                  height: 28 / ratio,
+                  left: value[0] / ratio,
+                  top: value[1] / ratio,
                 }}
               ></div>
             </TooltipTrigger>
-            <TooltipContent>
-              <CivTooltip civ={civs[0]} />
-            </TooltipContent>
+            <TooltipContent>{componentsLeft[i]}</TooltipContent>
           </Tooltip>
-          <Tooltip>
+        ))}
+      {profile.coordinatesRight &&
+        Object.entries(profile.coordinatesRight).map(([, value], i) => (
+          <Tooltip key={value[2]}>
             <TooltipTrigger asChild={true}>
               <div
                 className='tooltip-box'
                 style={{
-                  width: 220 / ratio,
-                  height: 50 / ratio,
-                  left: profile.rightCivBox[0] / ratio,
-                  top: profile.rightCivBox[1] / ratio,
+                  width: 28 / ratio,
+                  height: 28 / ratio,
+                  left: value[0] / ratio,
+                  top: value[1] / ratio,
                 }}
               ></div>
             </TooltipTrigger>
-            <TooltipContent>
-              <CivTooltip civ={civs[1]} />
-            </TooltipContent>
+            <TooltipContent>{componentsRight[i]}</TooltipContent>
           </Tooltip>
-        </div>
-      </>
+        ))}
+      <div>
+        <NoticeBox show={showNotice} ratio={ratio} />
+        <Tooltip>
+          <TooltipTrigger asChild={true}>
+            <div
+              className='tooltip-box'
+              style={{
+                width: 220 / ratio,
+                height: 50 / ratio,
+                left: profile.leftCivBox[0] / ratio,
+                top: profile.leftCivBox[1] / ratio,
+              }}
+            ></div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <CivTooltip civ={civs[0]} />
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild={true}>
+            <div
+              className='tooltip-box'
+              style={{
+                width: 220 / ratio,
+                height: 50 / ratio,
+                left: profile.rightCivBox[0] / ratio,
+                top: profile.rightCivBox[1] / ratio,
+              }}
+            ></div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <CivTooltip civ={civs[1]} />
+          </TooltipContent>
+        </Tooltip>
+      </div>
     </div>
   );
 }
