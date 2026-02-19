@@ -1981,7 +1981,7 @@
     }
   },
   "mapuche": {
-    "string": "<b>Infantry civilization</b><br>\n<br>\n• Houses provide +5 population space<br>\n• Buildings cost -15% stone<br>\n• Military Units cost -10/15/20/25% food in Dark/<br>\nFeudal/Castle/Imperial Age<br>\n• Villagers affected by Infantry Blacksmith upgrades starting in Castle Age<br>\n<br>\n<b>Unique Units:</b> <br>\nKamayuk (Infantry), Slinger (Skirmisher)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Andean Sling (Skirmishers and Slingers no minimum range; Slingers +1 attack)<br>\n• Fabric Shields (Kamayuks, Slingers and Eagle Warriors +1 melee/+2 pierce armor)<br>\n<br>\n<b>Team Bonus:</b> <br>\nStart with a free Llama",
+    "string": "<b>Cavalry and Counter-Units civilization</b><br>\n<br>\n• Foragers drop off +20% food<br>\n• Settlements can train Spearman-line and Skirmishers<br>\n• Infantry, Slingers, and Skirmishers +5/10/15 HP in Dark/Feudal/Castle/Imperial Age<br>\n• Mounted Units generate +3 gold when defeating military units<br>\n• Enemy Castles are revealed on the map<br>\n<br><b>Unique Units:</b> <br>\nKona (Cavalry), Bolas Rider (Mounted Archer)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Malon (Bolas Riders, Slingers, and Skirmishers deal pass through damage)<br>\n• Butalmapu (Team Castle Unique Units and Bolas Riders cost -15%)<br>\n<br>\n<b>Team Bonus:</b> <br>\nSpearman-line and Skirmishers +2 line of sight",
     "excludedTechs": [
       "arbalester",
       "hand-cannoneer",
@@ -1989,7 +1989,9 @@
       "heavy-cavalry-archer",
       "hand-cannoneer",
       "parthian-tactics",
+      "thumb-ring",
       "gambesons",
+      "squires",
       "scout-cavalry",
       "light-cavalry",
       "hussar",
@@ -1998,15 +2000,24 @@
       "paladin",
       "bloodlines",
       "husbandry",
+      "siege-ram",
       "siege-onager",
       "bombard-cannon",
       "heavy-demolition-ship",
       "cannon-galleon",
       "elite-cannon-galleon",
       "architecture",
-      "bombard-tower",
-      "atonement",
-      "heresy",
+      "fortified-wall",
+      "guard-tower",
+      "keep",
+      "heated-shot",
+      "shipwright",
+      "dry-dock",
+      "incendiaries",
+      "redemption",
+      "fervor",
+      "illumination",
+      "block-printing",
       "militia",
       "man-at-arms",
       "long-swordsman",
@@ -2015,38 +2026,39 @@
     ],
     "uniques": {
       "unit": {
-        "name": "kamayuk",
+        "name": "kona",
         "cost": [
-          { "amount": 60, "resource": "food" },
-          { "amount": 30, "resource": "gold" }
+          { "amount": 65, "resource": "food" },
+          { "amount": 40, "resource": "gold" }
         ],
-        "description": "Infantry with increased attack range."
+        "description": "Unique Cavalry that deals increasing damage to injured units."
       }
     },
     "regionals": {
       "unit": [
         "slinger",
-        "eagle-scout",
-        "eagle-warrior",
-        "elite-eagle-warrior",
         "xolotl-warrior",
         "champi-scout",
         "champi-runner",
         "champi-warrior",
-        "elite-champi-warrior"
+        "elite-champi-warrior",
+        "bolas-rider",
+        "elite-bolas-rider",
+        "catapult-galleon"
       ]
     }
   },
   "muisca": {
-    "string": "<b>Infantry civilization</b><br>\n<br>\n• Houses provide +5 population space<br>\n• Buildings cost -15% stone<br>\n• Military Units cost -10/15/20/25% food in Dark/<br>\nFeudal/Castle/Imperial Age<br>\n• Villagers affected by Infantry Blacksmith upgrades starting in Castle Age<br>\n<br>\n<b>Unique Units:</b> <br>\nKamayuk (Infantry), Slinger (Skirmisher)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Andean Sling (Skirmishers and Slingers no minimum range; Slingers +1 attack)<br>\n• Fabric Shields (Kamayuks, Slingers and Eagle Warriors +1 melee/+2 pierce armor)<br>\n<br>\n<b>Team Bonus:</b> <br>\nStart with a free Llama",
+    "string": "<b>Archer and Monk civilization</b><br>\n<br>\n• Advancing to the next Age costs -50% gold<br>\n• Settlements cost -25% and heal nearby units<br>\n• Champi Warriors and Archery Range units +1/2/3 melee armor in Feudal/Castle/Imperial Age<br>\n• Monks regain faith +50% faster<br>\n• Caravan, Guilds free<br>\n<br><b>Unique Units:</b> <br>\nGuecha Warrior (Skirmisher), Temple Guard (Infantry)<br>\n<br>\n<b>Unique Techs:</b> <br>\n• Herbalism (Archer-line and Champi Warriors move +15% faster)<br>\n• Huaracas (Slingers +1 range; train +25% faster)<br>\n<br>\n<b>Team Bonus:</b> <br>\nNatural gold sources last +15% longer",
     "excludedTechs": [
-      "arbalester",
       "hand-cannoneer",
       "cavalry-archer",
       "heavy-cavalry-archer",
       "hand-cannoneer",
       "parthian-tactics",
       "gambesons",
+      "halberdier",
+      "arson",
       "scout-cavalry",
       "light-cavalry",
       "hussar",
@@ -2055,15 +2067,20 @@
       "paladin",
       "bloodlines",
       "husbandry",
-      "siege-onager",
+      "siege-ram",
       "bombard-cannon",
-      "heavy-demolition-ship",
+      "fast-fire-ship",
       "cannon-galleon",
       "elite-cannon-galleon",
       "architecture",
+      "fortified-wall",
+      "heated-shot",
+      "siphons",
       "bombard-tower",
-      "atonement",
-      "heresy",
+      "arrowslits",
+      "shipwright",
+      "carvel-hull",
+      "incendiaries",
       "militia",
       "man-at-arms",
       "long-swordsman",
@@ -2072,25 +2089,25 @@
     ],
     "uniques": {
       "unit": {
-        "name": "kamayuk",
+        "name": "guecha-warrior",
         "cost": [
-          { "amount": 60, "resource": "food" },
-          { "amount": 30, "resource": "gold" }
+          { "amount": 50, "resource": "wood" },
+          { "amount": 60, "resource": "gold" }
         ],
-        "description": "Infantry with increased attack range."
+        "description": "Unique Skirmisher that regenerates HP when a nearby Guecha Warrior is defeated."
       }
     },
     "regionals": {
       "unit": [
         "slinger",
-        "eagle-scout",
-        "eagle-warrior",
-        "elite-eagle-warrior",
         "xolotl-warrior",
         "champi-scout",
         "champi-runner",
         "champi-warrior",
-        "elite-champi-warrior"
+        "elite-champi-warrior",
+        "temple-guard",
+        "elite-temple-guard",
+        "catapult-galleon"
       ]
     }
   },
@@ -2154,6 +2171,7 @@
         "champi-runner",
         "champi-warrior",
         "elite-champi-warrior",
+        "ibirapema-warrior",
         "elite-ibirapema",
         "catapult-galleon"
       ]

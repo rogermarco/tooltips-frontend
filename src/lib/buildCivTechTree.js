@@ -57,6 +57,10 @@ const regionalUnits = [
   'elite-champi-warrior',
   'ibirapema-warrior',
   'elite-ibirapema',
+  'bolas-rider',
+  'elite-bolas-rider',
+  'temple-guard',
+  'elite-temple-guard',
 ];
 
 /**

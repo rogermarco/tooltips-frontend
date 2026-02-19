@@ -937,38 +937,38 @@
   },
   "mapuche": {
     "castle": {
-      "title": "Tupis",
+      "title": "Malon",
       "cost": [
         { "amount": "300", "resource": "food" },
-        { "amount": "300", "resource": "gold" }
+        { "amount": "350", "resource": "gold" }
       ],
-      "description": "Skirmishers +1 attack, +1 range."
+      "description": "Bolas Riders, Slingers, and Skirmishers deal pass through damage."
     },
     "imperial": {
-      "title": "Guaranys",
+      "title": "Butalmapu",
       "cost": [
-        { "amount": "450", "resource": "food" },
-        { "amount": "750", "resource": "gold" }
+        { "amount": "500", "resource": "food" },
+        { "amount": "450", "resource": "gold" }
       ],
-      "description": "Infantry +4 attack."
+      "description": "Team Castle Unique Units and Bolas Riders cost -15%."
     }
   },
-  "muiscas": {
+  "muisca": {
     "castle": {
-      "title": "Zipa's Guard",
+      "title": "Herbalism",
       "cost": [
         { "amount": "300", "resource": "food" },
-        { "amount": "300", "resource": "gold" }
+        { "amount": "350", "resource": "gold" }
       ],
-      "description": "Skirmishers +1 attack, +1 range."
+      "description": "Archer-line and Champi Warriors move +15% faster."
     },
     "imperial": {
-      "title": "Muisca Confederation",
+      "title": "Huaracas",
       "cost": [
-        { "amount": "450", "resource": "food" },
-        { "amount": "750", "resource": "gold" }
+        { "amount": "450", "resource": "wood" },
+        { "amount": "350", "resource": "gold" }
       ],
-      "description": "Infantry +4 attack."
+      "description": "Slingers +1 range; train +25% faster."
     }
   },
   "tupi": {

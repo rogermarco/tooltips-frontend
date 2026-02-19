@@ -74,6 +74,13 @@
           { "amount": 30, "resource": "food" },
           { "amount": 60, "resource": "gold" }
         ]
+      },
+      "temple-guard": {
+        "progression": ["temple-guard", "elite-temple-guard"],
+        "cost": [
+          { "amount": 80, "resource": "food" },
+          { "amount": 45, "resource": "gold" }
+        ]
       }
     },
     "techs": {
@@ -160,6 +167,13 @@
         "cost": [
           { "amount": 60, "resource": "wood" },
           { "amount": 25, "resource": "gold" }
+        ]
+      },
+      "bolas-rider": {
+        "progression": ["bolas-rider", "elite-bolas-rider"],
+        "cost": [
+          { "amount": 45, "resource": "wood" },
+          { "amount": 50, "resource": "gold" }
         ]
       }
     },
