@@ -69,11 +69,13 @@ export default function TechTree({ civ }) {
             name={uniqueTechs.imperial.title}
             type='tech'
           />
-          <TechIcon
-            data={techTree.castle.techs.hoardings}
-            name={'Hoardings'}
-            type='tech'
-          />
+          {techTree.castle && (
+            <TechIcon
+              data={techTree.castle.techs.hoardings}
+              name={'Hoardings'}
+              type='tech'
+            />
+          )}
         </div>
       </section>
     </div>

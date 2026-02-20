@@ -25,6 +25,7 @@ export default function CivTooltip({ civ }) {
   if (isLoading) return null;
   
   const requiredCiv = civs[civ];
+  if (!requiredCiv) return null;
 
   return (
     <div className='civ-tooltip'>

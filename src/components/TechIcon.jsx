@@ -1,37 +1,36 @@
 /* eslint-disable react/prop-types */
-import { Tooltip, TooltipTrigger, TooltipContent } from "./Tooltip.jsx";
-import { memo } from "react";
-import cross from "../assets/techtree/cross.webp";
+import { Tooltip, TooltipTrigger, TooltipContent } from './Tooltip.jsx';
+import { memo, Fragment } from 'react';
+import cross from '../assets/techtree/cross.webp';
 import food from '../public/food.webp';
 import gold from '../public/gold.webp';
 import wood from '../public/wood.webp';
 import stone from '../public/stone.webp';
-import { prettifyText } from "../hooks/helpers";
+import { prettifyText } from '../hooks/helpers';
 
 const images = {
   food,
   wood,
   gold,
-  stone
+  stone,
 };
 
 export const TechIcon = memo(function TechIcon({ data, name, type }) {
-
   return (
-    <div className="tech-icon-wrapper">
+    <div className='tech-icon-wrapper'>
       <Tooltip>
         <TooltipTrigger asChild={true}>
-          <div style={{ position: "relative" }}>
+          <div style={{ position: 'relative' }}>
             <img
               src={data.icon}
               alt={name}
-              className={`tech-icon ${data.disabled ? "disabled" : ""}`}
+              className={`tech-icon ${data.disabled ? 'disabled' : ''}`}
             />
             {data.disabled && (
               <img
                 src={cross}
-                alt="disabled"
-                className="disabled-icon-overlay"
+                alt='disabled'
+                className='disabled-icon-overlay'
               />
             )}
           </div>
@@ -39,44 +38,48 @@ export const TechIcon = memo(function TechIcon({ data, name, type }) {
         <TooltipContent>
           <div className={`tech-tree-tooltip-${type}`}>
             <div className={`tech-tree-tooltip-name-${type}`}>
-              {name == "man-at-arms" ? "Man-at-Arms" :
-              name == "two-handed-swordsman" ? "Two-handed Swordsman" : 
-              prettifyText(name)}</div>
-            <div className="tech-tree-tooltip-cost">
+              {name == 'man-at-arms'
+                ? 'Man-at-Arms'
+                : name == 'two-handed-swordsman'
+                  ? 'Two-handed Swordsman'
+                  : prettifyText(name)}
+            </div>
+            <div className='tech-tree-tooltip-cost'>
               {data.cost.map((item, index) => (
                 <span key={index}>
-                  {item.amount} <img src={images[item.resource]} alt={item.resource} />
-                  {index < data.cost.length - 1 ? " " : ""}
+                  {item.amount}{' '}
+                  <img src={images[item.resource]} alt={item.resource} />
+                  {index < data.cost.length - 1 ? ' ' : ''}
                 </span>
               ))}
             </div>
             {data.progression && (
-              <div className="tech-tree-progression-container">
-                <div className="progression-title">Progression</div>
+              <div className='tech-tree-progression-container'>
+                <div className='progression-title'>Progression</div>
 
-                <div className="tech-tree-tooltip-progression">
+                <div className='tech-tree-tooltip-progression'>
                   {data.progression.map((item, index) => {
-                    const availableCount = data.availableProgression?.length || 0;
+                    const availableCount =
+                      data.availableProgression?.length || 0;
                     const isUnlocked = index < availableCount;
 
                     return (
-                      <>
+                      <Fragment key={index}>
                         <span
-                          key={index}
-                          className={`progression-icon ${isUnlocked ? "unlocked" : "locked"}`}
+                          className={`progression-icon ${isUnlocked ? 'unlocked' : 'locked'}`}
                         />
                         {index < data.progression.length - 1 && (
-                          <span className="progression-separator">·</span>
+                          <span className='progression-separator'>·</span>
                         )}
-                      </>
+                      </Fragment>
                     );
                   })}
                 </div>
               </div>
             )}
-            {data.description &&
+            {data.description && (
               <p className='tech-tree-tooltip-text'>{data.description}</p>
-            }
+            )}
           </div>
         </TooltipContent>
       </Tooltip>

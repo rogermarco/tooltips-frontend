@@ -73,16 +73,17 @@ span.tooltip-cost > span > img {
 }
 
 .civ-tooltip {
-  background-image: url('/src/public/bg_paper.webp');
+  /* background-image: url('/src/public/bg_paper.webp'); */
+  background-image: url('/src/public/techtree_panel.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 415px;
-  height: 498px;
+  width: 390px;
+  height: 521px;
 }
 
 .civ-tooltip-text {
-  padding-top: 35px;
+  padding-top: 30px;
 }
 
 .tech-tree {
@@ -92,9 +93,10 @@ span.tooltip-cost > span > img {
   gap: 5px;
 }
 
-.civ-tooltip-text, .tech-tree {
+.civ-tooltip-text,
+.tech-tree {
   color: black;
-  margin: 0px 35px;
+  margin: 0px 30px;
   font-size: 13px;
   letter-spacing: 0.025em;
   line-height: 1.3em;
@@ -117,7 +119,9 @@ span.tooltip-cost > span > img {
   animation: bounce 3s cubic-bezier(0.4, 0.5, 0.6, 1) infinite;
   border: 2px solid purple;
   border-radius: 10px;
-  box-shadow: 0 1px 3px purple, 0 4px 6px -4px palevioletred;
+  box-shadow:
+    0 1px 3px purple,
+    0 4px 6px -4px palevioletred;
   position: absolute;
   text-align: center;
   transform: translateX(-50%);
@@ -130,7 +134,7 @@ span.tooltip-cost > span > img {
 }
 @media screen and (max-width: 1050px) {
   .notice-box {
-    scale: 0.90;
+    scale: 0.9;
   }
 }
 
@@ -159,10 +163,10 @@ span.tooltip-cost > span > img {
 
 .page-buttons {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   position: absolute;
-  top: 7%;
-  right: 5%;
+  top: 4%;
+  right: 4%;
 }
 
 .tech-icon-wrapper {
@@ -225,18 +229,19 @@ span.tooltip-cost > span > img {
 
 /* Tech tree tooltips */
 .tech-tree-tooltip-unit {
-  background-image: url("/src/assets/techtree/tech_icon_unit-new.webp");
+  background-image: url('/src/assets/techtree/tech_icon_unit-new.webp');
   width: 210px;
   height: 140px;
 }
 .tech-tree-tooltip-tech {
-  background-image: url("/src/assets/techtree/tech_icon_tech-new.webp");
+  background-image: url('/src/assets/techtree/tech_icon_tech-new.webp');
   font-size: 11px;
   width: 225px;
   height: 150px;
   line-height: 1.2em;
 }
-.tech-tree-tooltip-unit, .tech-tree-tooltip-tech {
+.tech-tree-tooltip-unit,
+.tech-tree-tooltip-tech {
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -249,9 +254,10 @@ span.tooltip-cost > span > img {
   letter-spacing: 0.025em;
   text-align: center;
 }
-.tech-tree-tooltip-name-unit, .tech-tree-tooltip-name-tech {
+.tech-tree-tooltip-name-unit,
+.tech-tree-tooltip-name-tech {
   font-size: 14px;
-  width: 115px;
+  width: 120px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -268,7 +274,7 @@ span.tooltip-cost > span > img {
   vertical-align: -25%;
   scale: 0.9;
 }
-.tech-tree-tooltip-tech > .tech-tree-tooltip-cost> span > img {
+.tech-tree-tooltip-tech > .tech-tree-tooltip-cost > span > img {
   vertical-align: -35%;
   scale: 0.8;
 }
@@ -312,21 +318,23 @@ span.tooltip-cost > span > img {
 /* Progression */
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   50% {
     transform: translateX(-50%) translateY(-20%);
-  }    
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -334,18 +342,18 @@ span.tooltip-cost > span > img {
     scale: 0.95;
   }
   .civ-tooltip {
-    scale: 0.90;
+    scale: 0.9;
     transform: translateY(-8%);
   }
 }
 
 @media screen and (max-width: 1000px) {
- .tooltip-bg {
-    scale: 0.90;
+  .tooltip-bg {
+    scale: 0.9;
     transform: translateY(-10px);
   }
- .civ-tooltip {
+  .civ-tooltip {
     scale: 0.85;
-    transform: translateY(-10%)
+    transform: translateY(-10%);
   }
 }

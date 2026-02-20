@@ -17,7 +17,7 @@ import {
   Bloodlines,
   VillUpgrades,
   CastleTech,
-  ImperialTech
+  ImperialTech,
 } from './components';
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
@@ -33,7 +33,7 @@ function App() {
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(false);
-  const [isAoe2, setIsAoe2] = useState(false);
+  const [isAoe2, setIsAoe2] = useState(false); // DEBUG set to true
 
   const twitch = window.Twitch.ext;
 
@@ -48,10 +48,10 @@ function App() {
       // Return the civ_data array
       return data;
     } catch (error) {
-      console.error("error fetching civs", error);
+      console.error('error fetching civs', error);
       return null;
     }
-  }
+  };
 
   const { data: civs } = useQuery({
     queryKey: ['civs', streamUrl],
@@ -65,26 +65,29 @@ function App() {
     enabled: !!streamUrl && isAoe2,
   });
   // DEBUG TESTING
-  // const civs = ['vikings', 'berbers'];
+  // const civs = ['muisca', 'tupi'];
 
   function buildComponents(civ) {
     return [
-      <Ballistics key="ballistics" />,
-      <Bloodlines key="bloodlines" />,
-      <ArcherAttack key="archer-attack" />,
-      <InfCavAttack key="inf-cav-attack" />,
-      <Lumbercamp key="lumbercamp" />,
-      <Mill key="mill" civ={civ === "khitans" ? civ : null} />,
-      <ArcherArmor key="archer-armor" />,
-      <CavalryArmor key="cavalry-armor" />,
-      <InfantryArmor key="infantry-armor" />,
-      <VillUpgrades key="vill-upgrades" />,
-      <CastleTech key="castle-tech" civ={civ} />,
-      <ImperialTech key="imperial-tech" civ={civ} />,
+      <Ballistics key='ballistics' />,
+      <Bloodlines key='bloodlines' />,
+      <ArcherAttack key='archer-attack' />,
+      <InfCavAttack key='inf-cav-attack' />,
+      <Lumbercamp key='lumbercamp' />,
+      <Mill key='mill' civ={civ === 'khitans' ? civ : null} />,
+      <ArcherArmor key='archer-armor' />,
+      <CavalryArmor key='cavalry-armor' />,
+      <InfantryArmor key='infantry-armor' />,
+      <VillUpgrades key='vill-upgrades' />,
+      <CastleTech key='castle-tech' civ={civ} />,
+      <ImperialTech key='imperial-tech' civ={civ} />,
     ];
   }
+
+  // DEBUG dont usememo
   // const componentsLeft = buildComponents(civs?.[0]);
   // const componentsRight = buildComponents(civs?.[1]);
+
   const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
   const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
 
@@ -110,7 +113,7 @@ function App() {
       const stream = context.playerChannel;
       const currentGame = context.game;
       // only do stuff if streamer is playing aoe2
-      const playingAoe2 = currentGame.includes("Age of Empires II");
+      const playingAoe2 = currentGame.includes('Age of Empires II');
       setIsAoe2(playingAoe2);
 
       if (playingAoe2 && stream && stream !== streamUrl) {
