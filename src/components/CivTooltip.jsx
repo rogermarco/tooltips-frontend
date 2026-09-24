@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { useCivstrings } from "../hooks/helpers";
+import { useCivstrings } from '../hooks/helpers';
 import arrowLeft from '../public/arrow_left.webp';
 import arrowRight from '../public/arrow_right.webp';
 import TechTree from './TechTree';
@@ -12,32 +12,43 @@ export default function CivTooltip({ civ }) {
   const togglePageLeft = () => {
     if (visiblePage === 2) {
       setVisiblePage(1);
-    } 
-  }
+    }
+  };
 
   const togglePageRight = () => {
     if (visiblePage === 1) {
       setVisiblePage(2);
     }
-  }
+  };
 
   const { data: civs, isLoading } = useCivstrings();
   if (isLoading) return null;
-  
+
   const requiredCiv = civs[civ];
   if (!requiredCiv) return null;
 
   return (
     <div className='civ-tooltip'>
       <div className='page-buttons'>
-        <img src={arrowLeft} className='tooltip-arrow-left' onClick={togglePageLeft} />
-        <img src={arrowRight} className='tooltip-arrow-right' onClick={togglePageRight} />
+        <img
+          src={arrowLeft}
+          className='tooltip-arrow-left'
+          onClick={togglePageLeft}
+        />
+        <img
+          src={arrowRight}
+          className='tooltip-arrow-right'
+          onClick={togglePageRight}
+        />
       </div>
-      {visiblePage === 1 ?
-      <div className='civ-tooltip-text' dangerouslySetInnerHTML={{ __html: requiredCiv.string }}></div>
-      :
-      <TechTree civ={civ} />
-      }
+      {visiblePage === 1 ? (
+        <div
+          className='civ-tooltip-text'
+          dangerouslySetInnerHTML={{ __html: requiredCiv.string }}
+        ></div>
+      ) : (
+        <TechTree civ={civ} />
+      )}
     </div>
   );
 }

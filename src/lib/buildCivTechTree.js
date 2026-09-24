@@ -61,6 +61,13 @@ const regionalUnits = [
   'elite-bolas-rider',
   'temple-guard',
   'elite-temple-guard',
+  'mounted-crossbow',
+  'heavy-mounted-crossbow',
+  'varangian-guard',
+  'elite-varangian-guard',
+  'catapult-galleon',
+  'longship',
+  'elite-longship',
 ];
 
 /**
@@ -136,16 +143,21 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
             (!regionalUnits.includes(u) || civRegionalUnits.has(u)),
         );
 
-        if (availableProgression.length === 0) continue; // skip lines civ can't train
+        if (
+          availableProgression.length === 0 &&
+          lineName !== 'bombard-cannon'
+        ) {
+          continue; // skip lines civ can't train
+        }
 
-        const current = availableProgression.at(-1);
+        const current = availableProgression.at(-1) || progression.at(-1);
 
         buildingData.lines[lineName] = {
           ...line,
           progression,
           availableProgression,
           current,
-          disabled: false,
+          disabled: availableProgression.length === 0,
           icon: iconMap[current] || null,
         };
       }
