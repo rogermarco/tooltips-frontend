@@ -110,16 +110,18 @@ function App() {
   // Fetch streamer from Twitch context
   useEffect(() => {
     twitch.onContext((context) => {
-      const stream = context.playerChannel;
-      const currentGame = context.game;
+      const stream = context?.playerChannel;
+      const currentGame = context?.game;
       // only do stuff if streamer is playing aoe2
-      const playingAoe2 = currentGame.includes('Age of Empires II');
+      const playingAoe2 =
+        typeof currentGame === 'string' &&
+        currentGame.includes('Age of Empires II');
       setIsAoe2(playingAoe2);
 
-      if (playingAoe2 && stream && stream !== streamUrl) {
-        setStreamUrl(stream);
-        setProfile(profiles[stream] ?? profiles.defaultProfile);
-      }
+      if (!stream || !playingAoe2 || stream === streamUrl) return;
+
+      setStreamUrl(stream);
+      setProfile(profiles[stream] ?? profiles.defaultProfile);
     });
   }, [twitch, streamUrl, profiles]);
 
