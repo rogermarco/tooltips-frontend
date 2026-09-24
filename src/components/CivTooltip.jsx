@@ -21,8 +21,8 @@ export default function CivTooltip({ civ }) {
     }
   };
 
-  const { data: civs, isLoading } = useCivstrings();
-  if (isLoading) return null;
+  const { data: civs, isLoading, error } = useCivstrings();
+  if (isLoading || error || !civs) return null;
 
   const requiredCiv = civs[civ];
   if (!requiredCiv) return null;

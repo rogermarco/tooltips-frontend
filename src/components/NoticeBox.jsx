@@ -8,7 +8,7 @@ export default function NoticeBox({ show, ratio }) {
   // UNCOMMENT FOR LOCAL TESTS
   // const mountedRef = useRef(false);
   // ***
-  const { data: text, isLoading } = useTechstrings();
+  const { data: text, isLoading, error } = useTechstrings();
 
   useEffect(() => {
     // Skips first mount in Strict Mode
@@ -35,7 +35,7 @@ export default function NoticeBox({ show, ratio }) {
     };
   }, [show]);
 
-  if (!isVisible || isLoading) return null;
+  if (!isVisible || isLoading || error || !text?.noticeBox?.text) return null;
 
   // Do i even want this?
   // const layoutConfig = {

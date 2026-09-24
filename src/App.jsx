@@ -127,7 +127,7 @@ function App() {
 
   // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
   const ratio = useMemo(() => {
-    if (displayResolution.height === 0) return 1;
+    if (!displayResolution.width || !displayResolution.height) return 1;
 
     const aspectRatio = displayResolution.width / displayResolution.height;
     if (aspectRatio > 1.78) {

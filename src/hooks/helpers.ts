@@ -8,14 +8,16 @@ import { TextContent } from '../types/techTypes';
 
 const CLOUDFLARE_URL = 'https://rogermarco.work/data/';
 
+export async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Request failed: ${res.status} ${res.statusText}`);
+  return res.json();
+}
+
 export function useTechstrings() {
   return useQuery<TextContent, Error>({
     queryKey: ['content'],
-    queryFn: async () => {
-      const res = await fetch(CLOUDFLARE_URL + 'techstrings.json');
-      if (!res.ok) throw new Error('Failed to fetch text content');
-      return res.json();
-    },
+    queryFn: () => fetchJson<TextContent>(CLOUDFLARE_URL + 'techstrings.json'),
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
@@ -23,11 +25,7 @@ export function useTechstrings() {
 export function useCivstrings() {
   return useQuery({
     queryKey: ['civstrings'],
-    queryFn: async () => {
-      const res = await fetch(CLOUDFLARE_URL + 'civstrings.json');
-      if (!res.ok) throw new Error('Failed to fetch text content');
-      return res.json();
-    },
+    queryFn: () => fetchJson(CLOUDFLARE_URL + 'civstrings.json'),
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
@@ -35,11 +33,7 @@ export function useCivstrings() {
 export function useProfiles() {
   return useSuspenseQuery({
     queryKey: ['profiles'],
-    queryFn: async () => {
-      const res = await fetch(CLOUDFLARE_URL + 'profiles.json');
-      if (!res.ok) throw new Error('Failed to fetch text content');
-      return res.json();
-    },
+    queryFn: () => fetchJson(CLOUDFLARE_URL + 'profiles.json'),
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
@@ -47,11 +41,7 @@ export function useProfiles() {
 export function useUniquestrings() {
   return useSuspenseQuery({
     queryKey: ['uniquestrings'],
-    queryFn: async () => {
-      const res = await fetch(CLOUDFLARE_URL + 'uniquestrings.json');
-      if (!res.ok) throw new Error('Failed to fetch text content');
-      return res.json();
-    },
+    queryFn: () => fetchJson(CLOUDFLARE_URL + 'uniquestrings.json'),
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
@@ -59,11 +49,7 @@ export function useUniquestrings() {
 export function useTechtree() {
   return useSuspenseQuery({
     queryKey: ['techtree'],
-    queryFn: async () => {
-      const res = await fetch(CLOUDFLARE_URL + 'techtree.json');
-      if (!res.ok) throw new Error('Failed to fetch text content');
-      return res.json();
-    },
+    queryFn: () => fetchJson(CLOUDFLARE_URL + 'techtree.json'),
     staleTime: 1000 * 60 * 60, // 1 hour
   });
 }
@@ -71,9 +57,9 @@ export function useTechtree() {
 // Prefetch all data //
 export const fetchAll = async () => {
   const [civStrings, uniqueStrings, techTree] = await Promise.all([
-    fetch(CLOUDFLARE_URL + 'civstrings.json').then((r) => r.json()),
-    fetch(CLOUDFLARE_URL + 'uniquestrings.json').then((r) => r.json()),
-    fetch(CLOUDFLARE_URL + 'techtree.json').then((r) => r.json()),
+    fetchJson(CLOUDFLARE_URL + 'civstrings.json'),
+    fetchJson(CLOUDFLARE_URL + 'uniquestrings.json'),
+    fetchJson(CLOUDFLARE_URL + 'techtree.json'),
   ]);
   return { civStrings, uniqueStrings, techTree };
 };
