@@ -69,7 +69,7 @@ span.tooltip-cost > span > img {
 .tooltip-box {
   position: absolute;
   /* DEBUG */
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .civ-tooltip {
@@ -327,6 +327,16 @@ span.tooltip-cost > span > img {
   }
   50% {
     opacity: 0.6;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20%);
   }
 }
 
