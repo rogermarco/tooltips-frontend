@@ -32,40 +32,40 @@ function App() {
   }); // Viewers stream window resolution
   const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, setShowNotice] = useState(false);
-  const [isAoe2, setIsAoe2] = useState(false); // DEBUG set to true
+  const [showNotice, setShowNotice] = useState(true);
+  const [isAoe2, setIsAoe2] = useState(true); // DEBUG set to true
 
   const twitch = window.Twitch.ext;
 
-  const fetchCivs = async (streamUrl) => {
-    try {
-      const response = await fetch(`https://rogermarco.work/civs/${streamUrl}`); // Worker URL
-      const data = await response.json();
+  // const fetchCivs = async (streamUrl) => {
+  //   try {
+  //     const response = await fetch(`https://rogermarco.work/civs/${streamUrl}`); // Worker URL
+  //     const data = await response.json();
 
-      if (!showNotice) {
-        setShowNotice(true);
-      }
-      // Return the civ_data array
-      return data;
-    } catch (error) {
-      console.error('error fetching civs', error);
-      return null;
-    }
-  };
+  //     if (!showNotice) {
+  //       setShowNotice(true);
+  //     }
+  //     // Return the civ_data array
+  //     return data;
+  //   } catch (error) {
+  //     console.error('error fetching civs', error);
+  //     return null;
+  //   }
+  // };
 
-  const { data: civs } = useQuery({
-    queryKey: ['civs', streamUrl],
-    queryFn: () => fetchCivs(streamUrl),
-    staleTime: Infinity,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    refetchInterval: 120000, // 2 minutes
-    refetchIntervalInBackground: true,
-    cacheTime: 240000, // 4 minutes
-    enabled: !!streamUrl && isAoe2,
-  });
+  // const { data: civs } = useQuery({
+  //   queryKey: ['civs', streamUrl],
+  //   queryFn: () => fetchCivs(streamUrl),
+  //   staleTime: Infinity,
+  //   refetchOnMount: false,
+  //   refetchOnWindowFocus: false,
+  //   refetchInterval: 120000, // 2 minutes
+  //   refetchIntervalInBackground: true,
+  //   cacheTime: 240000, // 4 minutes
+  //   enabled: !!streamUrl && isAoe2,
+  // });
   // DEBUG TESTING
-  // const civs = ['muisca', 'tupi'];
+  const civs = ['muisca', 'tupi'];
 
   function buildComponents(civ) {
     return [
@@ -85,11 +85,11 @@ function App() {
   }
 
   // DEBUG dont usememo
-  // const componentsLeft = buildComponents(civs?.[0]);
-  // const componentsRight = buildComponents(civs?.[1]);
+  const componentsLeft = buildComponents(civs?.[0]);
+  const componentsRight = buildComponents(civs?.[1]);
 
-  const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
-  const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
+  // const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
+  // const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
 
   // Resize observer to track window size
   useEffect(() => {
@@ -131,7 +131,8 @@ function App() {
 
     const aspectRatio = displayResolution.width / displayResolution.height;
     if (aspectRatio > 1.78) {
-      return Math.min(ratio, 1.409);
+      const widthRatio = 1920 / displayResolution.width;
+      return Math.min(widthRatio, 1.409);
     }
     return 1920 / displayResolution.width;
   }, [displayResolution]);
