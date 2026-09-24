@@ -232,12 +232,12 @@ span.tooltip-cost > span > img {
 
 /* Tech tree tooltips */
 .tech-tree-tooltip-unit {
-  background-image: url('/src/assets/techtree/tech_icon_unit-new.webp');
+  background-image: url('./assets/techtree/tech_icon_unit-new.webp');
   width: 210px;
   height: 140px;
 }
 .tech-tree-tooltip-tech {
-  background-image: url('/src/assets/techtree/tech_icon_tech-new.webp');
+  background-image: url('./assets/techtree/tech_icon_tech-new.webp');
   font-size: 11px;
   width: 225px;
   height: 150px;
