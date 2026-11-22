@@ -178,25 +178,27 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
   );
 
   // ----- Add icons for uniques -----
-  if (uniques.unit) {
-    const key = uniques.unit.name.toLowerCase().replace(/\s+/g, '-');
-    uniques.unit.icon = iconMap[key] || null;
-  }
-  if (uniques.hero) {
-    const key = uniques.hero.name.toLowerCase().replace(/\s+/g, '-');
-    uniques.hero.icon = iconMap[key] || null;
-  }
-  if (uniqueTechs) {
-    uniqueTechs.castle.icon = iconMap['unique-tech-1'];
-    uniqueTechs.imperial.icon = iconMap['unique-tech-2'];
-  }
-
-  // console.log(mergedTree);
+  // Copy rather than mutate: the inputs are react-query's cached data.
+  const withIcon = (item) => {
+    if (!item) return item;
+    const key = item.name.toLowerCase().replace(/\s+/g, '-');
+    return { ...item, icon: iconMap[key] || null };
+  };
+  const uniquesWithIcons = {
+    ...uniques,
+    unit: withIcon(uniques.unit),
+    hero: withIcon(uniques.hero),
+  };
+  const uniqueTechsWithIcons = uniqueTechs && {
+    ...uniqueTechs,
+    castle: { ...uniqueTechs.castle, icon: iconMap['unique-tech-1'] },
+    imperial: { ...uniqueTechs.imperial, icon: iconMap['unique-tech-2'] },
+  };
 
   return {
     civId,
-    uniques,
-    uniqueTechs: uniqueTechs,
+    uniques: uniquesWithIcons,
+    uniqueTechs: uniqueTechsWithIcons,
     techTree: mergedTree,
   };
 }

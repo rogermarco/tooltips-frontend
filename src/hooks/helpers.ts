@@ -6,7 +6,9 @@ import { TextContent } from '../types/techTypes';
 // import uniquestrings from '../lib/localjson/uniquestrings.json';
 // import techtree from '../lib/localjson/techtree.json';
 
-const CLOUDFLARE_URL = 'https://rogermarco.work/data/';
+// Override with VITE_DATA_URL (e.g. `npm run dev:local` serves the worker's local data).
+const CLOUDFLARE_URL: string =
+  import.meta.env.VITE_DATA_URL ?? 'https://rogermarco.work/data/';
 
 export async function fetchJson<T>(url: string): Promise<T> {
   const res = await fetch(url);
