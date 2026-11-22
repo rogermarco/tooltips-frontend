@@ -5,20 +5,18 @@ import {
   TooltipContent,
 } from './components/Tooltip.jsx';
 import { useQuery } from '@tanstack/react-query';
-import {
-  ArcherArmor,
-  ArcherAttack,
-  CavalryArmor,
-  InfantryArmor,
-  InfCavAttack,
-  Lumbercamp,
-  Mill,
-  Ballistics,
-  Bloodlines,
-  VillUpgrades,
-  CastleTech,
-  ImperialTech,
-} from './components';
+import ArcherArmor from './components/ArcherArmor.jsx';
+import ArcherAttack from './components/ArcherAttack.jsx';
+import CavalryArmor from './components/CavalryArmor.jsx';
+import InfantryArmor from './components/InfantryArmor.jsx';
+import InfCavAttack from './components/InfCavAttack.jsx';
+import Lumbercamp from './components/Lumbercamp.jsx';
+import Mill from './components/Mill.jsx';
+import Ballistics from './components/Ballistics.jsx';
+import Bloodlines from './components/Bloodlines.jsx';
+import VillUpgrades from './components/VillUpgrades.jsx';
+import CastleTech from './components/CastleTech.jsx';
+import ImperialTech from './components/ImperialTech.jsx';
 import CivTooltip from './components/CivTooltip.jsx';
 import NoticeBox from './components/NoticeBox.jsx';
 import { useProfiles } from './hooks/helpers';
