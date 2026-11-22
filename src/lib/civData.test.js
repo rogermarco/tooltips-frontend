@@ -18,8 +18,14 @@ const civStrings = load('civstrings.json');
 const uniqueStrings = load('uniquestrings.json');
 const techTree = load('techtree.json');
 
+// Regionals that civs may declare but which are intentionally never shown in
+// the tree (kept in the data for future civs). Skipped by the regional check.
+const HIDDEN_REGIONALS = new Set(['camel-scout']);
+
 const declaredRegionals = (civ) =>
-  [].concat(civ.regionals?.unit ?? []).map((u) => u.name ?? u);
+  [].concat(civ.regionals?.unit ?? [])
+    .map((u) => u.name ?? u)
+    .filter((u) => !HIDDEN_REGIONALS.has(u));
 
 const trees = Object.fromEntries(
   Object.keys(civStrings).map((civId) => [
