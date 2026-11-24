@@ -8,7 +8,10 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 // Local copy of the worker's data, used by `npm run dev:local` and `npm run test:local`.
 export const LOCAL_DATA_DIR =
   process.env.LOCAL_DATA_DIR ??
-  path.join(os.homedir(), 'Sites/tooltips-worker/data');
+  path.join(
+    os.homedir(),
+    'Desktop/repos/aoe2tooltips/tooltips-worker/polished-wood-7fcb/data',
+  );
 
 // Dev-server only: serves LOCAL_DATA_DIR at /local-data/ so the app can
 // render unreleased data (set VITE_DATA_URL=/local-data/ to use it).
@@ -17,7 +20,10 @@ const localData = {
   apply: 'serve',
   configureServer(server) {
     server.middlewares.use('/local-data', (req, res) => {
-      const file = path.join(LOCAL_DATA_DIR, path.basename(req.url.split('?')[0]));
+      const file = path.join(
+        LOCAL_DATA_DIR,
+        path.basename(req.url.split('?')[0]),
+      );
       if (!file.endsWith('.json') || !fs.existsSync(file)) {
         res.statusCode = 404;
         return res.end(`Not found in ${LOCAL_DATA_DIR}`);
