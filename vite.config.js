@@ -43,6 +43,6 @@ export default defineConfig({
   base: './',
   plugins: [react(), basicSsl(), localData],
   test: {
-    include: ['src/**/*.test.{js,jsx,ts}'],
+    include: ['src/**/*.test.{js,jsx,ts,tsx}'],
   },
 });

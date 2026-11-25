@@ -1,8 +1,43 @@
-import { iconMap } from '../index.js';
+import { iconMap } from './iconMap';
+import type {
+  Civ,
+  CivStrings,
+  MasterLine,
+  MasterTech,
+  MasterTechTree,
+  UniqueStrings,
+  UniqueTechs,
+  UniqueUnit,
+} from '../types/techTypes';
+
+export interface CivLine extends MasterLine {
+  availableProgression: string[];
+  current: string;
+  disabled: boolean;
+  icon: string | null;
+}
+export interface CivTech extends MasterTech {
+  disabled: boolean;
+  icon: string | null;
+}
+export interface CivBuilding {
+  lines: Record<string, CivLine>;
+  techs: Record<string, CivTech>;
+  icon: string | undefined;
+}
+type WithIcon<T> = T & { icon: string | null };
+export interface CivTechTree {
+  civId: string;
+  uniques: { unit: WithIcon<UniqueUnit>; hero?: WithIcon<UniqueUnit> };
+  uniqueTechs:
+    | { castle: WithIcon<UniqueTechs['castle']>; imperial: WithIcon<UniqueTechs['imperial']> }
+    | undefined;
+  techTree: Record<string, CivBuilding>;
+}
 
 // These units exist in the master tech tree but are regional
 // They only appear for civs that specifically list them inside their "regionals" field.
-const regionalUnits = [
+const regionalUnits = new Set([
   'eagle-scout',
   'eagle-warrior',
   'elite-eagle-warrior',
@@ -65,18 +100,21 @@ const regionalUnits = [
   'heavy-mounted-crossbow',
   'varangian-guard',
   'elite-varangian-guard',
-  'catapult-galleon',
   'longship',
   'elite-longship',
-];
+]);
 
 /**
  * Merge master tree + civ data, remove unused regionals, and embed icon URLs.
- * @param {string} civId
- * @returns {object|null}
+ * Returns null when the civ isn't in civStrings.
  */
-export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
-  const civ = civStrings[civId];
+export function buildCivTechTree(
+  civId: string,
+  civStrings: CivStrings,
+  uniqueStrings: UniqueStrings,
+  techTree: MasterTechTree,
+): CivTechTree | null {
+  const civ: Civ | undefined = civStrings[civId];
   const uniqueTechs = uniqueStrings[civId];
   if (!civ) {
     console.warn(`No civ data found for ${civId}`);
@@ -89,27 +127,27 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
   const replacements = civ.replacements || {};
 
   // --- Collect civ's regionals (ones they actually have) ---
-  const civRegionalUnits = new Set();
+  const civRegionalUnits = new Set<string>();
   const regionalsUnitData = regionals.unit;
 
   if (Array.isArray(regionalsUnitData)) {
     regionalsUnitData.forEach((u) => civRegionalUnits.add(u));
-  } else if (regionalsUnitData?.name) {
-    civRegionalUnits.add(regionalsUnitData.name);
   } else if (typeof regionalsUnitData === 'string') {
     civRegionalUnits.add(regionalsUnitData);
+  } else if (regionalsUnitData?.name) {
+    civRegionalUnits.add(regionalsUnitData.name);
   }
 
   // --- Begin merging ---
-  const mergedTree = Object.entries(techTree).reduce(
+  const mergedTree = Object.entries(techTree).reduce<Record<string, CivBuilding>>(
     (acc, [building, data]) => {
-      const buildingData = { lines: {}, techs: {}, icon: iconMap[building] };
+      const buildingData: CivBuilding = { lines: {}, techs: {}, icon: iconMap[building] };
 
       // ----- UNIT LINES -----
       for (const [lineName, line] of Object.entries(data.lines || {})) {
         // Remove fully regional lines if civ doesn't get them
         const isRegionalLine = line.progression.every((u) =>
-          regionalUnits.includes(u),
+          regionalUnits.has(u),
         );
         if (isRegionalLine) {
           const civHasIt = line.progression.some((u) =>
@@ -140,7 +178,7 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
         const availableProgression = progression.filter(
           (u) =>
             !excludedTechs.has(u) &&
-            (!regionalUnits.includes(u) || civRegionalUnits.has(u)),
+            (!regionalUnits.has(u) || civRegionalUnits.has(u)),
         );
 
         if (
@@ -150,7 +188,7 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
           continue; // skip lines civ can't train
         }
 
-        const current = availableProgression.at(-1) || progression.at(-1);
+        const current = (availableProgression.at(-1) ?? progression.at(-1))!;
 
         buildingData.lines[lineName] = {
           ...line,
@@ -179,11 +217,13 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
 
   // ----- Add icons for uniques -----
   // Copy rather than mutate: the inputs are react-query's cached data.
-  const withIcon = (item) => {
+  function withIcon(item: UniqueUnit): WithIcon<UniqueUnit>;
+  function withIcon(item: UniqueUnit | undefined): WithIcon<UniqueUnit> | undefined;
+  function withIcon(item: UniqueUnit | undefined) {
     if (!item) return item;
     const key = item.name.toLowerCase().replace(/\s+/g, '-');
     return { ...item, icon: iconMap[key] || null };
-  };
+  }
   const uniquesWithIcons = {
     ...uniques,
     unit: withIcon(uniques.unit),
@@ -191,8 +231,8 @@ export function buildCivTechTree(civId, civStrings, uniqueStrings, techTree) {
   };
   const uniqueTechsWithIcons = uniqueTechs && {
     ...uniqueTechs,
-    castle: { ...uniqueTechs.castle, icon: iconMap['unique-tech-1'] },
-    imperial: { ...uniqueTechs.imperial, icon: iconMap['unique-tech-2'] },
+    castle: { ...uniqueTechs.castle, icon: iconMap['unique-tech-1'] ?? null },
+    imperial: { ...uniqueTechs.imperial, icon: iconMap['unique-tech-2'] ?? null },
   };
 
   return {

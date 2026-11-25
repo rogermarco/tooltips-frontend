@@ -42,6 +42,25 @@ span.tooltip-cost > span > img {
   line-height: 1rem;
 }
 
+/* Arrow buttons: strip default button styling so they look like the old images */
+.tooltip-arrow {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+}
+
+.tooltip-arrow > img {
+  height: 100%;
+}
+
+.tooltip-arrow:focus-visible {
+  outline: 1px solid #e0c36a;
+  outline-offset: 2px;
+}
+
 .tooltip-arrow-left {
   height: 20px;
   padding-left: 15px;

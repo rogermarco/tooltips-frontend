@@ -1,8 +1,10 @@
 // Rules of buildCivTechTree, tested against small hand-written data so they
 // don't depend on (or break with) the real data files.
 import { describe, test, expect } from 'vitest';
-import { buildCivTechTree } from './buildCivTechTree';
+import { buildCivTechTree, type CivTechTree } from './buildCivTechTree';
+import type { Civ, CivStrings, MasterTechTree, UniqueStrings } from '../types/techTypes';
 
+// The test data only has the fields buildCivTechTree reads, hence the casts.
 const techTree = {
   'archery-range': {
     lines: {
@@ -18,7 +20,7 @@ const techTree = {
     },
     techs: { bloodlines: {} },
   },
-};
+} as unknown as MasterTechTree;
 
 const baseCiv = {
   excludedTechs: [],
@@ -30,10 +32,12 @@ const uniqueTech = {
   imperial: { title: 'Imperial UT' },
 };
 
-function build(civOverrides = {}) {
-  const civStrings = { testciv: { ...baseCiv, ...civOverrides } };
-  const uniqueStrings = { testciv: structuredClone(uniqueTech) };
-  return buildCivTechTree('testciv', civStrings, uniqueStrings, techTree);
+function build(civOverrides: Partial<Record<keyof Civ, unknown>> = {}): CivTechTree {
+  const civStrings = { testciv: { ...baseCiv, ...civOverrides } } as unknown as CivStrings;
+  const uniqueStrings = { testciv: structuredClone(uniqueTech) } as unknown as UniqueStrings;
+  const tree = buildCivTechTree('testciv', civStrings, uniqueStrings, techTree);
+  if (!tree) throw new Error('expected a tree for testciv');
+  return tree;
 }
 
 describe('buildCivTechTree', () => {
@@ -102,14 +106,14 @@ describe('buildCivTechTree', () => {
     expect(tree.techTree.stable.lines.knight.icon).toBeTruthy();
     expect(tree.techTree.stable.techs.bloodlines.icon).toBeTruthy();
     expect(tree.uniques.unit.icon).toBeTruthy();
-    expect(tree.uniques.hero.icon).toBeTruthy();
-    expect(tree.uniqueTechs.castle.icon).toBeTruthy();
-    expect(tree.uniqueTechs.imperial.icon).toBeTruthy();
+    expect(tree.uniques.hero?.icon).toBeTruthy();
+    expect(tree.uniqueTechs?.castle.icon).toBeTruthy();
+    expect(tree.uniqueTechs?.imperial.icon).toBeTruthy();
   });
 
   test('does not mutate its inputs (they are cached query data)', () => {
-    const civStrings = { testciv: structuredClone(baseCiv) };
-    const uniqueStrings = { testciv: structuredClone(uniqueTech) };
+    const civStrings = { testciv: structuredClone(baseCiv) } as unknown as CivStrings;
+    const uniqueStrings = { testciv: structuredClone(uniqueTech) } as unknown as UniqueStrings;
     const before = structuredClone({ civStrings, uniqueStrings, techTree });
     buildCivTechTree('testciv', civStrings, uniqueStrings, techTree);
     expect({ civStrings, uniqueStrings, techTree }).toEqual(before);

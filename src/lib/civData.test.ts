@@ -6,42 +6,56 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, test, expect } from 'vitest';
-import { buildCivTechTree } from './buildCivTechTree';
+import { buildCivTechTree, type CivTechTree } from './buildCivTechTree';
 import { LOCAL_DATA_DIR } from '../../vite.config.js';
+import type { Civ, CivStrings, MasterTechTree, UniqueStrings } from '../types/techTypes';
 
 const source = process.env.TEST_DATA === 'local' ? 'local' : 'fixtures';
 const dataDir =
-  source === 'local' ? LOCAL_DATA_DIR : path.resolve(__dirname, '../../test/fixtures');
+  source === 'local' ? LOCAL_DATA_DIR : path.resolve(import.meta.dirname, '../../test/fixtures');
 
-const load = (file) => JSON.parse(fs.readFileSync(path.join(dataDir, file), 'utf8'));
-const civStrings = load('civstrings.json');
-const uniqueStrings = load('uniquestrings.json');
-const techTree = load('techtree.json');
+if (!fs.existsSync(dataDir)) {
+  throw new Error(
+    `Data folder not found: ${dataDir}\n` +
+      (source === 'local'
+        ? 'Set LOCAL_DATA_DIR in .env.local to the worker repo data folder (see .env.example).'
+        : 'Run `npm run fetch-fixtures` to download the live data.'),
+  );
+}
+
+const load = <T>(file: string): T =>
+  JSON.parse(fs.readFileSync(path.join(dataDir, file), 'utf8')) as T;
+const civStrings = load<CivStrings>('civstrings.json');
+const uniqueStrings = load<UniqueStrings>('uniquestrings.json');
+const techTree = load<MasterTechTree>('techtree.json');
 
 // Regionals that civs may declare but which are intentionally never shown in
 // the tree (kept in the data for future civs). Skipped by the regional check.
 const HIDDEN_REGIONALS = new Set(['camel-scout']);
 
-const declaredRegionals = (civ) =>
-  [].concat(civ.regionals?.unit ?? [])
-    .map((u) => u.name ?? u)
+const declaredRegionals = (civ: Civ): string[] =>
+  [civ.regionals?.unit ?? []]
+    .flat()
+    .map((u) => (typeof u === 'string' ? u : u.name))
     .filter((u) => !HIDDEN_REGIONALS.has(u));
 
-const trees = Object.fromEntries(
+const trees: Record<string, CivTechTree | null> = Object.fromEntries(
   Object.keys(civStrings).map((civId) => [
     civId,
     buildCivTechTree(civId, civStrings, uniqueStrings, techTree),
   ]),
 );
 
+const allLines = (tree: CivTechTree) =>
+  Object.values(tree.techTree).flatMap((b) => Object.values(b.lines));
+
 describe(`civ data (${source}: ${dataDir})`, () => {
   describe.each(Object.keys(civStrings))('%s', (civId) => {
-    const tree = trees[civId];
-    const lines = () => Object.values(tree.techTree).flatMap((b) => Object.values(b.lines));
-    const shownUnits = () => new Set(lines().flatMap((l) => l.availableProgression));
+    // Every civ in civStrings builds a tree; this keeps TypeScript happy
+    const tree = trees[civId]!;
 
     test('builds a tree', () => {
-      expect(tree).not.toBeNull();
+      expect(trees[civId]).not.toBeNull();
     });
 
     test('every building, unit line and tech has an icon', () => {
@@ -63,12 +77,12 @@ describe(`civ data (${source}: ${dataDir})`, () => {
         expect(tree.uniques.hero.icon, `hero "${tree.uniques.hero.name}"`).toBeTruthy();
       }
       expect(tree.uniqueTechs, 'missing from uniquestrings.json').toBeTruthy();
-      expect(tree.uniqueTechs.castle.icon).toBeTruthy();
-      expect(tree.uniqueTechs.imperial.icon).toBeTruthy();
+      expect(tree.uniqueTechs?.castle.icon).toBeTruthy();
+      expect(tree.uniqueTechs?.imperial.icon).toBeTruthy();
     });
 
     test('every declared regional unit appears in the tree', () => {
-      const shown = shownUnits();
+      const shown = new Set(allLines(tree).flatMap((l) => l.availableProgression));
       const notShown = declaredRegionals(civStrings[civId]).filter((u) => !shown.has(u));
       expect(notShown).toEqual([]);
     });
@@ -79,9 +93,8 @@ describe(`civ data (${source}: ${dataDir})`, () => {
     const rosters = Object.fromEntries(
       Object.entries(trees).map(([civId, tree]) => [
         civId,
-        {
-          units: Object.values(tree.techTree)
-            .flatMap((b) => Object.values(b.lines))
+        tree && {
+          units: allLines(tree)
             .flatMap((l) => l.availableProgression)
             .sort(),
           unique: tree.uniques.unit?.name,
