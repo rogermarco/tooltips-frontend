@@ -1,25 +1,25 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from "react";
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-} from './components/Tooltip.jsx';
-import { useQuery } from '@tanstack/react-query';
-import ArcherArmor from './components/ArcherArmor.jsx';
-import ArcherAttack from './components/ArcherAttack.jsx';
-import CavalryArmor from './components/CavalryArmor.jsx';
-import InfantryArmor from './components/InfantryArmor.jsx';
-import InfCavAttack from './components/InfCavAttack.jsx';
-import Lumbercamp from './components/Lumbercamp.jsx';
-import Mill from './components/Mill.jsx';
-import Ballistics from './components/Ballistics.jsx';
-import Bloodlines from './components/Bloodlines.jsx';
-import VillUpgrades from './components/VillUpgrades.jsx';
-import CastleTech from './components/CastleTech.jsx';
-import ImperialTech from './components/ImperialTech.jsx';
-import CivTooltip from './components/CivTooltip.jsx';
-import NoticeBox from './components/NoticeBox.jsx';
-import { useProfiles } from './hooks/helpers';
+} from "./components/Tooltip.jsx";
+import { useQuery } from "@tanstack/react-query";
+import ArcherArmor from "./components/ArcherArmor.jsx";
+import ArcherAttack from "./components/ArcherAttack.jsx";
+import CavalryArmor from "./components/CavalryArmor.jsx";
+import InfantryArmor from "./components/InfantryArmor.jsx";
+import InfCavAttack from "./components/InfCavAttack.jsx";
+import Lumbercamp from "./components/Lumbercamp.jsx";
+import Mill from "./components/Mill.jsx";
+import Ballistics from "./components/Ballistics.jsx";
+import Bloodlines from "./components/Bloodlines.jsx";
+import VillUpgrades from "./components/VillUpgrades.jsx";
+import CastleTech from "./components/CastleTech.jsx";
+import ImperialTech from "./components/ImperialTech.jsx";
+import CivTooltip from "./components/CivTooltip.jsx";
+import NoticeBox from "./components/NoticeBox.jsx";
+import { useProfiles } from "./hooks/helpers";
 
 function App() {
   const { data: profiles } = useProfiles();
@@ -28,66 +28,66 @@ function App() {
     width: 0,
     height: 0,
   }); // Viewers stream window resolution
-  const [streamUrl, setStreamUrl] = useState(''); // What stream is being viewed
+  const [streamUrl, setStreamUrl] = useState(""); // What stream is being viewed
   const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
   const [showNotice, setShowNotice] = useState(true);
-  const [isAoe2, setIsAoe2] = useState(true); // DEBUG set to true
+  const [isAoe2, setIsAoe2] = useState(false); // DEBUG set to true
 
   const twitch = window.Twitch.ext;
 
-  // const fetchCivs = async (streamUrl) => {
-  //   try {
-  //     const response = await fetch(`https://rogermarco.work/civs/${streamUrl}`); // Worker URL
-  //     const data = await response.json();
+  const fetchCivs = async (streamUrl) => {
+    try {
+      const response = await fetch(`https://rogermarco.work/civs/${streamUrl}`); // Worker URL
+      const data = await response.json();
 
-  //     if (!showNotice) {
-  //       setShowNotice(true);
-  //     }
-  //     // Return the civ_data array
-  //     return data;
-  //   } catch (error) {
-  //     console.error('error fetching civs', error);
-  //     return null;
-  //   }
-  // };
+      if (!showNotice) {
+        setShowNotice(true);
+      }
+      // Return the civ_data array
+      return data;
+    } catch (error) {
+      console.error("error fetching civs", error);
+      return null;
+    }
+  };
 
-  // const { data: civs } = useQuery({
-  //   queryKey: ['civs', streamUrl],
-  //   queryFn: () => fetchCivs(streamUrl),
-  //   staleTime: Infinity,
-  //   refetchOnMount: false,
-  //   refetchOnWindowFocus: false,
-  //   refetchInterval: 120000, // 2 minutes
-  //   refetchIntervalInBackground: true,
-  //   cacheTime: 240000, // 4 minutes
-  //   enabled: !!streamUrl && isAoe2,
-  // });
+  const { data: civs } = useQuery({
+    queryKey: ["civs", streamUrl],
+    queryFn: () => fetchCivs(streamUrl),
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: 120000, // 2 minutes
+    refetchIntervalInBackground: true,
+    cacheTime: 240000, // 4 minutes
+    enabled: !!streamUrl && isAoe2,
+  });
   // DEBUG TESTING
-  const civs = ['muisca', 'tupi'];
+  // const civs = ['muisca', 'tupi'];
 
   function buildComponents(civ) {
     return [
-      <Ballistics key='ballistics' />,
-      <Bloodlines key='bloodlines' />,
-      <ArcherAttack key='archer-attack' />,
-      <InfCavAttack key='inf-cav-attack' />,
-      <Lumbercamp key='lumbercamp' />,
-      <Mill key='mill' civ={civ === 'khitans' ? civ : null} />,
-      <ArcherArmor key='archer-armor' />,
-      <CavalryArmor key='cavalry-armor' />,
-      <InfantryArmor key='infantry-armor' />,
-      <VillUpgrades key='vill-upgrades' />,
-      <CastleTech key='castle-tech' civ={civ} />,
-      <ImperialTech key='imperial-tech' civ={civ} />,
+      <Ballistics key="ballistics" />,
+      <Bloodlines key="bloodlines" />,
+      <ArcherAttack key="archer-attack" />,
+      <InfCavAttack key="inf-cav-attack" />,
+      <Lumbercamp key="lumbercamp" />,
+      <Mill key="mill" civ={civ === "khitans" ? civ : null} />,
+      <ArcherArmor key="archer-armor" />,
+      <CavalryArmor key="cavalry-armor" />,
+      <InfantryArmor key="infantry-armor" />,
+      <VillUpgrades key="vill-upgrades" />,
+      <CastleTech key="castle-tech" civ={civ} />,
+      <ImperialTech key="imperial-tech" civ={civ} />,
     ];
   }
 
   // DEBUG dont usememo
-  const componentsLeft = buildComponents(civs?.[0]);
-  const componentsRight = buildComponents(civs?.[1]);
+  // const componentsLeft = buildComponents(civs?.[0]);
+  // const componentsRight = buildComponents(civs?.[1]);
 
-  // const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
-  // const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
+  const componentsLeft = useMemo(() => buildComponents(civs?.[0]), [civs]);
+  const componentsRight = useMemo(() => buildComponents(civs?.[1]), [civs]);
 
   // Resize observer to track window size
   useEffect(() => {
@@ -112,8 +112,8 @@ function App() {
       const currentGame = context?.game;
       // only do stuff if streamer is playing aoe2
       const playingAoe2 =
-        typeof currentGame === 'string' &&
-        currentGame.includes('Age of Empires II');
+        typeof currentGame === "string" &&
+        currentGame.includes("Age of Empires II");
       setIsAoe2(playingAoe2);
 
       if (!stream || !playingAoe2 || stream === streamUrl) return;
@@ -146,7 +146,7 @@ function App() {
           <Tooltip key={value[2]}>
             <TooltipTrigger asChild={true}>
               <div
-                className='tooltip-box'
+                className="tooltip-box"
                 style={{
                   width: 28 / ratio,
                   height: 28 / ratio,
@@ -163,7 +163,7 @@ function App() {
           <Tooltip key={value[2]}>
             <TooltipTrigger asChild={true}>
               <div
-                className='tooltip-box'
+                className="tooltip-box"
                 style={{
                   width: 28 / ratio,
                   height: 28 / ratio,
@@ -180,7 +180,7 @@ function App() {
         <Tooltip>
           <TooltipTrigger asChild={true}>
             <div
-              className='tooltip-box'
+              className="tooltip-box"
               style={{
                 width: 220 / ratio,
                 height: 50 / ratio,
@@ -196,7 +196,7 @@ function App() {
         <Tooltip>
           <TooltipTrigger asChild={true}>
             <div
-              className='tooltip-box'
+              className="tooltip-box"
               style={{
                 width: 220 / ratio,
                 height: 50 / ratio,
