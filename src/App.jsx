@@ -4,7 +4,6 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "./components/Tooltip.jsx";
-import { useQuery } from "@tanstack/react-query";
 import ArcherArmor from "./components/ArcherArmor.jsx";
 import ArcherAttack from "./components/ArcherAttack.jsx";
 import CavalryArmor from "./components/CavalryArmor.jsx";
@@ -19,7 +18,7 @@ import CastleTech from "./components/CastleTech.jsx";
 import ImperialTech from "./components/ImperialTech.jsx";
 import CivTooltip from "./components/CivTooltip.jsx";
 import NoticeBox from "./components/NoticeBox.jsx";
-import { useProfiles } from "./hooks/helpers";
+import { useProfiles, useStreamCivs } from "./hooks/helpers";
 
 function App() {
   const { data: profiles } = useProfiles();
@@ -29,39 +28,12 @@ function App() {
     height: 0,
   }); // Viewers stream window resolution
   const [streamUrl, setStreamUrl] = useState(""); // What stream is being viewed
-  const [profile, setProfile] = useState(profiles.defaultProfile); // Which coordinates to use // Some streamers have different CaptureAge layouts
-  const [showNotice, setShowNotice] = useState(true);
   const [isAoe2, setIsAoe2] = useState(false); // DEBUG set to true
 
-  const twitch = window.Twitch.ext;
+  // Which coordinates to use // Some streamers have different CaptureAge layouts
+  const profile = profiles[streamUrl] ?? profiles.defaultProfile;
 
-  const fetchCivs = async (streamUrl) => {
-    try {
-      const response = await fetch(`https://rogermarco.work/civs/${streamUrl}`); // Worker URL
-      const data = await response.json();
-
-      if (!showNotice) {
-        setShowNotice(true);
-      }
-      // Return the civ_data array
-      return data;
-    } catch (error) {
-      console.error("error fetching civs", error);
-      return null;
-    }
-  };
-
-  const { data: civs } = useQuery({
-    queryKey: ["civs", streamUrl],
-    queryFn: () => fetchCivs(streamUrl),
-    staleTime: Infinity,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    refetchInterval: 120000, // 2 minutes
-    refetchIntervalInBackground: true,
-    cacheTime: 240000, // 4 minutes
-    enabled: !!streamUrl && isAoe2,
-  });
+  const { data: civs } = useStreamCivs(streamUrl, isAoe2);
   // DEBUG TESTING
   // const civs = ['muisca', 'tupi'];
 
@@ -105,9 +77,10 @@ function App() {
     };
   }, []); // Empty dep array since we don't need to recreate it
 
-  // Fetch streamer from Twitch context
+  // Fetch streamer from Twitch context. Twitch has no way to remove an
+  // onContext listener, so register it once; the setters avoid stale closures.
   useEffect(() => {
-    twitch.onContext((context) => {
+    window.Twitch?.ext.onContext((context) => {
       const stream = context?.playerChannel;
       const currentGame = context?.game;
       // only do stuff if streamer is playing aoe2
@@ -116,12 +89,9 @@ function App() {
         currentGame.includes("Age of Empires II");
       setIsAoe2(playingAoe2);
 
-      if (!stream || !playingAoe2 || stream === streamUrl) return;
-
-      setStreamUrl(stream);
-      setProfile(profiles[stream] ?? profiles.defaultProfile);
+      if (stream && playingAoe2) setStreamUrl(stream);
     });
-  }, [twitch, streamUrl, profiles]);
+  }, []);
 
   // Keep track of aspect ratio of the viewers stream window. Keeps elements in proportion
   const ratio = useMemo(() => {
@@ -176,7 +146,7 @@ function App() {
           </Tooltip>
         ))}
       <div>
-        <NoticeBox show={showNotice} ratio={ratio} />
+        <NoticeBox show={true} ratio={ratio} />
         <Tooltip>
           <TooltipTrigger asChild={true}>
             <div
