@@ -34,7 +34,7 @@ interface TooltipOptions {
   onOpenChange?: (open: boolean) => void;
 }
 
-export function useTooltip({
+function useTooltip({
   initialOpen = false,
   placement = 'top',
   open: controlledOpen,
@@ -83,7 +83,7 @@ type TooltipContextValue = ReturnType<typeof useTooltip>;
 
 const TooltipContext = createContext<TooltipContextValue | null>(null);
 
-export const useTooltipContext = () => {
+const useTooltipContext = () => {
   const context = useContext(TooltipContext);
   if (context == null) {
     throw new Error('Tooltip components must be wrapped in <Tooltip />');
@@ -111,6 +111,9 @@ export const TooltipTrigger = forwardRef<
   if (asChild && isValidElement<Record<string, unknown>>(children)) {
     return cloneElement(
       children,
+      // floating-ui's documented pattern: the prop getter only forwards the
+      // merged ref callback to the element, it doesn't read it during render.
+      // eslint-disable-next-line react-hooks/refs
       context.getReferenceProps({
         ref,
         ...props,
